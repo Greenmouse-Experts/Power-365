@@ -86,6 +86,13 @@
 
     <!-- CUSTOM JS -->
     <script src="{{URL::asset('dash/assets/js/custom.js')}}"></script>
+
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $('.ckeditor').ckeditor();
+        });
+    </script>
 </body>
 
 </html>

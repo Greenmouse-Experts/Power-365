@@ -57,7 +57,7 @@
                                                 <td class="view-message dont-show fw-semibold">{{$notification->from}}</td>
                                                 <td class="view-message dont-show fw-semibold">{{$notification->first_name}} {{$notification->last_name}}</td>
                                                 <td class="view-message dont-show fw-semibold">{{$notification->subject}}</td>
-                                                <td class="view-message">{{$notification->message}}</td>
+                                                <td class="view-message"><a href="{{route('read.notification', Crypt::encrypt($notification->id))}}">{{$notification->message}}</a></td>
                                                 <td class="view-message text-end fw-semibold">{{$notification->created_at->toDateString()}}</td>
                                             </tr>
                                             @else

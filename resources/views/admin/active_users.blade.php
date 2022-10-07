@@ -21,6 +21,25 @@
             <!-- PAGE-HEADER END -->
 
             <!-- Row -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form class="needs-validation was-validated" method="POST" action="{{ route('admin.shuffle')}}" >
+                                @csrf
+                                <div class="row row-sm">
+                                    <div class="col-12" style="display: flex; justify-content: flex-end;">
+                                        <button type="submit" class="btn btn-primary">Shuffle Users</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Row -->
+
+            <!-- Row -->
             <div class="row row-sm">
                 <div class="col-lg-12">
                     <div class="card">
@@ -74,7 +93,7 @@
                                                 <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#sendmessage-{{$user->id}}">Send Message</button>
                                                 <div class="modal fade" id="sendmessage-{{$user->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="sendmessageLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <form method="Post" action="{{route('admin.message.user', Crypt::encrypt($user->id))}}">
+                                                        <form method="Post" action="{{route('admin.message.user', Crypt::encrypt($user->id))}}"  style="width: 100%;">
                                                         @csrf
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -102,10 +121,11 @@
                                                         </form>
                                                     </div>
                                                 </div>
+
                                                 <button class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#delete-{{$user->id}}">Delete</button>
                                                 <div class="modal fade" id="delete-{{$user->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="sendmessageLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <form method="Post" action="{{route('admin.delete.user', Crypt::encrypt($user->id))}}">
+                                                        <form method="Post" action="{{route('admin.delete.user', Crypt::encrypt($user->id))}}" style="width: 100%;">
                                                             @csrf
                                                             <div class="modal-content">
                                                                 <div class="modal-header">

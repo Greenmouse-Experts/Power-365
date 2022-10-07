@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Deposit;
 use App\Models\Notification;
+use App\Models\Question;
 use App\Models\Subscription;
+use App\Models\UserQuestionAnswer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Crypt;
@@ -262,5 +264,96 @@ class HomeController extends Controller
         return view('dashboard.notifications', [
             'notifications' => $notifications
         ]);
+    }
+
+    public function read_notification($id) 
+    { 
+        $notification_id = Crypt::decrypt($id);
+
+        $notification = Notification::findorfail($notification_id);
+        
+        $notification->status = 'Read';
+        $notification->save();
+
+        return back();
+    }
+
+    public function knowledgebase()
+    {
+        $questions = Question::latest()->get();
+        // $quests = Question::join('user_question_answers', 'questions.id', '=', 'user_question_answers.question_id')
+        //                 ->get(['questions.*', 'user_question_answers.*']);
+
+        // $questions = Question::latest()->where('id', $quests->question_id)->count()->first();
+        // dd($quests);
+
+        return view('dashboard.knowledgebase', [
+            'questions' => $questions
+        ]);
+    }
+
+    public function post_knowledgebase_answer($id, Request $request)
+    {
+        $question_id = Crypt::decrypt($id);
+
+        $question = Question::findorfail($question_id);
+        
+        $radio = 'answer_'.$question_id;
+        $answer = $request->$radio;
+
+        $userAnswers = UserQuestionAnswer::where('user_id', Auth::user()->id)->get();
+
+        if($userAnswers->isEmpty())
+        {
+            if($question->correct_answer == $answer)
+            {
+                UserQuestionAnswer::create([
+                    'user_id' => Auth::user()->id,
+                    'question_id' => $question->id,
+                    'answer' => $answer,
+                    'result' => 'Success'
+                ]); 
+            } else {
+                UserQuestionAnswer::create([
+                    'user_id' => Auth::user()->id,
+                    'question_id' => $question->id,
+                    'answer' => $answer,
+                    'result' => 'Failed'
+                ]);
+            }
+        } else {
+            foreach ($userAnswers as $userAnswer) {
+                $userQuestion[] = $userAnswer->question_id;
+                $userID[] = $userAnswer->user_id;
+            }
+            if (in_array($question->id, $userQuestion) AND in_array(Auth::user()->id, $userID) ) {
+                return back()->with([
+                    'type' => 'danger',
+                    'message' => 'Question has been ansered'
+                ]);
+            } else {
+                if($question->correct_answer == $answer)
+                {
+                    UserQuestionAnswer::create([
+                        'user_id' => Auth::user()->id,
+                        'question_id' => $question->id,
+                        'answer' => $answer,
+                        'result' => 'Success'
+                    ]); 
+                } else {
+                    UserQuestionAnswer::create([
+                        'user_id' => Auth::user()->id,
+                        'question_id' => $question->id,
+                        'answer' => $answer,
+                        'result' => 'Failed'
+                    ]);
+                }
+            }
+        }
+
+        return back()->with([
+            'type' => 'success',
+            'message' => 'Answer Submitted!'
+        ]); 
     }
 }

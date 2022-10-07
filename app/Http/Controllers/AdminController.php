@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Beneficiary;
 use App\Models\Deposit;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -9,6 +10,9 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Notification;
+use App\Models\Question;
+use App\Models\Topic;
+use App\Models\Topics;
 use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
@@ -236,5 +240,229 @@ class AdminController extends Controller
         return view('admin.notifications', [
             'notifications' => $notifications
         ]);
+    }
+
+    public function topics()
+    {
+        $topics = Topic::latest()->get();
+
+        return view('admin.topics', [
+            'topics' => $topics
+        ]);
+    }
+
+    public function create_topic(Request $request)
+    {
+        //Validate Request
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255']
+        ]);
+
+        Topic::create([
+            'name' => $request->name,
+        ]);
+
+        return back()->with([
+            'type' => 'success',
+            'message' => 'Topic Added Successfully!'
+        ]); 
+    }
+
+    public function update_topic($id, Request $request)
+    {
+        //Validate Request
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255']
+        ]);
+        
+        $finder = Crypt::decrypt($id);
+
+        $topic = Topic::find($finder);
+
+        $topic->update([
+            'name' => $request->name
+        ]);
+
+        return back()->with([
+            'type' => 'success',
+            'message' => 'Topic Updated!'
+        ]); 
+    }
+
+    public function delete_topic($id, Request $request)
+    {
+        $finder = Crypt::decrypt($id);
+
+        Topic::find($finder)->delete();
+
+        return back()->with([
+            'type' => 'success',
+            'message' => 'Topic Deleted!'
+        ]); 
+    }
+
+    public function questions()
+    {
+        $topics = Topic::latest()->get();
+
+        return view('admin.questions', [
+            'topics' => $topics
+        ]);
+    }
+
+    public function create_question(Request $request)
+    {
+        //Validate Request
+        $this->validate($request, [
+            'topic' => ['required', 'string', 'max:255'],
+            'question' => ['required', 'string', 'max:255'],
+            'correct_answer' => ['required', 'string', 'max:255'],
+            'option_two' => ['required', 'string', 'max:255'],
+            'option_three' => ['required', 'string', 'max:255'],
+            'option_four' => ['required', 'string', 'max:255']
+        ]);
+
+        Question::create([
+            'topic_id' => $request->topic,
+            'question' => $request->question,
+            'correct_answer' => $request->correct_answer,
+            'option2' => $request->option_two,
+            'option3' => $request->option_three,
+            'option4' => $request->option_four
+        ]);
+
+        return back()->with([
+            'type' => 'success',
+            'message' => 'Question Added Successfully!'
+        ]); 
+    }
+
+    public function view_questions()
+    {
+        $questions = Question::join('topics', 'topics.id', '=', 'questions.topic_id')
+               ->get(['topics.*', 'questions.*']);
+
+        $topics = Topic::latest()->get();
+
+        return view('admin.view_questions', [
+            'questions' => $questions,
+            'topics' => $topics
+        ]);
+    }
+
+    public function update_question($id, Request $request)
+    {
+        //Validate Request
+        $this->validate($request, [
+            'topic' => ['required', 'string', 'max:255'],
+            'question' => ['required', 'string', 'max:255'],
+            'correct_answer' => ['required', 'string', 'max:255'],
+            'option_two' => ['required', 'string', 'max:255'],
+            'option_three' => ['required', 'string', 'max:255'],
+            'option_four' => ['required', 'string', 'max:255']
+        ]);
+
+        $finder = Crypt::decrypt($id);
+
+        $question = Question::find($finder);
+
+        $question->update([
+            'topic_id' => $request->topic,
+            'question' => $request->question,
+            'correct_answer' => $request->correct_answer,
+            'option2' => $request->option_two,
+            'option3' => $request->option_three,
+            'option4' => $request->option_four
+        ]);
+        
+        return back()->with([
+            'type' => 'success',
+            'message' => 'Question Updated!'
+        ]); 
+    }
+
+    public function delete_question($id, Request $request)
+    {
+        $finder = Crypt::decrypt($id);
+
+        Question::find($finder)->delete();
+
+        return back()->with([
+            'type' => 'success',
+            'message' => 'Question Deleted!'
+        ]); 
+    }
+
+    public function beneficiaries()
+    {
+        // $beneficiaries = Beneficiary::latest()->get();
+        $beneficiaries = Beneficiary::join('users', 'beneficiaries.user_id', '=', 'users.id')
+               ->get(['users.*', 'beneficiaries.*']);
+
+        return view('admin.beneficiaries', [
+            'beneficiaries' => $beneficiaries
+        ]);
+    }
+
+    public function delete_beneficiaries($id)
+    {
+        $finder = Crypt::decrypt($id);
+
+        Beneficiary::find($finder)->delete();
+
+        return back()->with([
+            'type' => 'success',
+            'message' => 'Beneficiaries Deleted!'
+        ]); 
+    }
+
+    public function shuffle()
+    {
+        $users = User::where('user_type', 'Client')->get();
+
+        $shuffle = $users->random(1)->first();
+
+        $beneficiaries = Beneficiary::get();
+
+        if($beneficiaries->isEmpty())
+        {
+            Beneficiary::create([
+                'user_id' => $shuffle->id
+            ]);
+
+            return back()->with([
+                'type' => 'success',
+                'message' => 'Beneficiary Selected Successfully!'
+            ]);  
+        } else {
+            foreach ($beneficiaries as $beneficiary) {
+                $createAt[] = $beneficiary->created_at->toDateString();
+            }
+            if (in_array(now()->toDateString(), $createAt)) {
+                return back()->with([
+                    'type' => 'danger',
+                    'message' => 'Shuffle completed today, continue tomorrow!'
+                ]);
+            } else {
+                foreach ($beneficiaries as $beneficiary) {
+                    $userID[] = $beneficiary->user_id;
+                }
+                if (in_array($shuffle->id, $userID)) {
+                    return back()->with([
+                        'type' => 'danger',
+                        'message' => 'Please try again!'
+                    ]);
+                } else {
+                    Beneficiary::create([
+                        'user_id' => $shuffle->id
+                    ]);
+
+                    return back()->with([
+                        'type' => 'success',
+                        'message' => 'Beneficiary Selected Successfully!'
+                    ]); 
+                }
+            }
+        }
     }
 }
