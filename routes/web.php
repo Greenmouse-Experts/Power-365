@@ -59,6 +59,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/subscribers/active', [App\Http\Controllers\AdminController::class, 'active_users'])->name('admin.active.users');
     Route::get('/admin/subscribers/view/edit/{id}', [App\Http\Controllers\AdminController::class, 'view_edit_user'])->name('admin.view.edit.user');
+    Route::get('/admin/subscribers/knowledgebase/{id}', [App\Http\Controllers\AdminController::class, 'users_knowledgebase'])->name('admin.users.knowledgebase');
     Route::post('/admin/subscribers/message//{id}', [App\Http\Controllers\AdminController::class, 'message_user'])->name('admin.message.user');
     Route::post('/admin/subscribers/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete_user'])->name('admin.delete.user');
     Route::get('/admin/subscribers/in-active', [App\Http\Controllers\AdminController::class, 'in_active_users'])->name('admin.in-active.users');

@@ -1,5 +1,32 @@
 @extends('layouts.admin_frontend')
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    // Load google charts
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
+    // Draw the chart and set the chart values
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Dashboard', 'OverAll Statistics'],
+            ['All Subscribers', {{$statisticstotalusers}}],
+            ['Active Subscribers', {{$statisticstotalactiveusers}}],
+            ['InActive Subscribers', {{$statisticstotalinactiveusers}}],
+        ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = {
+            'width': 550,
+            'height': 400
+        };
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+    }
+</script>
 @section('page-content')
 <!--APP-CONTENT OPEN-->
 <div class="app-content main-content mt-0">
@@ -131,8 +158,60 @@
                 </div><!-- COL END -->
             </div>
             <!-- ROW-4 END -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card overflow-hidden">
+                                <div class="card-header border-bottom">
+                                    <h4 class="card-title fw-semibold">Latest Transactions</h4>
+                                    <a href="{{route('admin.deposits')}}" class="ms-auto">View All</a>
+                                </div>
+                                <div class="card-body p-0 customers mt-1">
+                                    <div class="list-group py-1">
+                                        @foreach($latestdeposits as $latestdeposit)
+                                        <a href="javascript:void(0);" class="border-0">
+                                            <div class="list-group-item border-0">
+                                                <div class="media mt-0 align-items-center">
+                                                    <div class="transaction-icon"><i class="fe fe-chevrons-right"></i>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="mt-0">
+                                                                <h5 class="mb-1 fs-13 fw-normal text-dark">{{$latestdeposit->first_name}} {{$latestdeposit->last_name}}<span class="fs-13 fw-semibold ms-1">Subscription Fee</span></h5>
+                                                                <p class="mb-0 fs-12 text-muted">{{$latestdeposit->channel}}</p>
+                                                            </div>
+                                                            <span class="ms-auto fs-13">
+                                                                <span class="float-end text-dark">+₦{{number_format($latestdeposit->amount, 2)}}</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header border-bottom">
+                            <h4 class="card-title fw-semibold">OverAll Statistics</h4>
+                        </div>
+                        <div class="card-body p-0 customers mt-1">
+                            <div id="my-pie-chart-container">
+                                <div id="piechart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- CONTAINER END -->
         </div>
-        <!-- CONTAINER END -->
     </div>
-</div>
-@endsection
+    @endsection

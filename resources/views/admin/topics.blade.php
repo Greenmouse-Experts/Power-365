@@ -59,6 +59,7 @@
                                         <tr> 
                                             <th class="border-bottom-0">S/N</th>
                                             <th class="border-bottom-0">Name</th>
+                                            <th class="border-bottom-0">Created At</th>
                                             <th class="border-bottom-0">Action</th>
                                         </tr>
                                     </thead>

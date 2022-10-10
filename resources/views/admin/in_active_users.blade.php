@@ -28,8 +28,8 @@
                             <h3 class="card-title">All Inactive Users</h3>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="data-table" class="table table-bordered text-nowrap border-bottom">
+                            <div class="table-responsive export-table">
+                                <table id="file-datatable" class="table table-bordered text-nowrap key-buttons border-bottom w-100">
                                     <thead>
                                         <tr> 
                                             <th class="border-bottom-0">S/N</th>
@@ -37,6 +37,7 @@
                                             <th class="border-bottom-0">Email</th>
                                             <th class="border-bottom-0">Phone Number</th>
                                             <th class="border-bottom-0">Subscription Status</th>
+                                            <th class="border-bottom-0">Date Joined</th>
                                             <th class="border-bottom-0">Action</th>
                                         </tr>
                                     </thead>
@@ -59,6 +60,7 @@
                                             </td>
                                             <td>{{$user->phone_number}}</td>
                                             <td class="bg-success text-white text-center">{{$user->subscription_status}}</td>
+                                            <td>{{$user->created_at->toDayDateTimeString()}}</td>
                                             <td>
                                                 <a href="{{route('admin.view.edit.user', Crypt::encrypt($user->id))}}" class="btn btn-primary mt-3">View/Edit</a>
 

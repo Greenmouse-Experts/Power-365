@@ -13,6 +13,7 @@ use App\Models\Notification;
 use App\Models\Question;
 use App\Models\Topic;
 use App\Models\Topics;
+use App\Models\UserQuestionAnswer;
 use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
@@ -25,12 +26,24 @@ class AdminController extends Controller
                                         ->where('user_type', 'Client')->get();
         $latestusers = User::latest()->take(5)->where('user_type', 'Client')->get();
         $deposits = Deposit::latest()->sum('amount');
+        $latestdeposits = User::join('deposits', 'users.id', '=', 'deposits.user_id')->take(5)->get(['users.*', 'deposits.*']);
 
+        $statisticstotalusers = User::where('user_type', 'Client')->count();
+        $statisticstotalactiveusers = User::where('subscription_status', 'Active')
+                                        ->where('user_type', 'Client')->count();
+        $statisticstotalinactiveusers = User::where('subscription_status', 'Inactive')
+                                        ->where('user_type', 'Client')->count();
+
+        // dd($statisticstotalusers);
         return view('admin.dashboard', [
             'totalactiveusers' => $totalactiveusers,
             'totalinactiveusers' => $totalinactiveusers,
             'latestusers' => $latestusers,
-            'deposits' => $deposits
+            'deposits' => $deposits,
+            'latestdeposits' => $latestdeposits,
+            'statisticstotalusers' => $statisticstotalusers,
+            'statisticstotalactiveusers' => $statisticstotalactiveusers,
+            'statisticstotalinactiveusers' => $statisticstotalinactiveusers
         ]);
     }
 
@@ -69,6 +82,21 @@ class AdminController extends Controller
             'type' => 'success',
             'message' => 'User Deleted!'
         ]); 
+    }
+
+    public function users_knowledgebase($id)
+    {
+        $userFinder = Crypt::decrypt($id);
+
+        $user = User::findorfail($userFinder);
+
+        $users_knowledgebase = UserQuestionAnswer::join('questions', 'user_question_answers.question_id', '=', 'questions.id')
+                                ->join('users', 'user_question_answers.user_id', '=', 'users.id')
+                                ->where('user_question_answers.user_id',  $user->id)->get(['user_question_answers.*', 'questions.*', 'users.first_name', 'users.last_name']);
+
+        return view('admin.users_knowledgebase', [
+            'users_knowledgebase' => $users_knowledgebase
+        ]);
     }
 
     public function in_active_users()

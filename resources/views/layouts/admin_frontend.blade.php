@@ -15,7 +15,7 @@
     <title>{{config('app.name')}} - Admin</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- BOOTSTRAP CSS -->
     <link id="style" href="{{URL::asset('dash/assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
 
@@ -25,6 +25,14 @@
 
     <!--- FONT-ICONS CSS -->
     <link href="{{URL::asset('dash/assets/css/icons.css')}}" rel="stylesheet" />
+
+    <style>
+        #my-pie-chart-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 
 </head>
 
@@ -46,7 +54,7 @@
         <!-- FOOTER END -->
 
     </div>
-    
+
     <!-- BACK-TO-TOP -->
     <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
@@ -79,18 +87,33 @@
     <!-- INTERNAL DATA-TABLES JS-->
     <script src="{{URL::asset('dash/assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{URL::asset('dash/assets/plugins/datatable/js/dataTables.bootstrap5.js')}}"></script>
+    <script src="{{URL::asset('dash/assets/plugins/datatable/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{URL::asset('dash/assets/plugins/datatable/js/buttons.bootstrap5.min.js')}}"></script>
+    <script src="{{URL::asset('dash/assets/plugins/datatable/js/jszip.min.js')}}"></script>
+    <script src="{{URL::asset('dash/assets/plugins/datatable/pdfmake/pdfmake.min.js')}}"></script>
+    <script src="{{URL::asset('dash/assets/plugins/datatable/pdfmake/vfs_fonts.js')}}"></script>
+    <script src="{{URL::asset('dash/assets/plugins/datatable/js/buttons.html5.min.js')}}"></script>
+    <script src="{{URL::asset('dash/assets/plugins/datatable/js/buttons.print.min.js')}}"></script>
+    <script src="{{URL::asset('dash/assets/plugins/datatable/js/buttons.colVis.min.js')}}"></script>
     <script src="{{URL::asset('dash/assets/plugins/datatable/dataTables.responsive.min.js')}}"></script>
+    <script src="{{URL::asset('dash/assets/plugins/datatable/responsive.bootstrap5.min.js')}}"></script>
+    <script src="{{URL::asset('dash/assets/js/table-data.js')}}"></script>
 
     <!-- INDEX JS -->
     <script src="{{URL::asset('dash/assets/js/index1.js')}}"></script>
+
+    <!-- ECHART JS -->
+    <script src="{{URL::asset('dash/assets/plugins/echarts/echarts.js')}}"></script>
+    <script src="{{URL::asset('dash/assets/js/echarts.js')}}"></script>
 
     <!-- CUSTOM JS -->
     <script src="{{URL::asset('dash/assets/js/custom.js')}}"></script>
 
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    
     <script type="text/javascript">
         $(document).ready(function() {
-        $('.ckeditor').ckeditor();
+            $('.ckeditor').ckeditor();
         });
     </script>
 </body>
