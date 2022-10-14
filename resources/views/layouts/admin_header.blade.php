@@ -4,8 +4,8 @@
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="#"></a>
             <!-- sidebar-toggle-->
             <a class="logo-horizontal " href="/">
-                <img src="{{URL::asset('assets/images/boldlogo.png')}}" class="header-brand-img desktop-logo" alt="logo" style="width: 250px; height: 50px;">
-                <img src="{{URL::asset('assets/images/boldlogo.png')}}" class="header-brand-img light-logo1" alt="logo" style="width: 250px; height: 50px;">
+                <img src="{{URL::asset('assets/images/boldLogo.png')}}" class="header-brand-img desktop-logo" alt="logo" style="width: 250px; height: 50px;">
+                <img src="{{URL::asset('assets/images/boldLogo.png')}}" class="header-brand-img light-logo1" alt="logo" style="width: 250px; height: 50px;">
             </a>
             <!-- LOGO -->
             <div class="d-flex order-lg-2 ms-auto header-right-icons">
