@@ -262,13 +262,13 @@
                         <p>
                             {{config('app.name')}} is dedicated to developing new investment avenues in
                             the African startup ecosystem for potential investors from
-                            anywhere in the world.To be part of The {{config('app.name')}} Community, you must register and
-                            complete the entrance to an annual membership.Once you are registered, you can make an investment request
+                            anywhere in the world. To be part of The {{config('app.name')}} Community, you must register and
+                            complete the entrance to an annual membership. Once you are registered, you can make an investment request
                             through our website by sending us an email.
                         </p>
                         <p>
                             To register as an investor, kindly send us an email
-                            <a href="mailto:investor@power365es.com" target="_blank" class="text-decoration-none"><span class="text-danger">investor@power365es.com</span></a>.
+                            <a href="mailto:investors@power365es.com" target="_blank" class="text-decoration-none"><span class="text-danger">investors@power365es.com</span></a>.
                         </p>
                     </div>
                 </div>

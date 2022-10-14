@@ -265,7 +265,7 @@
                             <h2 class="accordion-header" id="flush-headingTwentyOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwentyOne" aria-expanded="false" aria-controls="flush-collapseTwentyOne">
                                     Must my business be registered before I can participate in
-                                    the program?
+                                    the programme?
                                 </button>
                             </h2>
                             <div id="flush-collapseTwentyOne" class="accordion-collapse collapse" aria-labelledby="flush-headingTwentyOne" data-bs-parent="#accordionFlush">

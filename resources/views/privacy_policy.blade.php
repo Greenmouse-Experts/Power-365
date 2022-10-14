@@ -28,7 +28,7 @@
             business ideas seeking funding. It is also for educational and
             entertainment purposes and shall not be interpreted otherwise. As
             such, we generally process personal data in a direction that will help
-            us navigate our services. If you are a subscriber, you should read the
+            us navigate our services. If you are an applicant, you should read the
             {{config('app.name')}} Privacy Policy and direct any privacy inquiries to us at
             <a href="mailto:privacy@power365es.com" target="_blank" class="text-decoration-none"><span class="text-danger">privacy@power365es.com</span></a>.
         </p>
@@ -79,7 +79,7 @@
         </p>
         <p>(iv). To develop new programmes and services. </p>
         <p>
-            (v). To protect the general security of our IT systems, architecture, and networks and to prevent fraud, criminal behavior, or misuse of our services.
+            (v). To protect the general security of our IT systems, architecture, and networks and to prevent fraud, criminal behaviour, or misuse of our services.
         </p>
         <h5 class="mt-4">4.0. Unsubscribe:</h5>
         <p>
