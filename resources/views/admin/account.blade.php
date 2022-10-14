@@ -32,7 +32,7 @@
                                             @if(Auth::user()->photo)
                                             <img src="{{Auth::user()->photo}}" alt="img" width="100px" class="m-0 p-1 rounded hrem-6">
                                             @else
-                                            <div class="m-0 p-1 rounded hrem-6" style="width: 6rem; align-items: center; font-size: 2rem; background:#0d6efd; color: #fff; display: flex; justify-content: center;">{{ ucfirst(substr(Auth::user()->last_name, 0, 1)) }}</div>        
+                                            <div class="m-0 p-1 rounded hrem-6" style="width: 6rem; align-items: center; font-size: 2rem; background:#2b2a63; color: #fff; display: flex; justify-content: center;">{{ ucfirst(substr(Auth::user()->last_name, 0, 1)) }}</div>        
                                             @endif
                                         </div>
                                         <div class="ms-4">

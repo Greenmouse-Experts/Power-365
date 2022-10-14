@@ -4,8 +4,8 @@
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="#"></a>
             <!-- sidebar-toggle-->
             <a class="logo-horizontal " href="/">
-                <img src="{{URL::asset('images/logo1.jpg')}}" class="header-brand-img desktop-logo" alt="logo" style="width: 150px; height: 50px;">
-                <img src="{{URL::asset('images/logo1.jpg')}}" class="header-brand-img light-logo1" alt="logo" style="width: 150px; height: 50px;">
+                <img src="{{URL::asset('assets/images/boldlogo.png')}}" class="header-brand-img desktop-logo" alt="logo" style="width: 250px; height: 50px;">
+                <img src="{{URL::asset('assets/images/boldlogo.png')}}" class="header-brand-img light-logo1" alt="logo" style="width: 250px; height: 50px;">
             </a>
             <!-- LOGO -->
             <div class="d-flex order-lg-2 ms-auto header-right-icons">
@@ -45,7 +45,7 @@
                                         @if(Auth::user()->photo)
                                         <img src="{{Auth::user()->photo}}" alt="img" width="100px" class="avatar profile-user brround cover-image">
                                         @else
-                                        <div class="avatar profile-user brround cover-image" style="background:#0d6efd; color: #fff; display: flex; justify-content: center;">{{ ucfirst(substr(Auth::user()->last_name, 0, 1)) }}</div>
+                                        <div class="avatar profile-user brround cover-image" style="background:#2b2a63; color: #fff; display: flex; justify-content: center;">{{ ucfirst(substr(Auth::user()->last_name, 0, 1)) }}</div>
                                         @endif
                                     </span>
                                     <div class="text-center p-1 d-flex d-lg-none-max">

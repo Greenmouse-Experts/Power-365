@@ -23,6 +23,41 @@ class HomePageController extends Controller
     {
         return view('welcome');
     }
+
+    public function about()
+    {
+        return view('about');
+    }
+
+    public function beneficiaries()
+    {
+        return view('beneficiaries');
+    }
+
+    public function faqs()
+    {
+        return view('faqs');
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    public function blog()
+    {
+        return view('blog');
+    }
+
+    public function terms_conditions()
+    {
+        return view('terms_conditions');
+    }
+
+    public function privacy_policy()
+    {
+        return view('privacy_policy');
+    }
     
     public function subscribe()
     {
@@ -169,7 +204,7 @@ class HomePageController extends Controller
                 'status' => $result->data->status,
             ]);
 
-            return redirect()->route('register')->with('success_report', 'Subscription Captured, Complete Registration');
+            return redirect()->route('register', Crypt::encrypt($user->id))->with('success_report', 'Subscription Captured, Complete Registration');
         }
     }
 
@@ -206,9 +241,13 @@ class HomePageController extends Controller
         }
     }
 
-    public function register()
+    public function register($id)
     {
-        $user = User::find(Auth::user()->id);
+        $userFinder = Crypt::decrypt($id);
+
+        // dd($userFinder);
+
+        $user = User::find($userFinder);
         
         // $states = nigeriaStates();
         $countries = CountryListFacade::getList('en');
@@ -323,7 +362,7 @@ class HomePageController extends Controller
     {
         $userFinder = Crypt::decrypt($email);
 
-        $user = User::find($userFinder);
+        $user = User::where('email', $userFinder)->first();
 
         return view('auth.verify_account', [
             'user' => $user

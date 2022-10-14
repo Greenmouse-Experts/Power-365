@@ -1,0 +1,163 @@
+.head-text,
+.body-text {
+  position: relative;
+  transition: 2s all ease;
+  animation: header 2s ease-in 0s;
+}
+@keyframes header {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.hero-bg {
+  animation: alltime 4s ease-in 0s infinite alternate;
+}
+@keyframes alltime {
+  from {
+    filter: saturate(3);
+    scale: 1;
+  }
+  to {
+    filter: saturate(0);
+    scale: 0.95;
+  }
+}
+.com1,
+.com3 {
+  animation: comp1 5s ease-in-out 1s infinite alternate;
+}
+@keyframes comp1 {
+  from {
+    opacity: 0;
+    scale: 0.3;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+.com2,
+.com4 {
+  animation: comp2 5s ease-in-out 4s infinite alternate;
+}
+@keyframes comp2 {
+  from {
+    opacity: 0;
+    scale: 0.3;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+.text-col {
+  position: relative;
+  transform: scale(0);
+  opacity: 0;
+  transition: 1s all ease;
+}
+.text-col.active {
+  transform: scale(1);
+  opacity: 1;
+}
+@media (min-width: 1000px) {
+  .text-cols {
+    position: relative;
+    transform: scale(0);
+    opacity: 0;
+    transition: 1s all ease;
+  }
+  .text-cols.active {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.jos-col{
+  position: relative;
+  transform: translateX(100px);
+  opacity: 0;
+  transition: 1s all ease;
+  z-index: 0;
+}
+.first-arr,
+.second-arr {
+  width: 0%;
+  transition: 6s all ease;
+}
+.first-arr.active,
+.second-arr.active {
+  width: 27% !important;
+}
+.build {
+  position: relative;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: 1s all ease;
+  z-index: 0;
+}
+.build.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+.opaque{
+  opacity:0;
+  transition: 2s all ease;
+}
+.opaque.active{
+  opacity: 1;
+}
+.scales{
+  transform:scale(0);
+  transition: 3s all ease;
+  position: relative;
+}
+.scales.active{
+  transform:scale(1)
+}
+.rotation{
+  scale:.1;
+  transform: rotate(180deg);
+  transition: 2s all ease;
+  opacity:0;
+}
+.rotation.active{
+  transform: rotate(0deg);
+  scale:1;
+  opacity:1;
+}
+@media (max-width: 1000px) {
+  .left {
+    position: relative;
+    transform: translateX(200px);
+    opacity: 0;
+    transition: 2s all ease;
+    z-index: 0;
+  }
+  .left.active {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  .right {
+    position: relative;
+    transform: translateX(-200px);
+    opacity: 0;
+    transition: 2s all ease;
+  }
+  .right.active {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  .down {
+    position: relative;
+    transform: translateY(200px);
+    opacity: 0;
+    transition: 2s all ease;
+  }
+  .down.active {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

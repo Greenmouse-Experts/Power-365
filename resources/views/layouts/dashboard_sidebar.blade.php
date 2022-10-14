@@ -3,7 +3,7 @@
     <div class="app-sidebar">
         <div class="side-header">
             <a class="header-brand1" href="/">
-                <img src="{{URL::asset('images/logo1.jpg')}}" class="header-brand-img light-logo1" alt="logo" style="width: 150px; height: 50px;">
+                <img src="{{URL::asset('assets/images/boldlogo.png')}}" class="header-brand-img light-logo1" alt="logo" style="width: 250px; height: 50px;">
             </a><!-- LOGO -->
         </div>
         <div class="main-sidemenu">
@@ -12,7 +12,7 @@
                 </svg>
             </div>
             <ul class="side-menu">
-                <li>
+            <li>
                     <h3>Menu</h3>
                 </li>
                 <li class="slide">

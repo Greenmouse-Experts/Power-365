@@ -5,32 +5,44 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="" />
+    <link rel="icon" href="{{URL::asset('assets/images/logo.jpg')}}" />
     <title>{{config('app.name')}} - Register</title>
-    <link rel="stylesheet" href="{{URL::asset('css/subreg.css')}}" />
-    <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('assets/css/subreg.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('assets/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
     <script src="https://kit.fontawesome.com/997b229808.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/734378a53a.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        window.setTimeout(function() {
+            $(".alert-timeout").fadeTo(500, 0).slideUp(1000, function() {
+                $(this).remove();
+            });
+        }, 11000);
+    </script>
 </head>
 
 <body class="reg-page">
+    <div id='loader'>
+        <div class="loader-inner">
+            <div class="loading-content"></div>
+        </div>
+    </div>
     <main class="container-fluid d-flex">
         <div class="ad-part">
             <div class="m-auto w-75">
-                <a href="#"><img src="{{URL::asset('images/logo1.jpg')}}" alt="" width="100%" /></a>
+                <a href="/"><img src="{{URL::asset('assets/images/boldLogo.png')}}" alt="" width="120%" /></a>
             </div>
             <div class="mt-5 text-center">
                 <h5 class="fw-bold">REGISTRATION PORTAL</h5>
                 <p class="mt-2">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis
-                    neque fugit repudiandae iusto similique, dolore reprehenderit.
+                    Complete the registration form and get access to Power-365 services.
                 </p>
             </div>
             <div class="mt-5 text-center">
-                <a href="/login"><button class="btn btn-light px-4">Login</button></a>
+                <p>are you a registered?</p>
+                <a href="{{route('login')}}"><button class="btn btn-light px-4">Login</button></a>
             </div>
         </div>
         <!--registration form part-->
@@ -38,7 +50,7 @@
             <div class="head">
                 <header>
                     <div class="logo">
-                        <img src="/images/logo1.jpg" alt="" width="100%" />
+                        <a href="/"><img src="{{URL::asset('assets/images/logo1.png')}}" alt="" width="100%" /></a>
                     </div>
                     <h3 class="text-center my-4">REGISTRATION PORTAL</h3>
                 </header>
@@ -54,68 +66,68 @@
                 <div class="carousel-inner">
                     <!--the carousel containing the forms-->
                     <form method="POST" action="{{ route('post.register', Crypt::encrypt($user->id)) }}" enctype="multipart/form-data">
-                    @csrf
+                        @csrf
                         <div class="carousel-item active">
                             @includeIf('layouts.error_template')
-                                <div class="reg-input">
-                                    <label for="fullname">Full name</label>
-                                    <p>{{$user->first_name}} {{$user->last_name}}</p>
-                                </div>
-                                <div class="reg-input">
-                                    <label for="email">Email Address</label>
-                                    <p>{{$user->email}}</p>
-                                </div>
-                                <div class="reg-input">
-                                    <label for="number">Phone Number</label>
-                                    <p>{{$user->phone_number}}</p>
-                                </div>
-                                <div class="reg-input mb-1">
-                                    <label for="photo">Photo</label>
-                                    <input type="file" name="photo" required />
-                                </div>
-                                <div class="reg-input">
-                                    <div class="reg-input-inner">
-                                        <label for="gender"> Gender </label>
-                                        <select name="gender" class="quarter" required>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                        </select>
-                                    </div>
-                                    <div class="reg-input-inner2">
-                                        <label for="status"> Status </label>
-                                        <select name="status" class="quarter" required>
-                                            <option value="Single">Single</option>
-                                            <option value="Married">Married</option>
-                                            <option value="Divorced">Divorced</option>
-                                            <option value="Widowed">Widowed</option>
-                                            <option value="Separated">Separated</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="reg-input">
-                                    <label for="dob">Date Of Birth</label>
-                                    <input type="date" name="date_of_birth" class="quarter" required />
-                                </div>
-                                <div class="reg-input">
-                                    <label for="employ">Employment Status</label>
-                                    <select name="employment_status" class="quarter" required>
-                                        <option value="Employed">Employed</option>
-                                        <option value="Self-Employed">Self-Employed</option>
-                                        <option value="Business Owner">Business Owner</option>
-                                        <option value="Not Working">Not Working</option>
+                            <div class="reg-input">
+                                <label for="fullname">Full name</label>
+                                <p>{{$user->first_name}} {{$user->last_name}}</p>
+                            </div>
+                            <div class="reg-input">
+                                <label for="email">Email Address</label>
+                                <p>{{$user->email}}</p>
+                            </div>
+                            <div class="reg-input">
+                                <label for="number">Phone Number</label>
+                                <p>{{$user->phone_number}}</p>
+                            </div>
+                            <div class="reg-input mb-1">
+                                <label for="photo">Photo</label>
+                                <input type="file" name="photo" required />
+                            </div>
+                            <div class="reg-input">
+                                <div class="reg-input-inner">
+                                    <label for="gender"> Gender </label>
+                                    <select name="gender" class="quarter" required>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
                                     </select>
                                 </div>
-                                <div class="reg-input">
-                                    <label for="occupation">Occupation</label>
-                                    <input type="text" class="quarter" name="occupation" required />
+                                <div class="reg-input-inner2">
+                                    <label for="status"> Status </label>
+                                    <select name="status" class="quarter" required>
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option>
+                                        <option value="Divorced">Divorced</option>
+                                        <option value="Widowed">Widowed</option>
+                                        <option value="Separated">Separated</option>
+                                    </select>
                                 </div>
-                                <div class="reg-input">
-                                    <label for="opportunity">If given the opportunity, what would you like to
-                                        learn?</label>
-                                    <textarea name="learning_opportunity" class="half" id="opportunity" cols="40" rows="3" required></textarea>
-                                </div>
+                            </div>
+                            <div class="reg-input">
+                                <label for="dob">Date Of Birth</label>
+                                <input type="date" name="date_of_birth" class="quarter" required />
+                            </div>
+                            <div class="reg-input">
+                                <label for="employ">Employment Status</label>
+                                <select name="employment_status" class="quarter" required>
+                                    <option value="Employed">Employed</option>
+                                    <option value="Self-Employed">Self-Employed</option>
+                                    <option value="Business Owner">Business Owner</option>
+                                    <option value="Not Working">Not Working</option>
+                                </select>
+                            </div>
+                            <div class="reg-input">
+                                <label for="occupation">Occupation</label>
+                                <input type="text" class="quarter" name="occupation" required />
+                            </div>
+                            <div class="reg-input">
+                                <label for="opportunity">If given the opportunity, what would you like to
+                                    learn?</label>
+                                <textarea name="learning_opportunity" class="half" id="opportunity" cols="40" rows="3" required></textarea>
+                            </div>
                             <div class="text-end mt-3">
-                                <button class="btn btn-primary px-4" type="button" data-bs-target="#regform" data-bs-slide="next">
+                                <button class="btn basic-bg text-white px-4" type="button" data-bs-target="#regform" data-bs-slide="next">
                                     Next<i class="px-3 fa-solid fa-forward"></i>
                                 </button>
                             </div>
@@ -129,7 +141,7 @@
                                     <label for="cou">Country of Residence</label>
                                     <select name="country_of_residence" id="cou" required>
                                         @foreach ($countries as $country)
-                                            <option value="{{$country}}">{{$country}}</option>
+                                        <option value="{{$country}}">{{$country}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -170,18 +182,18 @@
                             </div>
                             <div class="reg-input2">
                                 <div class="reg-input2-inner">
-                                    <label for="password">password</label>
-                                    <input type="password" name="password" placeholder="Password" required/>
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" placeholder="Password" required />
                                 </div>
                                 <div class="reg-input2-inner">
-                                    <label for="passwordconfirm">password</label>
-                                    <input type="password" name="password_confirmation" placeholder="Confirm Password" required/>
+                                    <label for="passwordconfirm">Confirm Password</label>
+                                    <input type="password" name="password_confirmation" placeholder="Confirm Password" required />
                                 </div>
                             </div>
                             <div class="reg-input2">
                                 <div class="reg-input2-inner">
                                     <label for="bnumber">Business Number</label>
-                                    <input type="number" name="business_number" placeholder="Enter Business no" required/>
+                                    <input type="number" name="business_number" placeholder="Enter Business no" required />
                                 </div>
                                 <div class="reg-input2-inner">
                                     <label for="wnumber">Whatsapp Number</label>
@@ -189,7 +201,7 @@
                                 </div>
                             </div>
                             <div class="text-end mt-3">
-                                <button class="btn btn-primary px-4" type="button" data-bs-target="#regform" data-bs-slide="next">
+                                <button class="btn basic-bg text-white px-4" type="button" data-bs-target="#regform" data-bs-slide="next">
                                     Next<i class="px-3 fa-solid fa-forward"></i>
                                 </button>
                             </div>
@@ -280,7 +292,7 @@
                                 </select>
                             </div>
                             <div class="text-end mt-3">
-                                <button class="btn btn-primary px-4" type="button" data-bs-target="#regform" data-bs-slide="next">
+                                <button class="btn basic-bg text-white px-4" type="button" data-bs-target="#regform" data-bs-slide="next">
                                     Next<i class="px-3 fa-solid fa-forward"></i>
                                 </button>
                             </div>
@@ -355,7 +367,7 @@
                                 </p>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-primary w-100" type="submit" >Register</button>
+                                <button class="btn basic-bg text-white w-100" type="submit">Register</button>
                             </div>
                         </div>
                     </form>
@@ -363,7 +375,14 @@
             </div>
         </div>
     </main>
-    <script src="{{URL::asset('js/main.js')}}"></script>
+    <script src="{{URL::asset('assets/js/main.js')}}"></script>
+    <script>
+        $(function() {
+            $("form").submit(function() {
+                $('#loader').show();
+            });
+        });
+    </script>
 </body>
 
 </html>

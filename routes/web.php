@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [App\Http\Controllers\HomePageController::class, 'index']);
+Route::get('/about', [App\Http\Controllers\HomePageController::class, 'about']);
+Route::get('/beneficiaries', [App\Http\Controllers\HomePageController::class, 'beneficiaries']);
+Route::get('/faqs', [App\Http\Controllers\HomePageController::class, 'faqs']);
+Route::get('/contact', [App\Http\Controllers\HomePageController::class, 'contact']);
+Route::get('/blog', [App\Http\Controllers\HomePageController::class, 'blog']);
+Route::get('/terms-conditions', [App\Http\Controllers\HomePageController::class, 'terms_conditions']);
+Route::get('/privacy-policy', [App\Http\Controllers\HomePageController::class, 'privacy_policy']);
+// Route::get('/', [App\Http\Controllers\HomePageController::class, 'index']);
+
 
 // Auth
 Route::get('/subscribe', [App\Http\Controllers\HomePageController::class, 'subscribe'])->name('subscribe');
@@ -21,7 +30,7 @@ Route::get('/make/payment/{user}', [App\Http\Controllers\HomePageController::cla
 Route::get('/payment/callback', [App\Http\Controllers\HomePageController::class, 'handleGatewayCallback'])->name('user.handleGatewayCallback');
 Route::get('/continue/register', [App\Http\Controllers\HomePageController::class, 'continue_register'])->name('continue.register');
 Route::post('/continue/register', [App\Http\Controllers\HomePageController::class, 'post_continue_register'])->name('post.continue.register');
-Route::get('/register', [App\Http\Controllers\HomePageController::class, 'register'])->name('register');
+Route::get('/register/{id}', [App\Http\Controllers\HomePageController::class, 'register'])->name('register');
 Route::post('/register/{id}', [App\Http\Controllers\HomePageController::class, 'post_register'])->name('post.register');
 Route::get('/verify/account/{email}', [App\Http\Controllers\HomePageController::class, 'verify_account'])->name('verify.account');
 Route::post('/email/verify/resend/{email}', [App\Http\Controllers\HomePageController::class, 'email_verify_resend'])->name('email.verify.resend');

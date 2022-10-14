@@ -147,9 +147,9 @@
 /*Dark Theme Variables*/
 /*Transparent variables*/
 :root {
-    --primary-bg-color: #0d6efd;
-    --primary-bg-hover: #0263f5;
-    --primary-bg-border: #0d6efd;
+    --primary-bg-color: #2b2a63;
+    --primary-bg-hover: #2b2a63;
+    --primary-bg-border: #2b2a63;
     --dark-body: #2c2f3e;
     --dark-theme: rgba(0, 0, 0, 0.3);
     --dark-bg: rgba(0, 0, 0, 0.2);
@@ -9766,6 +9766,8 @@ ul.dropdown-menu li.dropdown ul.dropdown-menu .dropdown-plus-title {
 
 .header .dropdown .nav-link.icon:hover {
     background: none !important;
+    color: #fff !important;
+    fill: #fff !important;
 }
 
 .dropdown-menu {
@@ -12594,28 +12596,28 @@ textarea.form-control.parsley-success {
 
 .nav-link.icon svg {
     width: 1.3rem;
-    fill: #495584 !important;
+    fill: #fff !important;
 }
 
 .nav-link.active,
 .nav-link:hover,
 .nav-link:focus {
-    color: #fff !important;
+    fill: #fff !important;
 }
 
 .nav-link.disabled.hover,
 .nav-link.disabled.focus {
-    color: #707070;
+    color: #fff;
 }
 
 .nav-basic .nav-link.active,
 .nav-basic .nav-link:hover,
 .nav-basic .nav-link:focus {
-    color: var(--primary-bg-color) !important;
+    color: #fff !important;
 }
 
 .tabs-menu4 .nav-link:hover {
-    color: var(--primary-bg-color) !important;
+    color: #fff !important;
 }
 
 @media (max-width: 768px) {
@@ -12724,7 +12726,7 @@ textarea.form-control.parsley-success {
 }
 
 .nav-tabs .nav-submenu .nav-item:hover {
-    color: #6e7687;
+    color: #fff;
     text-decoration: none;
     background: rgba(0, 0, 0, 0.024);
 }
@@ -24838,7 +24840,7 @@ img {
 
 .landing-page .features i {
     font-size: 2rem;
-    color: #0d6efd;
+    color: #2b2a63;
 }
 
 .landing-page .features h3 {
@@ -25030,7 +25032,7 @@ img {
     height: 0.15rem;
     transform: scale(0, 1);
     border-radius: 50px;
-    background: #0d6efd;
+    background: #2b2a63;
     transition: transform 0.3s cubic-bezier(0.5, 0.7, 0.8, 1);
 }
 
@@ -25104,7 +25106,7 @@ img {
 }
 
 .landing-page .top.sticky.fixed-header .nav li a.active {
-    color: #0d6efd;
+    color: #2b2a63;
     font-weight: bold;
 }
 
@@ -25580,7 +25582,7 @@ img {
 }
 
 .landing-page .top.sticky-pin .nav li a.active {
-    color: #0d6efd;
+    color: #2b2a63;
     background: transparent !important;
 }
 
@@ -26016,7 +26018,7 @@ img {
 
 .landing-page .introduction {
     font-size: 13px;
-    color: #0d6efd;
+    color: #2b2a63;
     font-weight: 500;
 }
 
@@ -26192,7 +26194,7 @@ img {
     width: 30px;
     height: 0.2rem;
     border-radius: 50px;
-    background: #0d6efd;
+    background: #2b2a63;
 }
 
 @media (min-width: 1200px) {
@@ -26260,7 +26262,7 @@ img {
 }
 
 .landing-page .border-primary {
-    border: 1px solid #0d6efd !important;
+    border: 1px solid #2b2a63 !important;
 }
 
 .landing-page .pricing-tabs ul.nav-price {
@@ -26288,12 +26290,12 @@ img {
 .landing-page .pricing-tabs ul.nav-price li a.active {
     color: #fff;
     transition: all 0.3s ease;
-    background: #0d6efd;
+    background: #2b2a63;
 }
 
 .landing-page .accordion-button:focus {
     z-index: 3;
-    border-color: #0d6efd;
+    border-color: #2b2a63;
     outline: 0;
     box-shadow: none;
 }
@@ -26313,7 +26315,7 @@ img {
 }
 
 .landing-page .accordion-button:not(.collapsed) {
-    background-color: #0d6efd;
+    background-color: #2b2a63;
     box-shadow: none;
     color: #ffffff;
 }
@@ -26355,7 +26357,7 @@ img {
     background-color: #fff;
     border-radius: 50px;
     font-size: 14px;
-    color: #0d6efd;
+    color: #2b2a63;
 }
 
 .landing-page .accordion-item:first-of-type {
@@ -26406,7 +26408,7 @@ img {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    border: 1px solid #0d6efd;
+    border: 1px solid #2b2a63;
     transition: all 0.3s;
     font-size: 1rem;
     box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
@@ -26422,7 +26424,7 @@ img {
 }
 
 .landing-page .faqsearch input:focus {
-    border: 1px solid #0d6efd;
+    border: 1px solid #2b2a63;
 }
 
 .landing-page .search-button {
@@ -26483,8 +26485,8 @@ img {
 }
 
 .landing-page .features-icon svg {
-    color: #0d6efd;
-    fill: #0d6efd;
+    color: #2b2a63;
+    fill: #2b2a63;
     width: 40px;
     height: 40px;
     margin-bottom: 15px;
@@ -26532,7 +26534,7 @@ img {
     height: 0.2rem;
     transform: scale(0, 1);
     border-radius: 50px;
-    background: #0d6efd;
+    background: #2b2a63;
     transition: transform 0.3s cubic-bezier(0.5, 0.7, 0.8, 1);
 }
 
@@ -29231,7 +29233,7 @@ body.fixed-header .header {
     }
 
     .mobile-header .app-sidebar__toggle:hover {
-        color: #76839a;
+        color: #fff;
     }
 
     .mobile-header .header-settings {
@@ -30008,20 +30010,20 @@ body.fixed-header .header {
 }
 
 .app .header .nav-link #profile-heading {
-    color: #100f15 !important;
+    color: #fff !important;
 }
 
 .app .header .nav-link #profile-heading:hover,
 .app .header .nav-link #profile-heading:focus {
-    color: var(--primary-bg-color) !important;
-    fill: var(--primary-bg-color);
+    color: #fff !important;
+    fill: #fff;
 }
 
 .app .header .nav-link.show i,
 .app .header .nav-link.show #profile-heading,
 .app .header .nav-link.show svg {
-    color: var(--primary-bg-color) !important;
-    fill: var(--primary-bg-color) !important;
+    color: #fff !important;
+    fill: #fff !important;
 }
 
 .app .header #menu-icon {
@@ -30030,8 +30032,8 @@ body.fixed-header .header {
 
 .app .header #menu-icon:hover,
 .app .header #menu-icon:focus {
-    color: var(--primary-bg-color);
-    fill: var(--primary-bg-color);
+    color: #fff;
+    fill: #fff;
 }
 
 .app .header .dropdown-menu {
@@ -30345,8 +30347,9 @@ body.fixed-header .header {
 }
 
 .side-header {
-    border-bottom: 1px solid #eaedf1;
-    border-right: 1px solid #eaedf1;
+    border-bottom: 1px solid #2b2a63;
+    border-right: 1px solid #2b2a63;
+    background-color: #2b2a63;
 }
 
 .app-sidebar {
@@ -30389,7 +30392,7 @@ body.fixed-header .header {
 }
 
 .app-header {
-    border-bottom: 1px solid #eaedf1;
+    border-bottom: 1px solid #2b2a63;
 }
 
 .navbar-toggler-icon.fe.fe-more-vertical {
@@ -30405,7 +30408,7 @@ body.fixed-header .header {
 }
 
 .app-sidebar__toggle {
-    color: #495584;
+    color: #fff;
     z-index: 1;
     transition: padding-left 0.3s ease;
     padding: 0 9px;
@@ -30484,7 +30487,7 @@ body.fixed-header .header {
 }
 
 .header .main-header-center i:hover {
-    color: var(--primary-bg-color);
+    color: #fff;
 }
 
 @media (max-width: 991px) {
@@ -30535,7 +30538,7 @@ body.fixed-header .header {
         padding: 0px;
         position: fixed;
         width: 100%;
-        background: #fff;
+        background: var(--primary-bg-color);
         margin-top: 41px;
         z-index: 999;
         box-shadow: 0 12px 11px -3px rgba(104, 113, 123, 0.1);
@@ -55046,8 +55049,8 @@ a.fc-event:hover {
 
 .lg-actions .lg-next,
 .lg-actions .lg-prev {
-    border: 1px solid #0d6efd;
-    background-color: #0d6efd;
+    border: 1px solid #2b2a63;
+    background-color: #2b2a63;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
@@ -55219,7 +55222,7 @@ a.fc-event:hover {
     position: absolute;
     top: 0;
     width: 100%;
-    background-color: #0d6efd;
+    background-color: #2b2a63;
 }
 
 .lg-toolbar .lg-icon {
@@ -62537,7 +62540,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
 }
 
 .ql-editor .ql-bg-blue {
-    background-color: #0d6efd;
+    background-color: #2b2a63;
 }
 
 .ql-editor .ql-bg-purple {
@@ -62565,7 +62568,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
 }
 
 .ql-editor .ql-color-blue {
-    color: #0d6efd;
+    color: #2b2a63;
 }
 
 .ql-editor .ql-color-purple {
@@ -62687,7 +62690,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
 .ql-snow .ql-toolbar .ql-picker-item:hover,
 .ql-snow.ql-toolbar .ql-picker-item.ql-selected,
 .ql-snow .ql-toolbar .ql-picker-item.ql-selected {
-    color: #0d6efd;
+    color: #2b2a63;
 }
 
 .ql-snow.ql-toolbar button:hover .ql-fill,
@@ -62718,7 +62721,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
 .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
 .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,
 .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
-    fill: #0d6efd;
+    fill: #2b2a63;
 }
 
 .ql-snow.ql-toolbar button:hover .ql-stroke,
@@ -62749,7 +62752,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
 .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
 .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
 .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
-    stroke: #0d6efd;
+    stroke: #2b2a63;
 }
 
 .ql-snow * {
@@ -63305,7 +63308,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
 }
 
 .ql-snow a {
-    color: #0d6efd;
+    color: #2b2a63;
 }
 
 .ql-container.ql-snow {
@@ -63422,7 +63425,7 @@ table.dataTable.dtr-column>tbody>tr>th.control:before {
     font-family: "Courier New", Courier, monospace;
     line-height: 1em;
     content: "+";
-    background-color: #0d6efd;
+    background-color: #2b2a63;
 }
 
 table.dataTable.dtr-column>tbody>tr.parent td.dtr-control:before,
@@ -68808,6 +68811,7 @@ div.dtr-bs-modal table.table tr:first-child td {
 .closed-leftmenu .app-sidebar__toggle:focus,
 .closed-leftmenu .app-sidebar__toggle:hover {
     text-decoration: none;
+    color: #fff;
 }
 
 @media (max-width: 991px) {
@@ -70135,6 +70139,7 @@ div.dtr-bs-modal table.table tr:first-child td {
 .hover-submenu .app-sidebar__toggle:focus,
 .hover-submenu .app-sidebar__toggle:hover {
     text-decoration: none;
+    color: #fff;
 }
 
 @media (max-width: 991px) {
@@ -72880,7 +72885,7 @@ div.dtr-bs-modal table.table tr:first-child td {
         top: 0;
         position: fixed;
         z-index: 99;
-        background: #fff;
+        background: #2b2a63;
     }
 
     .sidebar-mini.sidenav-toggled footer.footer {
@@ -72961,7 +72966,7 @@ div.dtr-bs-modal table.table tr:first-child td {
     display: -ms-flexbox;
     display: flex;
     z-index: 99 !important;
-    background: #ffffff;
+    background: #2b2a63;
     transition: all ease 0.2s;
 }
 
@@ -112007,4 +112012,9 @@ textarea.form-control {
     background:rgb(212, 0, 0);
     padding: 10px;
     color: #fff;
+}
+
+
+.nav-link.icon svg:hover {
+    fill: #fff !important;
 }
