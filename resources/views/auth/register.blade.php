@@ -317,7 +317,7 @@
                                     </option>
                                     <option value="By Loan">By Loan</option>
                                     <option value="Personal Money or Power365 Entreprenuerial Show">
-                                        Personal Money or Power365 Entreprenuerial Show
+                                        Personal Money or {{config('app.name')}} Entreprenuerial Show
                                     </option>
                                     <option value="Equity">Equity</option>
                                     <option value="Giveaway">Giveaway</option>
