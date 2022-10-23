@@ -4,7 +4,7 @@
 <!--header of the index page-->
 <div class="top-part">
     <!-- header -->
-        @includeIf('layouts.frontend-header')
+    @includeIf('layouts.frontend-header')
     <!-- end-header -->
 </div>
 <!--section for Terms & conditions-->
@@ -39,7 +39,7 @@
                 services are exclusively offered in the local Nigerian currency
                 (NGN). In view of the current currency rate, interested residents
                 outside Nigeria are obliged to pay the same application fee of
-                <span class="fw-bold">NGN 1,825.00</span> as shown on the payment
+                <span class="fw-bold">NGN 1,825.00</span>as shown on the payment
                 portal. {{config('app.name')}} charges just
                 <span class="fw-bold">NGN 1,825.00</span> for individual
                 application. Any charge added to this amount is a service charge by
@@ -47,7 +47,7 @@
             </p>
             <h5 class="mt-4">
                 What to Do If Your Account Is Not Funded Once You Have Successfully
-                Apply:
+                Applied:
             </h5>
             <p>
                 You will be prompted to provide all the transactional information if
@@ -88,19 +88,22 @@
                 it is solely the applicant's responsibility to make sure those
                 regulations are fully complied with.
             </p>
-            <h5 class="mt-4">Criterion For Selection</h5>
+            <h5 class="mt-4">Criterion For Selection Qualification:</h5>
             <p>
                 Your involvement in all our regular business activities, which will
                 be executed on all our platforms, will serve as the criterion for
                 selection. You are therefore advised to stay consistent and active.
+                Only five (5) applicants will be selected by {{config('app.name')}} every week
+                for a live broadcast on our channels to discuss the potential of
+                their business ideas. The very fact that you were selected for the
+                show does not automatically qualify you for funding. {{config('app.name')}} is a
+                competitive platform, thus the judges will evaluate and analyse your
+                performance to decide if you qualify for funding or not. You are
+                advised to thoroughly prepare your business or idea. Upon
+                qualification, the {{config('app.name')}} will provide
+                <span>NGN 500,000.00</span> funding for your business or idea.
             </p>
-            <p>
-                Only five (5) qualified applicants will be selected by {{config('app.name')}}
-                every week for funding. These selected individuals would be given a
-                live broadcast on our channels to discuss the potential of their
-                business ideas.
-            </p>
-            <h5>Mode of Payment to Beneficiaries</h5>
+            <h5>Mode of Payment to Beneficiaries:</h5>
             <p>
                 Beneficiaries of the business-support fund will be paid during our
                 live programmes on our various television channels. Beneficiaries
@@ -108,7 +111,7 @@
                 funding will be provided in the month of December. Beneficiaries for
                 December will always receive payment in January.
             </p>
-            <h5 class="mt-4">Business we do not Fund</h5>
+            <h5 class="mt-4">Businesses we do not fund:</h5>
             <p>
                 No funding shall be provided for businesses involved in gambling,
                 drug trafficking, or other similar activities that fall under the
@@ -121,10 +124,10 @@
                 Beneficiaries must prepare to get their business registered with the
                 Corporate Affairs Commission (CAC) and other Business Regulatory
                 Bodies. They are duty-bound to grant our
-                <a href="/about" class="text-decoration-none text-danger">e-Team</a>
+                <a href="about.html" class="text-decoration-none text-danger">e-Team</a>
                 access to oversee how well they execute their business model.
             </p>
-            <h5>Business Mentorship</h5>
+            <h5>Business Mentorship:</h5>
             <p>
                 All applicants shall have the right to access a mentor on our
                 platform for free. It is a part of their application fee.
@@ -138,7 +141,7 @@
                 success as opposed to general business failure through mismanagement
                 of funds.
             </p>
-            <h5 class="mt-4">Account Security</h5>
+            <h5 class="mt-4">Account Security:</h5>
             <p>
                 Endeavour to choose a secure password of your choice during
                 registration. You are advised to keep your password secret. If you
@@ -158,18 +161,18 @@
                 user's account, application, and profile for creating multiple
                 profiles on the basis of breach of contract.
             </p>
-            <h5 class="mt-4">Transfer of Account</h5>
+            <h5 class="mt-4">Transfer of Account:</h5>
             <p>
                 Applicants are not entitled to transfer their accounts to third
                 parties.
             </p>
-            <h5 class="mt-4">Termination of Account</h5>
+            <h5 class="mt-4">Termination of Account:</h5>
             <p>
                 You may terminate your account by sending a written request to our
                 customer care service at
                 <a href="mailto:privacy@power365es.com" target="_blank" class="text-decoration-none"><span class="text-danger">privacy@power365es.com</span></a>.
             </p>
-            <h5 class="mt-4">Refund Policy</h5>
+            <h5 class="mt-4">Refund Policy:</h5>
             <p>
                 Application fees for the {{config('app.name')}} Entrepreneurial Show are
                 non-refundable.
@@ -184,10 +187,10 @@
                 and loses its verification badge. You are expected to renew your
                 application upon expiration.
             </p>
-            <h5 class="mt-4">Atm Card From {{config('app.name')}}</h5>
+            <h5 class="mt-4">Atm Card From {{config('app.name')}}:</h5>
             <p>
                 A Business Debit Card will be issued by {{config('app.name')}} to eligible
-                beneficiaries who follow the "<a href="/#me2" class="text-decoration-none"><span class="text-danger">ME2 RULE</span></a>". This card is issued by Providus Bank Plc pursuant to a license
+                beneficiaries who follow the "<a href="index.html#me2" class="text-decoration-none"><span class="text-danger">ME2 RULE</span></a>". This card is issued by Providus Bank Plc pursuant to a license
                 by MasterCard Asia/Pacific Pte. in partnership with {{config('app.name')}}
                 Entrepreneurial Show Limited. By using this card, the holder agrees
                 to all the terms and conditions under which it is issued. {{config('app.name')}}

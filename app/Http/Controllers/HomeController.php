@@ -179,11 +179,11 @@ class HomeController extends Controller
         }
     }
 
-    public function subscriptions()
+    public function application()
     {
         $subscriptions = Subscription::latest()->where('user_id', Auth::user()->id)->get();
        
-        return view('dashboard.subscriptions', [
+        return view('dashboard.application', [
             'subscriptions' => $subscriptions,
         ]);
     }
@@ -278,7 +278,7 @@ class HomeController extends Controller
         return back();
     }
 
-    public function knowledgebase()
+    public function lab()
     {
         $questions = Question::latest()->get();
         // $quests = Question::join('user_question_answers', 'questions.id', '=', 'user_question_answers.question_id')
@@ -287,12 +287,12 @@ class HomeController extends Controller
         // $questions = Question::latest()->where('id', $quests->question_id)->count()->first();
         // dd($quests);
 
-        return view('dashboard.knowledgebase', [
+        return view('dashboard.lab', [
             'questions' => $questions
         ]);
     }
 
-    public function post_knowledgebase_answer($id, Request $request)
+    public function post_lab_answer($id, Request $request)
     {
         $question_id = Crypt::decrypt($id);
 

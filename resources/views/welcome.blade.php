@@ -267,7 +267,7 @@
                             through our website by sending us an email.
                         </p>
                         <p>
-                            To register as an investor, kindly send us an email
+                            To register as an investor, kindly send us an email at
                             <a href="mailto:investors@power365es.com" target="_blank" class="text-decoration-none"><span class="text-danger">investors@power365es.com</span></a>.
                         </p>
                     </div>

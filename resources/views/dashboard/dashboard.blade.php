@@ -28,7 +28,9 @@
                                 <div class="row">
                                     <div class="col">
                                         <p class="text-success fs-22 mb-0">{{$sub->status}}</p>
-                                        <h3 class="mb-2 mt-5 fs-60 fw-semibold">Welcome {{Auth::user()->first_name}} {{Auth::user()->last_name}}!</h3>
+                                        <h3 class="mb-2 mt-5 fs-60 fw-semibold">Welcome {{Auth::user()->first_name}} {{Auth::user()->last_name}}!
+                                            <sup class="badge-pulse"></sup>
+                                        </h3>
                                     </div>
                                 </div>
                             </div>

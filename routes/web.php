@@ -20,8 +20,6 @@ Route::get('/contact', [App\Http\Controllers\HomePageController::class, 'contact
 Route::get('/blog', [App\Http\Controllers\HomePageController::class, 'blog']);
 Route::get('/terms-conditions', [App\Http\Controllers\HomePageController::class, 'terms_conditions']);
 Route::get('/privacy-policy', [App\Http\Controllers\HomePageController::class, 'privacy_policy']);
-// Route::get('/', [App\Http\Controllers\HomePageController::class, 'index']);
-
 
 // Auth
 Route::get('/subscribe', [App\Http\Controllers\HomePageController::class, 'subscribe'])->name('subscribe');
@@ -50,9 +48,9 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 Route::prefix('dashboard')->group(function () {
     Route::get('add/subscription', [App\Http\Controllers\HomeController::class, 'add_subscription'])->name('user.add.subscription');
     Route::get('/payment/callback', [App\Http\Controllers\HomeController::class, 'handleGatewayCallback'])->name('user.new.handleGatewayCallback');
-    Route::get('/subscriptions', [App\Http\Controllers\HomeController::class, 'subscriptions'])->name('user.subscriptions');
-    Route::get('/knowledgebase', [App\Http\Controllers\HomeController::class, 'knowledgebase'])->name('user.knowledgebase');
-    Route::any('/post/knowledgebase/answer/{id}', [App\Http\Controllers\HomeController::class, 'post_knowledgebase_answer'])->name('user.post.knowledgebase.answer');
+    Route::get('/application', [App\Http\Controllers\HomeController::class, 'application'])->name('user.application');
+    Route::get('/lab', [App\Http\Controllers\HomeController::class, 'lab'])->name('user.lab');
+    Route::any('/post/lab/answer/{id}', [App\Http\Controllers\HomeController::class, 'post_lab_answer'])->name('user.post.lab.answer');
     Route::get('/deposits', [App\Http\Controllers\HomeController::class, 'deposits'])->name('user.deposits');
     Route::get('/account', [App\Http\Controllers\HomeController::class, 'account'])->name('user.account');
     Route::post('/account/upload_photo/{id}', [App\Http\Controllers\HomeController::class, 'upload_photo'])->name('user.account.upload.photo');

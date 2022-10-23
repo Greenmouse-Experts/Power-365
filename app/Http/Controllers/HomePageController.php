@@ -86,7 +86,7 @@ class HomePageController extends Controller
             'i_agree' => $request->i_agree,
         ]);
 
-        return redirect()->route('user.make.payment', Crypt::encrypt($user->id))->with('success_report', 'Subscription Succesfully, Proceed to payment!'); 
+        return redirect()->route('user.make.payment', Crypt::encrypt($user->id))->with('success_report', 'Complete Registration'); 
     }
 
     public function payment($user, Request $request) 
@@ -480,6 +480,14 @@ class HomePageController extends Controller
 
         if(!$user || !Hash::check($request->password, $user->password)) {
             return back()->with('failure_report', 'Email does\'nt exist');
+        }
+
+        // 
+        if($user->user_type == 'Administrator')
+        {
+            Auth::logout();
+
+            return back()->with('failure_report', 'Only Users are allowed to login here.');
         }
 
         // authentication attempt

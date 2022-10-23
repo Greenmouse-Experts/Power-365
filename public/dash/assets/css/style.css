@@ -112018,3 +112018,14 @@ textarea.form-control {
 .nav-link.icon svg:hover {
     fill: #fff !important;
 }
+
+.badge-pulse {
+    display: inline-block;
+    /* position: absolute;
+    top: 7px;
+    right: 8px; */
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: blue;
+}

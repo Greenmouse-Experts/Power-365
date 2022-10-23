@@ -37,11 +37,11 @@
             <div class="mt-5 text-center">
                 <h5 class="fw-bold">REGISTRATION PORTAL</h5>
                 <p class="mt-2">
-                    Complete the registration form and get access to Power-365 services.
+                    Complete the registration form and get access to {{config('app.name')}} services.
                 </p>
             </div>
             <div class="mt-5 text-center">
-                <p>are you a registered?</p>
+                <p>Do you have an Account?</p>
                 <a href="{{route('login')}}"><button class="btn btn-light px-4">Login</button></a>
             </div>
         </div>
@@ -52,7 +52,7 @@
                     <div class="logo">
                         <a href="/"><img src="{{URL::asset('assets/images/logo1.png')}}" alt="" width="100%" /></a>
                     </div>
-                    <h3 class="text-center my-4">REGISTRATION PORTAL</h3>
+                    <h3 class="text-center my-4">REGISTRATION PORTAL<p/h3>
                 </header>
             </div>
             <div class="reg-carousel content carousel slide" data-bs-ride="carousel" id="regform" data-bs-interval="false">
@@ -89,6 +89,7 @@
                                 <div class="reg-input-inner">
                                     <label for="gender"> Gender </label>
                                     <select name="gender" class="quarter" required>
+                                        <option value="">-- Select An Option --</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select>
@@ -96,6 +97,7 @@
                                 <div class="reg-input-inner2">
                                     <label for="status"> Status </label>
                                     <select name="status" class="quarter" required>
+                                        <option value="">-- Select An Option --</option>
                                         <option value="Single">Single</option>
                                         <option value="Married">Married</option>
                                         <option value="Divorced">Divorced</option>
@@ -111,6 +113,7 @@
                             <div class="reg-input">
                                 <label for="employ">Employment Status</label>
                                 <select name="employment_status" class="quarter" required>
+                                    <option value="">-- Select An Option --</option>
                                     <option value="Employed">Employed</option>
                                     <option value="Self-Employed">Self-Employed</option>
                                     <option value="Business Owner">Business Owner</option>
@@ -178,16 +181,6 @@
                                 <div class="reg-input2-inner">
                                     <label for="lgo">Local Government Area of Origin</label>
                                     <input type="text" name="lga_of_origin" required />
-                                </div>
-                            </div>
-                            <div class="reg-input2">
-                                <div class="reg-input2-inner">
-                                    <label for="password">Password</label>
-                                    <input type="password" name="password" placeholder="Password" required />
-                                </div>
-                                <div class="reg-input2-inner">
-                                    <label for="passwordconfirm">Confirm Password</label>
-                                    <input type="password" name="password_confirmation" placeholder="Confirm Password" required />
                                 </div>
                             </div>
                             <div class="reg-input2">
@@ -344,7 +337,7 @@
                                 </select>
                             </div>
                             <div class="question">
-                                <label for="question10"> Asset= ? + ? </label>
+                                <label for="question10"> Asset = ? + ? </label>
                                 <select name="asset" id="question10" required>
                                     <option disabled selected value>
                                         -- Select An Option --
@@ -356,11 +349,23 @@
                                     <option value="Profit + Loss">Profit + Loss</option>
                                 </select>
                             </div>
+                            <div class="reg-input2" style="margin-left: 0px;">
+                                <div class="reg-input2-inner">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" placeholder="Password" required />
+                                </div>
+                            </div>
+                            <div class="reg-input2" style="margin-left: 0px;">
+                                <div class="reg-input2-inner">
+                                    <label for="passwordconfirm">Confirm Password</label>
+                                    <input type="password" name="password_confirmation" placeholder="Confirm Password" required />
+                                </div>
+                            </div>
                             <div class="question register-text">
                                 <p>
                                     By clicking the Register button, you agree to our
                                     <a href="#">general terms and conditions and the ehtical rules of the
-                                        Power-365 Entreprenuerial Show</a>
+                                        {{config('app.name')}} Entreprenuerial Show</a>
                                     and confirm that you have read our
                                     <a href="#">Privacy Policy</a> to learn how we collect, use,
                                     and share data.
