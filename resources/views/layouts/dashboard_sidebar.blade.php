@@ -2,7 +2,7 @@
     <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
     <div class="app-sidebar">
         <div class="side-header">
-            <a class="header-brand1" href="/">
+            <a class="header-brand1" href="#">
                 <img src="{{URL::asset('assets/images/boldLogo.png')}}" class="header-brand-img light-logo1" alt="logo" style="width: 250px; height: 50px;">
             </a><!-- LOGO -->
         </div>
