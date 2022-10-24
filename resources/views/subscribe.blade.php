@@ -38,7 +38,7 @@
             <!--the form-part div-->
             <div class="form-part col-lg-6 form-part">
                 <div class="logo">
-                    <a href="/"><img src="{{URL::asset('assets/images/logo1.jpg')}}" alt="" /></a>
+                    <a href="/"><img src="{{URL::asset('assets/images/logo1.png')}}" alt="" /></a>
                 </div>
                 <div class="head-text">
                     <h4 class="text-center">
