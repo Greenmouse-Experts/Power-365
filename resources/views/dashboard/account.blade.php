@@ -177,7 +177,7 @@
                                                     <td><strong>Are you ready to invest your time in this business? :</strong> {{Auth::user()->business_time}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Asset= ? + ? :</strong> {{Auth::user()->asset}}</td>
+                                                    <td><strong>Asset = ? + ? :</strong> {{Auth::user()->asset}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
