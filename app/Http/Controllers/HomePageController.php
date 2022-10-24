@@ -204,7 +204,7 @@ class HomePageController extends Controller
                 'status' => $result->data->status,
             ]);
 
-            return redirect()->route('register', Crypt::encrypt($user->id))->with('success_report', 'Subscription Captured, Complete Registration');
+            return redirect()->route('register', Crypt::encrypt($user->id))->with('success_report', 'Complete Registration');
         }
     }
 
