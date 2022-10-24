@@ -170,9 +170,9 @@
                                                 <tr>
                                                     <td><strong>How much would you reqiure to kickstart or upscale your business or idea? :</strong> {{$user->business_amount}}</td>
                                                 </tr>
-                                                <tr>
+                                                <!-- <tr>
                                                     <td><strong>How would you like your business to be financed? :</strong> {{$user->business_financed}}</td>
-                                                </tr>
+                                                </tr> -->
                                                 <tr>
                                                     <td><strong>Are you ready to invest your time in this business? :</strong> {{$user->business_time}}</td>
                                                 </tr>

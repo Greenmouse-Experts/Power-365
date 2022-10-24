@@ -291,7 +291,7 @@ class HomePageController extends Controller
             'business_areas' => ['required', 'string', 'max:255'],
             'business_kind' => ['required', 'string', 'max:255'],
             'business_amount' => ['required', 'string', 'max:255'],
-            'business_financed' => ['required', 'string'],
+            // 'business_financed' => ['required', 'string'],
             'business_time' => ['required', 'string'],
             'asset' => ['required', 'string', 'max:255']
         ]);

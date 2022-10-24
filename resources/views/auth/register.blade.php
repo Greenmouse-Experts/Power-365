@@ -215,14 +215,13 @@
                                 </select>
                             </div>
                             <div class="question">
-                                <label for="question2">Is your business/idea profit-oriented or
-                                    non-profit-oriented?</label>
+                                <label for="question2">Is your business or idea for profit or non-profit?</label>
                                 <select name="business_oriented" id="question2" required>
                                     <option disabled selected value>
                                         -- Select An Option --
                                     </option>
-                                    <option value="Yes (For Profit)">Yes (For Profit)</option>
-                                    <option value="No (For Non-Profit)">No (For Non-Profit)</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
                                     <option value="I haven't decided yet">I haven't decided yet</option>
                                 </select>
                             </div>
@@ -300,14 +299,14 @@
                                     <option disabled selected value>
                                         -- Select An Option --
                                     </option>
-                                    <option value="#100,000">#100,000</option>
-                                    <option value="#200,000">#200,000</option>
-                                    <option value="#300,000">#300,000</option>
-                                    <option value="#400,000">#400,000</option>
-                                    <option value="#500,000">#500,000</option>
+                                    <option value="₦100,000">₦100,000</option>
+                                    <option value="₦200,000">₦200,000</option>
+                                    <option value="₦300,000">₦300,000</option>
+                                    <option value="₦400,000">₦400,000</option>
+                                    <option value="₦500,000">₦500,000</option>
                                 </select>
                             </div>
-                            <div class="question">
+                            <!-- <div class="question">
                                 <label for="question8">
                                     How would you like your business to be financed?
                                 </label>
@@ -323,7 +322,7 @@
                                     <option value="Giveaway">Giveaway</option>
                                     <option value="Grants">Grants</option>
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="question">
                                 <label for="question9">
                                     Are you ready to invest your time in this business?
@@ -364,10 +363,10 @@
                             <div class="question register-text">
                                 <p>
                                     By clicking the Register button, you agree to our
-                                    <a href="#">general terms and conditions and the ehtical rules of the
+                                    <a href="/terms-conditions">general terms and conditions and the ehtical rules of the
                                         {{config('app.name')}} Entreprenuerial Show</a>
                                     and confirm that you have read our
-                                    <a href="#">Privacy Policy</a> to learn how we collect, use,
+                                    <a href="/privacy-policy">Privacy Policy</a> to learn how we collect, use,
                                     and share data.
                                 </p>
                             </div>

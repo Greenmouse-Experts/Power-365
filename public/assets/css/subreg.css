@@ -137,7 +137,8 @@ a {
   border-radius: 100px 0px 0px 100px;
   background-color: rgba(255, 255, 255, 1);
   font-family: "Rubik", sans-serif !important;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .reg-part .head {
   display: none;
@@ -389,7 +390,7 @@ a {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .register-text {
-  margin: 40px 0px 30px 0px;
+  margin: 60px 0px 30px 0px;
 }
 
 /*login page styling*/

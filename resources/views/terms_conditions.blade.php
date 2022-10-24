@@ -39,7 +39,7 @@
                 services are exclusively offered in the local Nigerian currency
                 (NGN). In view of the current currency rate, interested residents
                 outside Nigeria are obliged to pay the same application fee of
-                <span class="fw-bold">NGN 1,825.00</span>as shown on the payment
+                <span class="fw-bold">NGN 1,825.00</span> as shown on the payment
                 portal. {{config('app.name')}} charges just
                 <span class="fw-bold">NGN 1,825.00</span> for individual
                 application. Any charge added to this amount is a service charge by

@@ -153,7 +153,7 @@
                                                     <td><strong>Is your business or idea registered? :</strong> {{Auth::user()->business_registered}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Is your business/idea profit-oriented or non-profit-oriented? :</strong> {{Auth::user()->business_oriented}}</td>
+                                                    <td><strong>Is your business or idea for profit or non-profit? :</strong> {{Auth::user()->business_oriented}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td><strong>Can this business idea generate income now and in the future? :</strong> {{Auth::user()->business_generate_income}}</td>
@@ -170,9 +170,9 @@
                                                 <tr>
                                                     <td><strong>How much would you reqiure to kickstart or upscale your business or idea? :</strong> {{Auth::user()->business_amount}}</td>
                                                 </tr>
-                                                <tr>
+                                                <!-- <tr>
                                                     <td><strong>How would you like your business to be financed? :</strong> {{Auth::user()->business_financed}}</td>
-                                                </tr>
+                                                </tr> -->
                                                 <tr>
                                                     <td><strong>Are you ready to invest your time in this business? :</strong> {{Auth::user()->business_time}}</td>
                                                 </tr>
