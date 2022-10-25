@@ -52,7 +52,7 @@
                     <div class="logo">
                         <a href="/"><img src="{{URL::asset('assets/images/logo1.png')}}" alt="" width="100%" /></a>
                     </div>
-                    <h3 class="text-center my-4">REGISTRATION PORTAL<p/h3>
+                    <h3 class="text-center my-4">REGISTRATION PORTAL<p /h3>
                 </header>
             </div>
             <div class="reg-carousel content carousel slide" data-bs-ride="carousel" id="regform" data-bs-interval="false">
@@ -193,7 +193,15 @@
                                     <input type="number" name="whatsapp_number" placeholder="Enter Whatsapp No" required />
                                 </div>
                             </div>
-                            <div class="text-end mt-3">
+                            <!-- <div class="text-end mt-3">
+                                <button class="btn basic-bg text-white px-4" type="button" data-bs-target="#regform" data-bs-slide="next">
+                                    Next<i class="px-3 fa-solid fa-forward"></i>
+                                </button>
+                            </div> -->
+                            <div class="d-flex justify-content-between mt-3">
+                                <button class="btn basic-bg text-white px-4" type="button" data-bs-target="#regform" data-bs-slide="prev">
+                                    Prev<i class="px-3 fa-solid fa-backward"></i>
+                                </button>
                                 <button class="btn basic-bg text-white px-4" type="button" data-bs-target="#regform" data-bs-slide="next">
                                     Next<i class="px-3 fa-solid fa-forward"></i>
                                 </button>
@@ -283,7 +291,15 @@
                                     <option value="Partnership">Partnership</option>
                                 </select>
                             </div>
-                            <div class="text-end mt-3">
+                            <!-- <div class="text-end mt-3">
+                                <button class="btn basic-bg text-white px-4" type="button" data-bs-target="#regform" data-bs-slide="next">
+                                    Next<i class="px-3 fa-solid fa-forward"></i>
+                                </button>
+                            </div> -->
+                            <div class="d-flex justify-content-between mt-3">
+                                <button class="btn basic-bg text-white px-4" type="button" data-bs-target="#regform" data-bs-slide="prev">
+                                    Prev<i class="px-3 fa-solid fa-backward py-1"></i>
+                                </button>
                                 <button class="btn basic-bg text-white px-4" type="button" data-bs-target="#regform" data-bs-slide="next">
                                     Next<i class="px-3 fa-solid fa-forward"></i>
                                 </button>
@@ -370,8 +386,14 @@
                                     and share data.
                                 </p>
                             </div>
-                            <div class="text-center">
+                            <!-- <div class="text-center">
                                 <button class="btn basic-bg text-white w-100" type="submit">Register</button>
+                            </div> -->
+                            <div class="d-flex justify-content-between mt-3">
+                                <button class="btn basic-bg text-white px-4" type="button" data-bs-target="#regform" data-bs-slide="prev">
+                                    Prev<i class="px-3 fa-solid fa-backward py-1"></i>
+                                </button>
+                                <button class="btn basic-bg text-white px-4" type="submit">Register</button>
                             </div>
                         </div>
                     </form>
