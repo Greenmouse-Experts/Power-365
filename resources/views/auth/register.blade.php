@@ -80,6 +80,7 @@
                             <div class="reg-input">
                                 <label for="number">Phone Number</label>
                                 <p>{{$user->phone_number}}</p>
+                                <!-- <input type="tel" name="phone_number" value="{{$user->phone_number}}" required /> -->
                             </div>
                             <div class="reg-input mb-1">
                                 <label for="photo">Photo</label>

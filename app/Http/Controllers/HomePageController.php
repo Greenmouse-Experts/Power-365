@@ -15,6 +15,7 @@ use App\Models\ResetCodePassword;
 use App\Notifications\SendVerificationCode;
 use App\Models\Deposit;
 use App\Models\Subscription;
+use Exception;
 use Monarobase\CountryList\CountryListFacade;
 
 class HomePageController extends Controller
@@ -58,7 +59,7 @@ class HomePageController extends Controller
     {
         return view('privacy_policy');
     }
-    
+
     public function subscribe()
     {
         return view('subscribe');
@@ -74,22 +75,32 @@ class HomePageController extends Controller
             'i_agree' => ['required', 'string', 'max:255']
         ]);
 
-        // dd(str_replace('0', '+234', $request->phone_number));
+        try {
+            $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
+            $token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
+            $twilio = new Client($sid, $token);
 
-        $user = User::create([
-            'user_type' => 'Client', 
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'password' => Hash::make('Password'),
-            'phone_number' => str_replace('0', '+234', $request->phone_number),
-            'i_agree' => $request->i_agree,
-        ]);
+            $twilio->lookups->v1->phoneNumbers(str_replace('0', '+234', $request->phone_number))
+                                        ->fetch();
 
-        return redirect()->route('user.make.payment', Crypt::encrypt($user->id))->with('success_report', 'Complete Registration'); 
+            $user = User::create([
+                'user_type' => 'Client',
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'email' => $request->email,
+                'password' => Hash::make('Password'),
+                'phone_number' => str_replace('0', '+234', $request->phone_number),
+                'i_agree' => $request->i_agree,
+            ]);
+
+            return redirect()->route('user.make.payment', Crypt::encrypt($user->id))->with('success_report', 'Complete Registration');
+
+        } catch(Exception $e) {
+            return back()->with('failure_report', 'Phone number is not valid');
+        }        
     }
 
-    public function payment($user, Request $request) 
+    public function payment($user, Request $request)
     {
         $userFinder = Crypt::decrypt($user);
 
@@ -111,7 +122,7 @@ class HomePageController extends Controller
         $fields_string = http_build_query($fields);
         //open connection
         $ch = curl_init();
-        
+
         //set the url, number of POST vars, POST data
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
@@ -120,10 +131,10 @@ class HomePageController extends Controller
             "Authorization: Bearer $SECRET_KEY",
             "Cache-Control: no-cache",
         ));
-        
+
         //So that curl_exec returns the contents of the cURL; rather than echoing it
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
-        
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
         //execute post
         $paystack_result = curl_exec($ch);
 
@@ -138,21 +149,21 @@ class HomePageController extends Controller
         if ($paystack_status == true) {
             return redirect()->to($authorization_url);
         } else {
-            return back()->with('failure_report', 'Payment failed. Response not ok'); 
+            return back()->with('failure_report', 'Payment failed. Response not ok');
         }
     }
 
     public function handleGatewayCallback()
     {
         $SECRET_KEY = config('app.paystack_secret_key');
-        
+
         $curl = curl_init();
 
         $reference = isset($_GET['reference']) ? $_GET['reference'] : '';
-            if(!$reference){
+        if (!$reference) {
             die('No reference supplied');
         }
-  
+
         curl_setopt_array($curl, array(
             CURLOPT_URL => "https://api.paystack.co/transaction/verify/" . rawurlencode($reference),
             CURLOPT_RETURNTRANSFER => true,
@@ -166,13 +177,13 @@ class HomePageController extends Controller
                 "Cache-Control: no-cache",
             ),
         ));
-        
+
         $paystack_response = curl_exec($curl);
         $err = curl_error($curl);
         curl_close($curl);
-            
+
         $result = json_decode($paystack_response);
-        
+
         if ($err) {
             // there was an error contacting the Paystack API
             die('Curl returned error: ' . $err);
@@ -185,11 +196,11 @@ class HomePageController extends Controller
                 'amount' => ($result->data->amount / 100),
                 'subscription_status' => 'Active'
             ]);
-            
+
             Subscription::create([
-                'user_id' => $result->data->metadata->user_id, 
-                'amount'  => ($result->data->amount / 100), 
-                'start_date' => now(), 
+                'user_id' => $result->data->metadata->user_id,
+                'amount'  => ($result->data->amount / 100),
+                'start_date' => now(),
                 'expiry_date' => $date->format('Y-m-d'),
             ]);
 
@@ -220,21 +231,19 @@ class HomePageController extends Controller
         ]);
 
         $input = $request->only(['email', 'password']);
-        
+
         $user = User::query()->where('email', $request->email)->first();
 
         // authentication attempt
         if (auth()->attempt($input)) {
-            if(($user->amount == 0))
-            {
+            if (($user->amount == 0)) {
                 return redirect()->route('user.make.payment', Crypt::encrypt($user->id))->with('success_report', 'Subscription Succesfully, Proceed to payment!');
             }
 
-            if(($user->amount == 1825) AND (!$user->email_verified_at))
-            {
+            if (($user->amount == 1825) and (!$user->email_verified_at)) {
                 return redirect()->route('register');
             }
-            
+
             return back()->with('failure_report', 'Profile setup already, please login');
         } else {
             return back()->with('failure_report', 'User not found in our database.');
@@ -248,7 +257,7 @@ class HomePageController extends Controller
         // dd($userFinder);
 
         $user = User::find($userFinder);
-        
+
         // $states = nigeriaStates();
         $countries = CountryListFacade::getList('en');
 
@@ -259,13 +268,14 @@ class HomePageController extends Controller
         ]);
     }
 
-    public function post_register($id, Request $request) 
+    public function post_register($id, Request $request)
     {
         $userFinder = Crypt::decrypt($id);
 
         $user = User::findorfail($userFinder);
 
         $this->validate($request, [
+            // 'phone_number' => ['required', 'numeric', 'digits:11'],
             'photo' => 'required|mimes:jpeg,png,jpg',
             'gender' => ['required', 'string', 'max:255'],
             'status' => ['required', 'string', 'max:255'],
@@ -298,9 +308,10 @@ class HomePageController extends Controller
 
         $filename = request()->photo->getClientOriginalName();
         request()->photo->storeAs('users_avatar', $filename, 'public');
-        $photo = '/storage/users_avatar/'.$filename;
+        $photo = '/storage/users_avatar/' . $filename;
 
         $user->update([
+            // 'phone_number' => $request->phone_number,
             'photo' => $photo,
             'gender' => $request->gender,
             'status' => $request->status,
@@ -337,25 +348,30 @@ class HomePageController extends Controller
             'code' => $code
         ]);
 
-        // Send email to user
-        $user->notify(new SendVerificationCode($user));
+        
+        try {
+            $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
+            $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
+            $from_number = config('app.twilio.from_number'); // Valid Twilio number
 
-        $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
-        $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
-        $from_number = config('app.twilio.from_number'); // Valid Twilio number
+            $client = new Client($sid, $auth_token);
 
-        $client = new Client($sid, $auth_token);
+            $client->messages->create(
+                $user->phone_number, // Text this number
+                [
+                    'from' => $from_number,
+                    'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
+                ]
+            );
+            
+            // Send email to user
+            $user->notify(new SendVerificationCode($user));
 
-        $message = $client->messages->create(
-            $user->phone_number, // Text this number
-            [
-                'from' => $from_number, 
-                'body' => 'Hello '.$user->last_name.', Your '.config('app.name').' verification code is: ' .$user->code
-            ]
-        );
-
-        return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!'); 
-    
+            return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
+        
+        } catch(Exception $e) {
+            return back()->with('failure_report', 'Phone number is not valid');
+        }  
     }
 
     public function verify_account($email)
@@ -393,8 +409,8 @@ class HomePageController extends Controller
         $message = $client->messages->create(
             $user->phone_number, // Text this number
             [
-                'from' => $from_number, 
-                'body' => 'Hello '.$user->last_name.', Your '.config('app.name').' verification code is: ' .$user->code
+                'from' => $from_number,
+                'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
             ]
         );
 
@@ -411,18 +427,17 @@ class HomePageController extends Controller
             'code' => ['required', 'numeric']
         ]);
 
-        if($user->code == $request->code)
-        {
+        if ($user->code == $request->code) {
             $user->email_verified_at = now();
             $user->code = null;
             $user->save();
 
             /** Store information to include in mail in $data as an array */
             $data = array(
-                'name' => $user->first_name. ' ' .$user->last_name,
+                'name' => $user->first_name . ' ' . $user->last_name,
                 'email' => $user->email
             );
-            
+
             /** Send message to the user */
             Mail::send('emails.welcome', $data, function ($m) use ($data) {
                 $m->to($data['email'])->subject(config('app.name'));
@@ -437,14 +452,14 @@ class HomePageController extends Controller
             $client->messages->create(
                 $user->phone_number, // Text this number
                 [
-                    'from' => $from_number, 
-                    'body' => 'Hello '.$user->first_name. ' ' .$user->last_name.', 
-                    Welcome to '.config('app.name').' Entrepreneurial Show!
+                    'from' => $from_number,
+                    'body' => 'Hello ' . $user->first_name . ' ' . $user->last_name . ', 
+                    Welcome to ' . config('app.name') . ' Entrepreneurial Show!
                     Your account is now active.
                     With us, your business can realize its full potential and contribute to a society full of opportunities for innovation and overall development.
                     Get more information on our FAQ page or Contact Us directly.
                     Best Regards, 
-                    The '.config ('app.name').' Team'
+                    The ' . config('app.name') . ' Team'
                 ]
             );
 
@@ -469,22 +484,21 @@ class HomePageController extends Controller
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8'],
         ]);
-        
+
         $input = $request->only(['email', 'password']);
-        
+
         $user = User::query()->where('email', $request->email)->first();
 
-        if ($user && !Hash::check($request->password, $user->password)){
+        if ($user && !Hash::check($request->password, $user->password)) {
             return back()->with('failure_report', 'Incorrect Password!');
         }
 
-        if(!$user || !Hash::check($request->password, $user->password)) {
+        if (!$user || !Hash::check($request->password, $user->password)) {
             return back()->with('failure_report', 'Email does\'nt exist');
         }
 
         // 
-        if($user->user_type == 'Administrator')
-        {
+        if ($user->user_type == 'Administrator') {
             Auth::logout();
 
             return back()->with('failure_report', 'Only Users are allowed to login here.');
@@ -492,12 +506,11 @@ class HomePageController extends Controller
 
         // authentication attempt
         if (auth()->attempt($input)) {
-            if(($user->amount == 0))
-            {
+            if (($user->amount == 0)) {
                 return redirect()->route('user.make.payment', Crypt::encrypt($user->id))->with('success_report', 'Subscription Succesfully, Proceed to payment!');
             }
 
-            if(!$user->email_verified_at){
+            if (!$user->email_verified_at) {
                 $code = mt_rand(100000, 999999);
 
                 $user->update([
@@ -516,16 +529,15 @@ class HomePageController extends Controller
                 $message = $client->messages->create(
                     $user->phone_number, // Text this number
                     [
-                        'from' => $from_number, 
-                        'body' => 'Hello '.$user->last_name.', Your '.config('app.name').' verification code is: ' .$user->code
+                        'from' => $from_number,
+                        'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
                     ]
                 );
 
-                return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!'); 
+                return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
             }
 
             return redirect()->route('home');
-                    
         } else {
             return back()->with('failure_report', 'User authentication failed.');
         }
@@ -568,15 +580,15 @@ class HomePageController extends Controller
         $message = $client->messages->create(
             $user->phone_number, // Text this number
             [
-                'from' => $from_number, 
-                'body' => 'Hello '.$user->last_name.', Your '.config('app.name').' reset password code is: ' .$codeData->code
+                'from' => $from_number,
+                'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' reset password code is: ' . $codeData->code
             ]
         );
 
         return redirect()->route('user.reset.password')->with('success_report', 'We have emailed your password reset code!');
     }
 
-    public function password_reset_email() 
+    public function password_reset_email()
     {
         return view('auth.reset_password');
     }
@@ -627,7 +639,7 @@ class HomePageController extends Controller
         $message = $client->messages->create(
             '+2348161215848', // Text this number
             [
-                'from' => $from_number, 
+                'from' => $from_number,
                 'body' => 'Hello Promise, Welcome To Power-365!'
             ]
         );
@@ -644,27 +656,26 @@ class HomePageController extends Controller
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8'],
         ]);
-        
+
         $input = $request->only(['email', 'password']);
-        
+
         $user = User::query()->where('email', $request->email)->first();
 
-        if ($user && !Hash::check($request->password, $user->password)){
+        if ($user && !Hash::check($request->password, $user->password)) {
             return back()->with('failure_report', 'Incorrect Password!');
         }
 
-        if(!$user || !Hash::check($request->password, $user->password)) {
+        if (!$user || !Hash::check($request->password, $user->password)) {
             return back()->with('failure_report', 'Email does\'nt exist');
         }
 
         // authentication attempt
         if (auth()->attempt($input)) {
-            if($user->user_type == 'Administrator'){
+            if ($user->user_type == 'Administrator') {
                 return redirect()->route('admin.dashboard');
             }
-           
+
             return back()->with('failure_report', 'You are not an Administrator');
-                    
         } else {
             return back()->with('failure_report', 'User authentication failed.');
         }
