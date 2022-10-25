@@ -75,13 +75,13 @@ class HomePageController extends Controller
             'i_agree' => ['required', 'string', 'max:255']
         ]);
 
-        try {
-            $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
-            $token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
-            $twilio = new Client($sid, $token);
+        // try {
+        //     $sid = config('app.twilio.sid'); 
+        //     $token = config('app.twilio.auth_token');
+        //     $twilio = new Client($sid, $token);
 
-            $twilio->lookups->v1->phoneNumbers(str_replace('0', '+234', $request->phone_number))
-                                        ->fetch();
+        //     $twilio->lookups->v1->phoneNumbers(str_replace('0', '+234', $request->phone_number))
+        //                                 ->fetch();
 
             $user = User::create([
                 'user_type' => 'Client',
@@ -95,9 +95,9 @@ class HomePageController extends Controller
 
             return redirect()->route('user.make.payment', Crypt::encrypt($user->id))->with('success_report', 'Complete Registration');
 
-        } catch(Exception $e) {
-            return back()->with('failure_report', 'Phone number is not valid');
-        }        
+        // } catch(Exception $e) {
+        //     return back()->with('failure_report', 'Phone number is not valid');
+        // }        
     }
 
     public function payment($user, Request $request)
