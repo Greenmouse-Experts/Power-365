@@ -282,7 +282,7 @@ class HomePageController extends Controller
             'date_of_birth' => ['required', 'string', 'max:255'],
             'employment_status' => ['required', 'string', 'max:255'],
             'occupation' => ['required', 'string', 'max:255'],
-            'learning_opportunity' => ['required', 'string', 'max:255'],
+            // 'learning_opportunity' => ['required', 'string', 'max:255'],
             'country_of_residence' => ['required', 'string', 'max:255'],
             'state_of_residence' => ['required', 'string', 'max:255'],
             'lga_of_residence' => ['required', 'string', 'max:255'],

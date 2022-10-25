@@ -95,12 +95,12 @@
                                                     <td><strong>Occupation :</strong> {{$user->occupation}}</td>
                                                 </tr>
                                             </tbody>
-                                            <tbody class="col-12 border-top-0 p-0">
+                                            <!-- <tbody class="col-12 border-top-0 p-0">
                                                 <tr>
                                                     <td><strong>If given the opportunity, what would you like to learn?</strong> 
                                                     {{$user->learning_opportunity}}</td>
                                                 </tr>
-                                            </tbody>
+                                            </tbody> -->
                                         </table>
                                     </div>
                                     <div class="border-top"></div>

@@ -125,11 +125,11 @@
                                 <label for="occupation">Occupation</label>
                                 <input type="text" class="quarter" name="occupation" required />
                             </div>
-                            <div class="reg-input">
+                            <!-- <div class="reg-input">
                                 <label for="opportunity">If given the opportunity, what would you like to
                                     learn?</label>
                                 <textarea name="learning_opportunity" class="half" id="opportunity" cols="40" rows="3" required></textarea>
-                            </div>
+                            </div> -->
                             <div class="text-end mt-3">
                                 <button class="btn basic-bg text-white px-4" type="button" data-bs-target="#regform" data-bs-slide="next">
                                     Next<i class="px-3 fa-solid fa-forward"></i>
