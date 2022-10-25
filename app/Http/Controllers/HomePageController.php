@@ -89,7 +89,7 @@ class HomePageController extends Controller
                 'last_name' => $request->last_name,
                 'email' => $request->email,
                 'password' => Hash::make('Password'),
-                'phone_number' => str_replace('0', '+234', $request->phone_number),
+                'phone_number' => substr_replace($request->phone_number,'+234',0,1),
                 'i_agree' => $request->i_agree,
             ]);
 
