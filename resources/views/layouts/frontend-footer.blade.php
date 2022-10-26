@@ -63,7 +63,9 @@
         <hr class="w-100 text-white" />
         <div>
             <p class="text-center">
-                Power-365 ™️ |©️2022 Power-365 Entrepreneurial Show Limited. All
+                Power-365 ™️ |<script>
+                        document.write(new Date().getFullYear())
+                    </script> Power-365 Entrepreneurial Show Limited. All
                 Rights Reserved.
             </p>
             <p></p>
