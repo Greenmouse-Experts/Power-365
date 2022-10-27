@@ -24,8 +24,7 @@
         <div class="col-lg-3 contact-box">
             <i class="fa-solid fa-envelope-circle-check fa-2x pb-2 text-warning"></i>
             <h6>Email Support</h6>
-            <p class="mt-4">support@power365es.com<br>
-                privacy@power365es.com <br> recruitment@power365es.com <br>admin@power365es.com</p>
+            <p class="mt-4">support@power365es.com</p>
         </div>
         <div class="col-lg-3 contact-box">
             <i class="fa-solid fa-magnifying-glass-location fa-2x pb-2 text-success"></i>

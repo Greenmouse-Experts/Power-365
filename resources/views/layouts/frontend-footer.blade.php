@@ -51,9 +51,6 @@
                 <h5>ENQUIRIES</h5>
                 <ul>
                     <li><a href="mailto:support@power365es.com">support@power365es.com</a></li>
-                    <li><a href="mailto:privacy@power365es.com">privacy@power365es.com</a></li>
-                    <li><a href="mailto:recruitment@power365es.com">recruitment@power365es.com</a></li>
-                    <li><a href="mailto:admin@power365es.com">admin@power365es.com</a></li>
                 </ul>
             </div>
         </div>
