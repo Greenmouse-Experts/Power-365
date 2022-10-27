@@ -106,7 +106,7 @@ class HomePageController extends Controller
             $token = config('app.twilio.auth_token');
             $twilio = new Client($sid, $token);
 
-            $twilio->lookups->v1->phoneNumbers(str_replace('0', '+234', $request->phone_number))
+            $twilio->lookups->v1->phoneNumbers(substr_replace($request->phone_number,'+234',0,1))
                                         ->fetch();
 
             $user = User::create([
