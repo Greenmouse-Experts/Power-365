@@ -46,9 +46,11 @@
                     <p>For email queries please fill in the form below:</p>
                 </div>
                 <div>
-                    @includeIf('layouts.error_template')
-                    <form  method="POST" action="/contact-us">
+                    <form method="POST" action="/contact-us">
                     @csrf
+                        <div class="contact-input">
+                            @includeIf('layouts.error_template')
+                        </div>
                         <div class="contact-input">
                             <label for="name">Name<span class="text-danger">*</span></label>
                             <input type="text" name="name" required placeholder="enter your first name" />
@@ -63,7 +65,7 @@
                         </div>
                         <div class="contact-input">
                             <label for="subject">Subject<span class="text-danger">*</span></label>
-                            <input type="text" name="subject" required placeholder="enter your e-mail" />
+                            <input type="text" name="subject" required placeholder="enter your subject" />
                         </div>
                         <div class="contact-input">
                             <label for="message">Message<span class="text-danger">*</span></label>
