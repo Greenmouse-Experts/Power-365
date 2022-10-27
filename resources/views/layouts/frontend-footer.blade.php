@@ -32,7 +32,7 @@
                     <li><a href="/about">About Us</a></li>
                     <li class="d-none"><a href="/whatwedo">What We Do</a></li>
                     <li><a href="/#me2">ME2 Rule</a></li>
-                    <li><a href="/beneficiary">Meet Our Beneficiaries</a></li>
+                    <li><a href="/beneficiaries">Meet Our Beneficiaries</a></li>
                     <li><a href="/faqs">FAQs</a></li>
                     <li><a href="/contact">Contact Us</a></li>
                     <li><a href="/blog">Blog</a></li>

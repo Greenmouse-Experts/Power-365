@@ -76,7 +76,7 @@ class AdminController extends Controller
 
         Storage::delete(str_replace("storage", "public", $user->photo));
 
-        // $user->delete();
+        $user->delete();
 
         return back()->with([
             'type' => 'success',
