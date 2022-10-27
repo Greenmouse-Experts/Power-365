@@ -5,23 +5,23 @@
                 <img src="{{URL::asset('assets/images/boldLogo.png')}}" alt="" width="100%" class="footer-img mb-4 pb-0" />
                 <ul class="d-flex pt-0 mt-0 justify-content-center">
                     <li class="">
-                        <a href="#">
+                        <a href="https://www.facebook.com/Power365Entrep1/" target="_blank">
                             <img src="{{URL::asset('assets/images/fblogo.png')}}" alt="" width="30" />
                         </a>
                     </li>
                     <li class="px-2">
-                        <a href="#"><img src="{{URL::asset('assets/images/iglogon.png')}}" alt="" width="30" />
+                        <a href="https://www.instagram.com/invites/contact/?i=1iez0zqlroetl&utm_content=p5q4wrh" target="_blank"><img src="{{URL::asset('assets/images/iglogon.png')}}" alt="" width="30" />
                         </a>
                     </li>
                     <li class="px-2">
-                        <a href="#"><img src="{{URL::asset('assets/images/twtlogo.png')}}" alt="" width="30" />
+                        <a href="https://twitter.com/Power365Entrep1/status/1551615859784810496?s=19" target="_blank"><img src="{{URL::asset('assets/images/twtlogo.png')}}" alt="" width="30" />
                         </a>
                     </li>
                     <li class="px-2">
-                        <a href="#"><img src="{{URL::asset('assets/images/tiklogo.png')}}" alt="" width="30" /></a>
+                        <a href="https://www.tiktok.com/@power365es?_t=8Uc2CvGoe4T&_r=1" target="_blank"><img src="{{URL::asset('assets/images/tiklogo.png')}}" alt="" width="30" /></a>
                     </li>
                     <li class="px-2">
-                        <a href="#"><img src="{{URL::asset('assets/images/ytlogo.png')}}" alt="" width="30" />
+                        <a href="https://youtube.com/channel/UClsNPjs7VxuIR_-XkEKER6A" target="_blank"><img src="{{URL::asset('assets/images/ytlogo.png')}}" alt="" width="30" />
                         </a>
                     </li>
                 </ul>
@@ -50,7 +50,10 @@
             <div class="col-lg-3 foot-col">
                 <h5>ENQUIRIES</h5>
                 <ul>
-                    <li><a href="#">support@power365es.com</a></li>
+                    <li><a href="mailto:support@power365es.com">support@power365es.com</a></li>
+                    <li><a href="mailto:privacy@power365es.com">privacy@power365es.com</a></li>
+                    <li><a href="mailto:recruitment@power365es.com">recruitment@power365es.com</a></li>
+                    <li><a href="mailto:admin@power365es.com">admin@power365es.com</a></li>
                 </ul>
             </div>
         </div>
@@ -65,7 +68,7 @@
             <p class="text-center">
                 Power-365 ™️ |<script>
                         document.write(new Date().getFullYear())
-                    </script> Power-365 Entrepreneurial Show Limited. All
+                    </script> {{config('app.name')}} Entrepreneurial Show Limited. All
                 Rights Reserved.
             </p>
             <p></p>

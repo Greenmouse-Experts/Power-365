@@ -24,7 +24,8 @@
         <div class="col-lg-3 contact-box">
             <i class="fa-solid fa-envelope-circle-check fa-2x pb-2 text-warning"></i>
             <h6>Email Support</h6>
-            <p class="mt-4">support@power365es.com</p>
+            <p class="mt-4">support@power365es.com<br>
+                privacy@power365es.com <br> recruitment@power365es.com <br>admin@power365es.com</p>
         </div>
         <div class="col-lg-3 contact-box">
             <i class="fa-solid fa-magnifying-glass-location fa-2x pb-2 text-success"></i>
@@ -45,29 +46,34 @@
                     <p>For email queries please fill in the form below:</p>
                 </div>
                 <div>
-                    <form action="">
+                    @includeIf('layouts.error_template')
+                    <form  method="POST" action="/contact-us">
+                    @csrf
                         <div class="contact-input">
-                            <label for="fname">First name<span class="text-danger">*</span></label>
-                            <input type="text" name="fname" placeholder="enter your first name" />
-                        </div>
-                        <div class="contact-input">
-                            <label for="lname">Last name<span class="text-danger">*</span></label>
-                            <input type="text" name="lname" placeholder="enter your last name" />
+                            <label for="name">Name<span class="text-danger">*</span></label>
+                            <input type="text" name="name" required placeholder="enter your first name" />
                         </div>
                         <div class="contact-input">
                             <label for="email">Email<span class="text-danger">*</span></label>
-                            <input type="email" name="email" placeholder="enter your e-mail" />
+                            <input type="email" name="email" required placeholder="enter your e-mail" />
                         </div>
                         <div class="contact-input">
                             <label for="pnumber">Phone number<span class="text-danger">*</span></label>
-                            <input type="text" name="pnumber" placeholder="enter your phone number" />
+                            <input type="tel" name="phone" required placeholder="enter your phone number" />
+                        </div>
+                        <div class="contact-input">
+                            <label for="subject">Subject<span class="text-danger">*</span></label>
+                            <input type="text" name="subject" required placeholder="enter your e-mail" />
                         </div>
                         <div class="contact-input">
                             <label for="message">Message<span class="text-danger">*</span></label>
-                            <textarea placeholder="write your message or inquiry here"></textarea>
+                            <textarea name="message" required placeholder="write your message or inquiry here"></textarea>
                         </div>
                         <div class="contact-input">
-                            <button class="btn btn-primary">Submit</button>
+                            {!! app('captcha')->display() !!}
+                        </div>
+                        <div class="contact-input">
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>

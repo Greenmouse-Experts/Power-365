@@ -12,11 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', [App\Http\Controllers\HomePageController::class, 'index']);
 Route::get('/about', [App\Http\Controllers\HomePageController::class, 'about']);
 Route::get('/beneficiaries', [App\Http\Controllers\HomePageController::class, 'beneficiaries']);
 Route::get('/faqs', [App\Http\Controllers\HomePageController::class, 'faqs']);
 Route::get('/contact', [App\Http\Controllers\HomePageController::class, 'contact']);
+Route::post('/contact-us', [App\Http\Controllers\HomePageController::class, 'contactConfirm']);
 Route::get('/blog', [App\Http\Controllers\HomePageController::class, 'blog']);
 Route::get('/terms-conditions', [App\Http\Controllers\HomePageController::class, 'terms_conditions']);
 Route::get('/privacy-policy', [App\Http\Controllers\HomePageController::class, 'privacy_policy']);

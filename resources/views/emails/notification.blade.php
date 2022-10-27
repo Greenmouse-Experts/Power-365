@@ -120,7 +120,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td align="center" valign="top" style="padding: 40px 30px 20px 30px; font-size: 20px;"> 
-                            <img src="{{URL::asset('assets/images/logo1.png')}}" alt="{{config('app.name')}}" width="100px"></a>
+                            <img src="{{URL::asset('assets/images/logo1.png')}}" alt="{{config('app.name')}}" width="200px"></a>
 						</td>
                     </tr>
                 </table>

@@ -40,27 +40,27 @@
                 <div class="col sus-social col-lg-5 mt-3">
                     <ul class="list-unstyled justify-content-between d-flex">
                         <li>
-                            <a href="#">
+                            <a href="https://www.facebook.com/Power365Entrep1/" target="_blank">
                                 <i class="fa-brands fa-square-facebook fa-2x basic-text"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://www.instagram.com/invites/contact/?i=1iez0zqlroetl&utm_content=p5q4wrh" target="_blank">
                                 <i class="fa-brands fa-instagram fa-2x basic-text"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://twitter.com/Power365Entrep1/status/1551615859784810496?s=19" target="_blank">
                                 <i class="fa-brands fa-square-twitter fa-2x basic-text"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://www.tiktok.com/@power365es?_t=8Uc2CvGoe4T&_r=1" target="_blank">
                                 <i class="fa-brands fa-tiktok fa-2x basic-text"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://youtube.com/channel/UClsNPjs7VxuIR_-XkEKER6A" target="_blank">
                                 <i class="fa-brands fa-square-youtube fa-2x basic-text"></i>
                             </a>
                         </li>
