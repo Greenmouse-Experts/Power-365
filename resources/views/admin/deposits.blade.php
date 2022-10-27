@@ -29,7 +29,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="data-table" class="table table-bordered text-nowrap border-bottom">
+                                <table id="data-table" class="table table-bordered border-bottom">
                                     <thead>
                                         <tr> 
                                             <th class="border-bottom-0">S/N</th>

@@ -4,7 +4,8 @@
 $(function (e) {
 
 	// Basic Data Table
-	$('#basic-datatable').DataTable({
+	var table = $('#basic-datatable').DataTable({
+		buttons: ['copy', 'excel', 'pdf'],
 		language: {
 			searchPlaceholder: 'Search...',
 			sSearch: '',
@@ -22,7 +23,7 @@ $(function (e) {
 
 	// File-Export Data Table
 	var table = $('#file-datatable').DataTable({
-		buttons: ['copy', 'excel', 'pdf', 'colvis'],
+		buttons: ['copy', 'excel', 'pdf'],
 		responsive: true,
 		language: {
 			searchPlaceholder: 'Search...',
@@ -30,7 +31,7 @@ $(function (e) {
 		}
 	});
 	table.buttons().container()
-		.appendTo('#file-datatable_wrapper .col-md-6:eq(0)');
+		.appendTo('#file-datatable_wrapper .col-6:eq(0)');
 
 	// Delete Data Table
 	var table = $('#delete-datatable').DataTable({

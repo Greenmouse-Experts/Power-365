@@ -40,13 +40,8 @@
                 </div>
                 <div class="nav-button col-lg-3 mx-0 px-0 justify-self-end">
                     <div class="col-lg-4 login-btn">
-                    <!-- @auth -->
-                       <!-- <a class="text-decoration-none" href="/dashboard"><button class="btn fw-bold text-primary d-flex align-items-center">
-                                Dashboard<i class="fas fa-angle-double-right px-2"></i></button></a> -->
-                    <!-- @else -->
                          <a class="text-decoration-none" href="/login"><button class="btn fw-bold text-primary d-flex align-items-center">
                                 Login<i class="fas fa-angle-double-right px-2"></i></button></a>
-                    <!-- @endauth -->
                     </div>
                 </div>
             </div>

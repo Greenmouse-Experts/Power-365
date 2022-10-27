@@ -28,7 +28,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive export-table">
-                                <table id="file-datatable" class="table table-bordered text-nowrap key-buttons border-bottom w-100">
+                                <table id="file-datatable" class="table table-bordered key-buttons border-bottom w-100">
                                     <thead>
                                         <tr> 
                                             <th class="border-bottom-0">S/N</th>
