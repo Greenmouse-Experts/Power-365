@@ -480,32 +480,45 @@ class HomePageController extends Controller
                 'email' => $user->email
             );
 
-            /** Send message to the user */
-            Mail::send('emails.welcome', $data, function ($m) use ($data) {
-                $m->to($data['email'])->subject(config('app.name'));
-            });
+            try {
+                $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
+                $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
+                $from_number = config('app.twilio.from_number'); // Valid Twilio number
 
-            $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
-            $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
-            $from_number = config('app.twilio.from_number'); // Valid Twilio number
+                $client = new Client($sid, $auth_token);
 
-            $client = new Client($sid, $auth_token);
+                $client->messages->create(
+                    $user->phone_number, // Text this number
+                    [
+                        'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
+                        'from' => $from_number,
+                        'body' => 'Hello ' . $user->first_name . ' ' . $user->last_name . ', 
+                        Welcome to ' . config('app.name') . ' Entrepreneurial Show!
+                        Your account is now active.
+                        With us, your business can realize its full potential and contribute to a society full of opportunities for innovation and overall development.
+                        Get more information on our FAQ page or Contact Us directly.
+                        Best Regards, 
+                        The ' . config('app.name') . ' Team'
+                    ]
+                );
 
-            $client->messages->create(
-                $user->phone_number, // Text this number
-                [
-                    'from' => $from_number,
-                    'body' => 'Hello ' . $user->first_name . ' ' . $user->last_name . ', 
-                    Welcome to ' . config('app.name') . ' Entrepreneurial Show!
-                    Your account is now active.
-                    With us, your business can realize its full potential and contribute to a society full of opportunities for innovation and overall development.
-                    Get more information on our FAQ page or Contact Us directly.
-                    Best Regards, 
-                    The ' . config('app.name') . ' Team'
-                ]
-            );
+                /** Send message to the user */
+                Mail::send('emails.welcome', $data, function ($m) use ($data) {
+                    $m->to($data['email'])->subject(config('app.name'));
+                });
 
-            return redirect()->route('login')->with('success_report', 'Account Verified, proceed to login!');
+                return redirect()->route('login')->with('success_report', 'Account Verified, proceed to login!');
+
+            } catch(Exception $e) {
+                // return back()->with('failure_report', 'Phone number is not valid');
+
+               /** Send message to the user */
+                Mail::send('emails.welcome', $data, function ($m) use ($data) {
+                    $m->to($data['email'])->subject(config('app.name'));
+                });
+
+                return redirect()->route('login')->with('success_report', 'Account Verified, proceed to login!');
+            }  
         }
 
         return back()->with('failure_report', 'Incorrect Code');
@@ -638,7 +651,7 @@ class HomePageController extends Controller
             );
             // Send email to user
             Mail::to($request->email)->send(new SendCodeResetPassword($codeData->code));
-            
+
             return redirect()->route('user.reset.password')->with('success_report', 'We have emailed your password reset code!');
 
         } catch(Exception $e) {
