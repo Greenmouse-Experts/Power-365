@@ -375,7 +375,7 @@ class HomePageController extends Controller
         ]);
 
         
-        try {
+        // try {
             $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
             $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
             $from_number = config('app.twilio.from_number'); // Valid Twilio number
@@ -395,9 +395,9 @@ class HomePageController extends Controller
 
             return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
         
-        } catch(Exception $e) {
-            return back()->with('failure_report', 'Phone number is not valid');
-        }  
+        // } catch(Exception $e) {
+        //     return back()->with('failure_report', 'Phone number is not valid');
+        // }  
     }
 
     public function verify_account($email)
