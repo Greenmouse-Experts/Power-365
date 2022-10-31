@@ -383,11 +383,12 @@ class HomePageController extends Controller
             $client = new Client($sid, $auth_token);
 
             $client->messages->create(
-                $user->phone_number, // Text this number
+                $user->phone_number,
                 [
+                    'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
                     'from' => $from_number,
                     'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
-                ]
+                ] 
             );
             
             // Send email to user
@@ -396,7 +397,12 @@ class HomePageController extends Controller
             return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
         
         } catch(Exception $e) {
-            return back()->with('failure_report', 'Phone number is not valid');
+            // return back()->with('failure_report', 'Phone number is not valid');
+            
+             // Send email to user
+             $user->notify(new SendVerificationCode($user));
+
+             return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
         }  
     }
 
@@ -423,24 +429,33 @@ class HomePageController extends Controller
             'code' => $code
         ]);
 
-        // Send email to user
-        $user->notify(new SendVerificationCode($user));
+        try {
+            $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
+            $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
+            $from_number = config('app.twilio.from_number'); // Valid Twilio number
 
-        $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
-        $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
-        $from_number = config('app.twilio.from_number'); // Valid Twilio number
+            $client = new Client($sid, $auth_token);
 
-        $client = new Client($sid, $auth_token);
+            $client->messages->create(
+                $user->phone_number, // Text this number
+                [
+                    'from' => $from_number,
+                    'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
+                ]
+            );
+            
+            // Send email to user
+            $user->notify(new SendVerificationCode($user));
 
-        $message = $client->messages->create(
-            $user->phone_number, // Text this number
-            [
-                'from' => $from_number,
-                'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
-            ]
-        );
+            return back()->with('success_report', 'A fresh verification code has been sent to your email address and phone number.');
+        } catch(Exception $e) {
+            // return back()->with('failure_report', 'Phone number is not valid');
 
-        return back()->with('success_report', 'A fresh verification code has been sent to your email address and phone number.');
+            // Send email to user
+            $user->notify(new SendVerificationCode($user));
+
+            return back()->with('success_report', 'A fresh verification code has been sent to your email address and phone number.');
+        }  
     }
 
     public function registerConfirm($token, Request $request)
