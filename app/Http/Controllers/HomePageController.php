@@ -398,7 +398,7 @@ class HomePageController extends Controller
         
         } catch(Exception $e) {
             // return back()->with('failure_report', 'Phone number is not valid');
-            
+
              // Send email to user
              $user->notify(new SendVerificationCode($user));
 
@@ -439,6 +439,7 @@ class HomePageController extends Controller
             $client->messages->create(
                 $user->phone_number, // Text this number
                 [
+                    'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
                     'from' => $from_number,
                     'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
                 ]
@@ -558,25 +559,36 @@ class HomePageController extends Controller
                     'code' => $code
                 ]);
 
-                // Send email to user
-                $user->notify(new SendVerificationCode($user));
+                try {
+                    $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
+                    $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
+                    $from_number = config('app.twilio.from_number'); // Valid Twilio number
 
-                $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
-                $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
-                $from_number = config('app.twilio.from_number'); // Valid Twilio number
+                    $client = new Client($sid, $auth_token);
 
-                $client = new Client($sid, $auth_token);
-
-                $message = $client->messages->create(
-                    $user->phone_number, // Text this number
-                    [
-                        'from' => $from_number,
-                        'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
-                    ]
-                );
-
-                return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
-            }
+                    $client->messages->create(
+                        $user->phone_number, // Text this number
+                        [
+                            'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
+                            'from' => $from_number,
+                            'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
+                        ]
+                    );
+                    
+                    // Send email to user
+                    $user->notify(new SendVerificationCode($user));
+                    
+                    return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
+                
+                } catch(Exception $e) {
+                    // return back()->with('failure_report', 'Phone number is not valid');
+        
+                    // Send email to user
+                    $user->notify(new SendVerificationCode($user));
+        
+                    return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
+                }
+            }  
 
             return redirect()->route('home');
         } else {
@@ -609,24 +621,34 @@ class HomePageController extends Controller
             'code' => $code
         ]);
 
-        // Send email to user
-        Mail::to($request->email)->send(new SendCodeResetPassword($codeData->code));
+        try {
+            $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
+            $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
+            $from_number = config('app.twilio.from_number'); // Valid Twilio number
 
-        $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
-        $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
-        $from_number = config('app.twilio.from_number'); // Valid Twilio number
+            $client = new Client($sid, $auth_token);
 
-        $client = new Client($sid, $auth_token);
+            $client->messages->create(
+                $user->phone_number, // Text this number
+                [
+                    'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
+                    'from' => $from_number,
+                    'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' reset password code is: ' . $codeData->code
+                ]
+            );
+            // Send email to user
+            Mail::to($request->email)->send(new SendCodeResetPassword($codeData->code));
+            
+            return redirect()->route('user.reset.password')->with('success_report', 'We have emailed your password reset code!');
 
-        $message = $client->messages->create(
-            $user->phone_number, // Text this number
-            [
-                'from' => $from_number,
-                'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' reset password code is: ' . $codeData->code
-            ]
-        );
+        } catch(Exception $e) {
+            // return back()->with('failure_report', 'Phone number is not valid');
 
-        return redirect()->route('user.reset.password')->with('success_report', 'We have emailed your password reset code!');
+            // Send email to user
+            Mail::to($request->email)->send(new SendCodeResetPassword($codeData->code));
+
+            return redirect()->route('user.reset.password')->with('success_report', 'We have emailed your password reset code!');
+        }
     }
 
     public function password_reset_email()
