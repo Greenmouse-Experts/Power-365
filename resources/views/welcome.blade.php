@@ -69,7 +69,7 @@
             <button class="pause-btn" id="pause" onclick="pauseVid()">
                 <i class="fa-solid fa-circle-pause"></i>
             </button>
-            <video width="100%" id="video" preload="auto" loop>
+            <video width="100%" id="video" controls autoplay>
                 <source src="{{URL::asset('assets/images/advert.mp4')}}" type="video/mp4" />
             </video>
 

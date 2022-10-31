@@ -147,7 +147,7 @@
 							<p>Your account is now active.</p>
 							<p>With us, your business can realize its full potential and contribute to a society full
 								of opportunities for innovation and overall development.</p>
-							<p>Get more information on our FAQ page or Contact Us directly</p>
+							<p>Get more information on our <a href="{{route('faqs')}}" style="color: red;">FAQ Page</a> or <a href="{{route('contact')}}" style="color: red;">Contact Us</a> directly</p>
                         </td>
                     </tr>		
                     <tr>

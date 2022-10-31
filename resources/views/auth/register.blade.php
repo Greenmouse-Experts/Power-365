@@ -369,12 +369,16 @@
                                 <div class="reg-input2-inner">
                                     <label for="password">Password</label>
                                     <input type="password" name="password" placeholder="Password" required />
+                                    <!-- <i class="fa-regular fa-eye ps-2" style="margin-left: -2rem;" id="eye" onclick="Seepassword()"></i>
+                                    <i class="fa-solid fa-eye-slash" style="margin-left: -2rem;" id="cancel" onclick="Hidepassword()"></i> -->
                                 </div>
                             </div>
                             <div class="reg-input2" style="margin-left: 0px;">
                                 <div class="reg-input2-inner">
                                     <label for="passwordconfirm">Confirm Password</label>
                                     <input type="password" name="password_confirmation" placeholder="Confirm Password" required />
+                                    <!-- <i class="fa-regular fa-eye ps-2" style="margin-left: -2rem;" id="eyeconfirm" onclick="Seepassword()"></i>
+                                    <i class="fa-solid fa-eye-slash" style="margin-left: -2rem;" id="cancelconfirm" onclick="Hidepassword()"></i> -->
                                 </div>
                             </div>
                             <div class="question register-text">

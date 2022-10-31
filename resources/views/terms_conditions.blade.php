@@ -124,7 +124,7 @@
                 Beneficiaries must prepare to get their business registered with the
                 Corporate Affairs Commission (CAC) and other Business Regulatory
                 Bodies. They are duty-bound to grant our
-                <a href="about.html" class="text-decoration-none text-danger">e-Team</a>
+                <a href="/about" class="text-decoration-none text-danger">e-Team</a>
                 access to oversee how well they execute their business model.
             </p>
             <h5>Business Mentorship:</h5>
@@ -190,7 +190,7 @@
             <h5 class="mt-4">Atm Card From {{config('app.name')}}:</h5>
             <p>
                 A Business Debit Card will be issued by {{config('app.name')}} to eligible
-                beneficiaries who follow the "<a href="index.html#me2" class="text-decoration-none"><span class="text-danger">ME2 RULE</span></a>". This card is issued by Providus Bank Plc pursuant to a license
+                beneficiaries who follow the "<a href="/#me2" class="text-decoration-none"><span class="text-danger">ME2 RULE</span></a>". This card is issued by Providus Bank Plc pursuant to a license
                 by MasterCard Asia/Pacific Pte. in partnership with {{config('app.name')}}
                 Entrepreneurial Show Limited. By using this card, the holder agrees
                 to all the terms and conditions under which it is issued. {{config('app.name')}}

@@ -59,10 +59,12 @@
                             </div>
                         </div>
                         <div class="login-input">
-                            <label for="password">Password</label>
+                            <label for="pass">Password</label>
                             <div class="login-input-inner">
                                 <i class="fa-solid fa-lock px-2"></i>
-                                <input type="password" name="password" id="password" placeholder="Enter your password" required />
+                                <input type="password" name="password" id="pass" placeholder="Enter your password" required />
+                                <i class="fa-regular fa-eye ps-2" id="eye" onclick="Seepassword()"></i>
+                                <i class="fa-solid fa-eye-slash" id="cancel" onclick="Hidepassword()"></i>
                             </div>
                         </div>
                     </div>
@@ -74,6 +76,7 @@
         </div>
         </div>
     </main>
+    <script src="{{URL::asset('assets/js/main.js')}}"></script>
     <script>
         $(function() {
             $("form").submit(function() {
