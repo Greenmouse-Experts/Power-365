@@ -380,7 +380,7 @@
                             <div class="question register-text">
                                 <p>
                                     By clicking the Register button, you agree to our
-                                    <a href="/terms-conditions">General Terms and Conditions</a> and the Ethical Rules of the
+                                    <a href="/terms-conditions">General Terms and Conditions</a> and the <a href="/terms-conditions">Ethical Rules</a> of the
                                         {{config('app.name')}} Entreprenuerial Show
                                     and confirm that you have read our
                                     <a href="/privacy-policy">Privacy Policy</a> to learn how we collect, use,
