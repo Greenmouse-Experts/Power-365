@@ -492,7 +492,7 @@ class HomePageController extends Controller
                     [
                         'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
                         'from' => $from_number,
-                        'body' => "Hello " . $user->first_name . " " . $user->last_name . ", \n\nWelcome to Laravel Entrepreneurial Show! \n\nYour account is now active. \n\nWith us, your business can realise its full potential and contribute to a society full of opportunities for innovation and overall development. \n\nGet more information on our FAQ page or Contact Us directly. \n\nBest Regards, \nThe Laravel Team"
+                        'body' => "Hello " . $user->first_name . " " . $user->last_name . ", \n\nWelcome to ".config('app.name')." Entrepreneurial Show! \n\nYour account is now active. \n\nWith us, your business can realise its full potential and contribute to a society full of opportunities for innovation and overall development. \n\nGet more information on our FAQ page or Contact Us directly. \n\nBest Regards, \nThe ".config('app.name')." Team"
                     ]
                 );
 
