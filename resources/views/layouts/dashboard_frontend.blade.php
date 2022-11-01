@@ -7,7 +7,7 @@
     <!-- META DATA -->
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-    
+
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/x-icon" href="{{URL::asset('assets/images/logo.jpg')}}" />
 
@@ -55,7 +55,7 @@
         <!-- FOOTER END -->
 
     </div>
-    
+
     <!-- BACK-TO-TOP -->
     <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
@@ -90,14 +90,78 @@
     <script src="{{URL::asset('dash/assets/plugins/datatable/js/dataTables.bootstrap5.js')}}"></script>
     <script src="{{URL::asset('dash/assets/plugins/datatable/dataTables.responsive.min.js')}}"></script>
     <script src="{{URL::asset('dash/assets/plugins/datatable/dataTables.responsive.min.js')}}"></script>
-	<script src="{{URL::asset('dash/assets/plugins/datatable/responsive.bootstrap5.min.js')}}"></script>
-	<script src="{{URL::asset('dash/assets/js/table-data.js')}}"></script>
+    <script src="{{URL::asset('dash/assets/plugins/datatable/responsive.bootstrap5.min.js')}}"></script>
+    <script src="{{URL::asset('dash/assets/js/table-data.js')}}"></script>
 
     <!-- INDEX JS -->
     <script src="{{URL::asset('dash/assets/js/index1.js')}}"></script>
 
     <!-- CUSTOM JS -->
     <script src="{{URL::asset('dash/assets/js/custom.js')}}"></script>
+
+    <script>
+        // see password
+        function SeePassword() {
+            let input = document.getElementById("npassword");
+            let eye = document.getElementById("eye");
+            let cancel = document.getElementById("cancel")
+
+
+            if (input.type === "password") {
+                input.type = "text"
+                eye.style.display = "none"
+                cancel.style.display = "inline-block"
+            } else {
+                input.type = "password"
+                eye.style.display = "inline-block"
+                cancel.style.display = "none"
+            }
+
+        }
+        // hide password
+        function HidePassword() {
+            let input = document.getElementById("npassword");
+            let eye = document.getElementById("eye");
+            let cancel = document.getElementById("cancel");
+
+            if (input.type === "text") {
+                input.type = "password"
+                eye.style.display = "inline-block"
+                cancel.style.display = "none"
+            }
+        }
+
+        // see password
+        function SeeConfirmPassword() {
+            let input = document.getElementById("cnpassword");
+            let eye = document.getElementById("eyeConfirm");
+            let cancel = document.getElementById("cancelConfirm")
+
+
+            if (input.type === "password") {
+                input.type = "text"
+                eye.style.display = "none"
+                cancel.style.display = "inline-block"
+            } else {
+                input.type = "password"
+                eye.style.display = "inline-block"
+                cancel.style.display = "none"
+            }
+
+        }
+        // hide password
+        function HideConfirmPassword() {
+            let input = document.getElementById("cnpassword");
+            let eye = document.getElementById("eyeConfirm");
+            let cancel = document.getElementById("cancelConfirm");
+
+            if (input.type === "text") {
+                input.type = "password"
+                eye.style.display = "inline-block"
+                cancel.style.display = "none"
+            }
+        }
+    </script>
 </body>
 
 </html>

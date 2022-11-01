@@ -112,8 +112,70 @@
     <script src="{{URL::asset('dash/assets/js/custom.js')}}"></script>
 
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-    
+
     <script type="text/javascript">
+        // see password
+        function SeePassword() {
+            let input = document.getElementById("npassword");
+            let eye = document.getElementById("eye");
+            let cancel = document.getElementById("cancel")
+
+
+            if (input.type === "password") {
+                input.type = "text"
+                eye.style.display = "none"
+                cancel.style.display = "inline-block"
+            } else {
+                input.type = "password"
+                eye.style.display = "inline-block"
+                cancel.style.display = "none"
+            }
+
+        }
+        // hide password
+        function HidePassword() {
+            let input = document.getElementById("npassword");
+            let eye = document.getElementById("eye");
+            let cancel = document.getElementById("cancel");
+
+            if (input.type === "text") {
+                input.type = "password"
+                eye.style.display = "inline-block"
+                cancel.style.display = "none"
+            }
+        }
+
+        // see password
+        function SeeConfirmPassword() {
+            let input = document.getElementById("cnpassword");
+            let eye = document.getElementById("eyeConfirm");
+            let cancel = document.getElementById("cancelConfirm")
+
+
+            if (input.type === "password") {
+                input.type = "text"
+                eye.style.display = "none"
+                cancel.style.display = "inline-block"
+            } else {
+                input.type = "password"
+                eye.style.display = "inline-block"
+                cancel.style.display = "none"
+            }
+
+        }
+        // hide password
+        function HideConfirmPassword() {
+            let input = document.getElementById("cnpassword");
+            let eye = document.getElementById("eyeConfirm");
+            let cancel = document.getElementById("cancelConfirm");
+
+            if (input.type === "text") {
+                input.type = "password"
+                eye.style.display = "inline-block"
+                cancel.style.display = "none"
+            }
+        }
+
         $(document).ready(function() {
             $('.ckeditor').ckeditor();
         });
