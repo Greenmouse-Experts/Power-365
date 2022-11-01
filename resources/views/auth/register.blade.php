@@ -52,7 +52,7 @@
                     <div class="logo">
                         <a href="/"><img src="{{URL::asset('assets/images/logo1.png')}}" alt="" width="100%" /></a>
                     </div>
-                    <h3 class="text-center my-4">REGISTRATION PORTAL<p /h3>
+                    <h3 class="text-center my-4">REGISTRATION PORTAL</h3>
                 </header>
             </div>
             <div class="reg-carousel content carousel slide" data-bs-ride="carousel" id="regform" data-bs-interval="false">
@@ -131,7 +131,7 @@
                                 <textarea name="learning_opportunity" class="half" id="opportunity" cols="40" rows="3" required></textarea>
                             </div> -->
                             <div class="text-end mt-3">
-                                <button class="btn basic-bg text-white px-4" type="button" data-bs-target="#regform" data-bs-slide="next">
+                                <button class="btn basic-bg text-white px-4" onclick="topfunction()" type="button" data-bs-target="#regform" data-bs-slide="next">
                                     Next<i class="px-3 fa-solid fa-forward"></i>
                                 </button>
                             </div>
@@ -476,6 +476,11 @@
                 $('#loader').show();
             });
         });
+
+        $('#regform').on('slid.bs.carousel', function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        })
     </script>
 </body>
 
