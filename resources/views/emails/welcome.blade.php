@@ -145,7 +145,7 @@
                         <td align="left" style="padding: 20px 30px 40px 30px; color: #000; border-top: none; border-bottom: none; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
 							<p>Welcome to {{ config('app.name') }} Entrepreneurial Show!</p>
 							<p>Your account is now active.</p>
-							<p>With us, your business can realize its full potential and contribute to a society full
+							<p>With us, your business can realise its full potential and contribute to a society full
 								of opportunities for innovation and overall development.</p>
 							<p>Get more information on our <a href="{{route('faqs')}}" style="color: red;">FAQ Page</a> or <a href="{{route('contact')}}" style="color: red;">Contact Us</a> directly.</p>
                         </td>
