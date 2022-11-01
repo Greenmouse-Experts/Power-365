@@ -72,23 +72,3 @@
         </div>
     </div>
 </footer>
-<div class="row cookies align-items-center py-2 pb-1 px-4 justify-content-between" id="cookies">
-    <div class="col-lg-8">
-        <p>
-            By clicking “Accept All Cookies” you agree to the storing of cookies
-            on your device to enhance site navigation, analyze site usage, and
-            assist in our marketing efforts. For more information visit our
-            <a href="/privacy-policy" class="text-decoration-none text-primary">Privacy Policy</a>.
-        </p>
-    </div>
-    <div class="col-lg-3 row align-items-center">
-        <div class="col-10">
-            <button class="btn btn-primary px-3 cookies" onclick="cookies()">
-                Accept All Cookies
-            </button>
-        </div>
-        <div class="col-2 text-end">
-            <i class="fa-solid fa-xmark pe-4"></i>
-        </div>
-    </div>
-</div>

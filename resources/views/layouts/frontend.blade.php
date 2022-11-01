@@ -34,7 +34,7 @@
     </div>
     @yield('page-content')
     <!-- footer -->
-        @includeIf('layouts.frontend-footer')
+    @includeIf('layouts.frontend-footer')
     <!-- end footer -->
     <script src="{{URL::asset('assets/js/main.js')}}"></script>
     <script>
