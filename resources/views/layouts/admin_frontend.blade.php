@@ -22,6 +22,8 @@
     <!-- STYLE CSS -->
     <link href="{{URL::asset('dash/assets/css/style.css')}}" rel="stylesheet" />
     <link href="{{URL::asset('dash/assets/css/skin-modes.css')}}" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/997b229808.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/734378a53a.js" crossorigin="anonymous"></script>
 
     <!--- FONT-ICONS CSS -->
     <link href="{{URL::asset('dash/assets/css/icons.css')}}" rel="stylesheet" />

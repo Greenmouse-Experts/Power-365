@@ -309,7 +309,7 @@
                         <div class="carousel-item" style="margin-top: 25px;">
                             <div class="question">
                                 <label for="question7">
-                                    How much would you reqiure to kickstart or upscale your
+                                    How much would you require to kickstart or upscale your
                                     business or idea?
                                 </label>
                                 <select name="business_amount" id="question7" required>

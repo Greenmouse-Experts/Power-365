@@ -492,13 +492,7 @@ class HomePageController extends Controller
                     [
                         'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
                         'from' => $from_number,
-                        'body' => 'Hello ' . $user->first_name . ' ' . $user->last_name . ', 
-                        Welcome to ' . config('app.name') . ' Entrepreneurial Show!
-                        Your account is now active.
-                        With us, your business can realize its full potential and contribute to a society full of opportunities for innovation and overall development.
-                        Get more information on our FAQ page or Contact Us directly.
-                        Best Regards, 
-                        The ' . config('app.name') . ' Team'
+                        'body' => "Hello " . $user->first_name . " " . $user->last_name . ", \n \n Welcome to Laravel Entrepreneurial Show! \n\n Your account is now active. \n\n With us, your business can realize its full potential and contribute to a society full of opportunities for innovation and overall development. \n\n Get more information on our FAQ page or Contact Us directly. \n\n Best Regards, \n The Laravel Team"
                     ]
                 );
 
@@ -719,13 +713,7 @@ class HomePageController extends Controller
             [
                 'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
                 'from' => $from_number,
-                'body' => 'Hello ,'.$facebook.'
-                Welcome to Laravel Entrepreneurial Show!
-                Your account is now active.
-                With us, your business can realize its full potential and contribute to a society full of opportunities for innovation and overall development. ◀
-                Get more information on our FAQ page or Contact Us directly.
-                Best Regards, 
-                The Laravel Team'
+                'body' => "Hello ".$facebook.", \n \n Welcome to Laravel Entrepreneurial Show! \n\n Your account is now active. \n\n With us, your business can realize its full potential and contribute to a society full of opportunities for innovation and overall development. \n\n Get more information on our FAQ page or Contact Us directly. \n\n Best Regards, \n The Laravel Team"
             ]
         );
 

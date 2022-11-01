@@ -14,7 +14,7 @@
                 <div class="ms-auto pageheader-btn">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">User</li>
+                        <li class="breadcrumb-item active" aria-current="page">Subscriber</li>
                     </ol>
                 </div>
             </div>
@@ -223,6 +223,8 @@
                                                         <div class="col-12">
                                                             <label for="npassword" class="form-label">New Password</label>
                                                             <input type="password" class="form-control" id="npassword" name="new_password" placeholder="New Password" required>
+                                                            <i class="fa-regular fa-eye ps-2" style="position: absolute; right: 1.5rem; top: 3rem;" id="eye" onclick="SeePassword()"></i>
+                                                            <i class="fa-solid fa-eye-slash" style="display:none; position: absolute; right: 1.5rem; top: 3rem;" id="cancel" onclick="HidePassword()"></i>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -230,7 +232,9 @@
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <label for="cnpassword" class="form-label">Confirm New Password</label>
-                                                            <input type="password" class="form-control" id="cnpassword" name="new_password_confirmation" placeholder="Confirm New  Password" required>
+                                                            <input type="password" class="form-control" id="cnpassword" name="new_password_confirmation" placeholder="Confirm New Password" required>
+                                                            <i class="fa-regular fa-eye ps-2" style="position: absolute; right: 1.5rem; top: 3rem;" id="eyeConfirm" onclick="SeeConfirmPassword()"></i>
+                                                            <i class="fa-solid fa-eye-slash" style="display:none; position: absolute; right: 1.5rem; top: 3rem;" id="cancelConfirm" onclick="HideConfirmPassword()"></i>
                                                         </div>
                                                     </div>
                                                 </div>
