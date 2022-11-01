@@ -317,7 +317,7 @@ class HomePageController extends Controller
             'business_address' => ['required', 'string', 'max:255'],
             'state_of_origin' => ['required', 'string', 'max:255'],
             'lga_of_origin' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'string', 'max:255', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'max:255', 'confirmed'],
             'business_number' => ['required', 'numeric'],
             'whatsapp_number' => ['required', 'numeric'],
             'business_registered' => ['required', 'string', 'max:255'],
