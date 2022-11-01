@@ -385,7 +385,7 @@
                                 <p>
                                     By clicking the Register button, you agree to our
                                     <a href="/terms-conditions">General Terms and Conditions</a> and the <a href="/terms-conditions">Ethical Rules</a> of the
-                                        {{config('app.name')}} Entreprenuerial Show
+                                    {{config('app.name')}} Entreprenuerial Show
                                     and confirm that you have read our
                                     <a href="/privacy-policy">Privacy Policy</a> to learn how we collect, use,
                                     and share data.
@@ -406,8 +406,69 @@
             </div>
         </div>
     </main>
-    <script src="{{URL::asset('assets/js/main.js')}}"></script>
     <script>
+        // see password
+        function Seeregpassword() {
+            let input = document.getElementById("pass");
+            let eye = document.getElementById("eye");
+            let cancel = document.getElementById("cancel")
+
+
+            if (input.type === "password") {
+                input.type = "text"
+                eye.style.display = "none"
+                cancel.style.display = "inline-block"
+            } else {
+                input.type = "password"
+                eye.style.display = "inline-block"
+                cancel.style.display = "none"
+            }
+
+        }
+        // hide password
+        function Hideregpassword() {
+            let input = document.getElementById("pass");
+            let eye = document.getElementById("eye");
+            let cancel = document.getElementById("cancel");
+
+            if (input.type === "text") {
+                input.type = "password"
+                eye.style.display = "inline-block"
+                cancel.style.display = "none"
+            }
+        }
+
+        // see password
+        function Seeconfirmregpassword() {
+            let input = document.getElementById("cpass");
+            let eye = document.getElementById("eyeconfirm");
+            let cancel = document.getElementById("cancelconfirm")
+
+
+            if (input.type === "password") {
+                input.type = "text"
+                eye.style.display = "none"
+                cancel.style.display = "inline-block"
+            } else {
+                input.type = "password"
+                eye.style.display = "inline-block"
+                cancel.style.display = "none"
+            }
+
+        }
+        // hide password
+        function Hideconfirmregpassword() {
+            let input = document.getElementById("cpass");
+            let eye = document.getElementById("eyeconfirm");
+            let cancel = document.getElementById("cancelconfirm");
+
+            if (input.type === "text") {
+                input.type = "password"
+                eye.style.display = "inline-block"
+                cancel.style.display = "none"
+            }
+        }
+        
         $(function() {
             $("form").submit(function() {
                 $('#loader').show();
