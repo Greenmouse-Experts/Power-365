@@ -63,13 +63,7 @@
     <!-- video section starts-->
     <section class="section video-sec">
         <div class="container position-relative">
-            <button class="play-btn" id="play" onclick="playVid()">
-                <i class="fa-solid fa-circle-play"></i>
-            </button>
-            <button class="pause-btn" id="pause" onclick="pauseVid()">
-                <i class="fa-solid fa-circle-pause"></i>
-            </button>
-            <video width="100%" id="video" controls autoplay>
+            <video width="100%" id="video" autoplay>
                 <source src="{{URL::asset('assets/images/advert.mp4')}}" type="video/mp4" />
             </video>
 
