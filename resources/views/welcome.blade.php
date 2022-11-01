@@ -63,8 +63,8 @@
     <!-- video section starts-->
     <section class="section video-sec">
         <div class="container position-relative">
-            <video width="100%" id="video" autoplay>
-                <source src="{{URL::asset('assets/images/advert.mp4')}}" type="video/mp4" />
+            <video width="100%" id="video" controls autoplay>
+                <source src="{{URL::asset('assets/images/power365.mp4')}}" type="video/mp4" />
             </video>
 
             <div class="text-center">
