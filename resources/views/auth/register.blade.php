@@ -371,6 +371,7 @@
                                     <input type="password" name="password" id="pass" placeholder="Password" required />
                                     <i class="fa-regular fa-eye ps-2" style="margin-left: -2rem;" id="eye" onclick="Seeregpassword()"></i>
                                     <i class="fa-solid fa-eye-slash" style="margin-left: -2rem;" id="cancel" onclick="Hideregpassword()"></i>
+                                    <div class="text-danger">The password must be at least 8 characters.</div>
                                 </div>
                             </div>
                             <div class="reg-input2" style="margin-left: 0px;">
@@ -379,6 +380,7 @@
                                     <input type="password" name="password_confirmation" id="cpass" placeholder="Confirm Password" required />
                                     <i class="fa-regular fa-eye ps-2" style="margin-left: -2rem;" id="eyeconfirm" onclick="Seeconfirmregpassword()"></i>
                                     <i class="fa-solid fa-eye-slash" style="margin-left: -2rem; display: none;" id="cancelconfirm" onclick="Hideconfirmregpassword()"></i>
+                                    <div class="text-danger">The password must be at least 8 characters.</div>
                                 </div>
                             </div>
                             <div class="question register-text">
@@ -468,7 +470,7 @@
                 cancel.style.display = "none"
             }
         }
-        
+
         $(function() {
             $("form").submit(function() {
                 $('#loader').show();
