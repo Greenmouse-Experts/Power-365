@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-<div class="row cookies align-items-center py-2 pb-1 px-4 justify-content-between" id="cookies">
+<div class="row cookies align-items-center py-2 pb-1 px-4 justify-content-between" style="font-size: 14px !important; position: fixed; bottom: 1px; background-color: #fff; z-index: 100;" id="cookies">
     <div class="col-lg-8">
         <p>
             By clicking “Accept All Cookies” you agree to the storing of cookies
@@ -86,7 +86,7 @@
                 <source src="{{URL::asset('assets/images/power365.mp4')}}" type="video/mp4" />
             </video>
 
-            <div class="text-center">
+            <div class="text-center mt-2">
                 <a href="{{route('subscribe')}}">
                     <button class="btn basic-bg text-white fs-6 px-4 video-btn fw-bold">
                         Apply
