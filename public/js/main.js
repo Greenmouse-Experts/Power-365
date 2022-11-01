@@ -1,5 +1,3 @@
 //Animation
 AOS.init();
 //Counter
-
-

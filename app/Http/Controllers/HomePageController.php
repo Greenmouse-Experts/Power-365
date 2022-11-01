@@ -712,13 +712,24 @@ class HomePageController extends Controller
 
         $client = new Client($sid, $auth_token);
 
+        $facebook = 'https://www.facebook.com/';
+
         $message = $client->messages->create(
             '+2348161215848', // Text this number
             [
+                'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
                 'from' => $from_number,
-                'body' => 'Hello Promise, Welcome To Power-365!'
+                'body' => 'Hello ,'.$facebook.'
+                Welcome to Laravel Entrepreneurial Show!
+                Your account is now active.
+                With us, your business can realize its full potential and contribute to a society full of opportunities for innovation and overall development. ◀
+                Get more information on our FAQ page or Contact Us directly.
+                Best Regards, 
+                The Laravel Team'
             ]
         );
+
+        dd($message);
     }
 
     public function admin_login()

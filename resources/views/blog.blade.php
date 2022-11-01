@@ -1,6 +1,17 @@
 @extends('layouts.frontend')
 
 @section('page-content')
+<!--header of the index page-->
+<div class="top-part about-hero">
+    <!-- header -->
+        @includeIf('layouts.frontend-header')
+    <!-- end-header -->
+    <div class="container ab-text">
+        <div class="ab-text-inner">
+            <h1>Blog</h1>
+        </div>
+    </div>
+</div>
 <section class="blog-section">
     <div class="container">
         <div class="our-blog">
@@ -17,7 +28,7 @@
                         <a href="#" class="text-decoration-none">Power-365 opens up to public patronage</a>
                     </h6>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+                        Lorem ipsum dolor sit amet` consectetur adipisicing elit. Tempore
                         voluptatem tenetur architecto culpa praesentium. Modi suscipit
                         incidunt ipsam asperiores ipsa nostrum corrupti porro nemo,
                         magnam totam fugit dolore? Recusandae.

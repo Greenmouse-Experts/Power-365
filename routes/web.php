@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/test', [App\Http\Controllers\HomePageController::class, 'sms']);
+
 Route::get('/', [App\Http\Controllers\HomePageController::class, 'index']);
 Route::get('/about', [App\Http\Controllers\HomePageController::class, 'about']);
 Route::get('/beneficiaries', [App\Http\Controllers\HomePageController::class, 'beneficiaries']);

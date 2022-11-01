@@ -44,13 +44,13 @@
                     3rd floor, Polystar Building, Marwa Bus-stop, Lekki Phase 1,
                     Lagos, Nigeria.
                 </p>
-                <p>+234 816 530 0908</p>
-                <p>+234 708 261 7683</p>
+                <p><a href="tel:+2348165300908" style="text-decoration: none; color: #fff !important;">+234 816 530 0908</a></p>
+                <p><a href="tel:+2347082617683" style="text-decoration: none; color: #fff !important;">+234 708 261 7683</a></p>
             </div>
             <div class="col-lg-3 foot-col">
                 <h5>ENQUIRIES</h5>
                 <ul>
-                    <li><a href="mailto:support@power365es.com">support@power365es.com</a></li>
+                    <li><a href="mailto:support@power365es.com" style="text-decoration: none;">support@power365es.com</a></li>
                 </ul>
             </div>
         </div>

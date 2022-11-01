@@ -17,18 +17,18 @@
     <div class="row justify-content-evenly box-main">
         <div class="col-lg-3 contact-box">
             <i class="fa-solid fa-phone-volume fa-2x pb-2 text-primary"></i>
-            <h6>Phone lines</h6>
-            <p class="mt-3">+234 816 530 0908</p>
-            <p class="">+234 708 261 7683</p>
+            <h6>Phone Lines</h6>
+            <p class="mt-3"><a href="tel:+2348165300908" style="text-decoration: none;">+234 816 530 0908</a></p>
+            <p class><a href="tel:+2347082617683" style="text-decoration: none;">+234 708 261 7683</a></p>
         </div>
         <div class="col-lg-3 contact-box">
             <i class="fa-solid fa-envelope-circle-check fa-2x pb-2 text-warning"></i>
             <h6>Email Support</h6>
-            <p class="mt-4">support@power365es.com</p>
+            <p class="mt-4"><a href="mailto:support@power365es.com" style="text-decoration: none;">support@power365es.com</a></p>
         </div>
         <div class="col-lg-3 contact-box">
             <i class="fa-solid fa-magnifying-glass-location fa-2x pb-2 text-success"></i>
-            <h6>Office Adress</h6>
+            <h6>Office Address</h6>
             <p>
                 3rd floor, Polystar Building, Marwa Bus-stop, Lekki Phase 1,
                 Lagos, Nigeria.

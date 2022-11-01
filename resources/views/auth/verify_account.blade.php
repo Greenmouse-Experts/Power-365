@@ -49,7 +49,7 @@
                     <p class="pt-1 opacity-50">Before proceeding, please check your email and phone number for a verification code.</p>
                 </div>
                 @includeIf('layouts.error_template')
-                <form  method="POST" action="{{ route('email.confirmation', Crypt::encrypt($user->id)) }}">
+                <form method="POST" action="{{ route('email.confirmation', Crypt::encrypt($user->id)) }}">
                     @csrf
                     <div class="">
                         <div class="login-input">
@@ -64,7 +64,7 @@
                     </div>
                 </form>
                 <div class="text-center">
-                    <form class="sign-div" method="POST" action="{{ route('email.verify.resend', Crypt::encrypt($user->id)) }}">
+                    <form class="sign-div" method="POST" action="{{ route('email.verify.resend', Crypt::encrypt($user->email)) }}">
                         @csrf
                         <div class="login-input continue">
                             {{ __('If you did not receive the email') }},

@@ -67,7 +67,7 @@
                     <!--the carousel containing the forms-->
                     <form method="POST" action="{{ route('post.register', Crypt::encrypt($user->id)) }}" enctype="multipart/form-data">
                         @csrf
-                        <div class="carousel-item active">
+                        <div class="carousel-item active" style="margin-top: 25px;">
                             @includeIf('layouts.error_template')
                             <div class="reg-input">
                                 <label for="fullname">Full name</label>
@@ -136,7 +136,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="carousel-item">
+                        <div class="carousel-item" style="margin-top: 25px;">
                             <div class="head-reg">
                                 <h5>ADDRESS DETAILS</h5>
                             </div>
@@ -208,7 +208,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="carousel-item">
+                        <div class="carousel-item" style="margin-top: 25px;">
                             <div class="mt-3 head-reg">
                                 <h5>Answer the Following</h5>
                             </div>
@@ -306,7 +306,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="carousel-item">
+                        <div class="carousel-item" style="margin-top: 25px;">
                             <div class="question">
                                 <label for="question7">
                                     How much would you reqiure to kickstart or upscale your
@@ -368,17 +368,17 @@
                             <div class="reg-input2" style="margin-left: 0px;">
                                 <div class="reg-input2-inner">
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" placeholder="Password" required />
-                                    <!-- <i class="fa-regular fa-eye ps-2" style="margin-left: -2rem;" id="eye" onclick="Seepassword()"></i>
-                                    <i class="fa-solid fa-eye-slash" style="margin-left: -2rem;" id="cancel" onclick="Hidepassword()"></i> -->
+                                    <input type="password" name="password" id="pass" placeholder="Password" required />
+                                    <i class="fa-regular fa-eye ps-2" style="margin-left: -2rem;" id="eye" onclick="Seeregpassword()"></i>
+                                    <i class="fa-solid fa-eye-slash" style="margin-left: -2rem;" id="cancel" onclick="Hideregpassword()"></i>
                                 </div>
                             </div>
                             <div class="reg-input2" style="margin-left: 0px;">
                                 <div class="reg-input2-inner">
                                     <label for="passwordconfirm">Confirm Password</label>
-                                    <input type="password" name="password_confirmation" placeholder="Confirm Password" required />
-                                    <!-- <i class="fa-regular fa-eye ps-2" style="margin-left: -2rem;" id="eyeconfirm" onclick="Seepassword()"></i>
-                                    <i class="fa-solid fa-eye-slash" style="margin-left: -2rem;" id="cancelconfirm" onclick="Hidepassword()"></i> -->
+                                    <input type="password" name="password_confirmation" id="cpass" placeholder="Confirm Password" required />
+                                    <i class="fa-regular fa-eye ps-2" style="margin-left: -2rem;" id="eyeconfirm" onclick="Seeconfirmregpassword()"></i>
+                                    <i class="fa-solid fa-eye-slash" style="margin-left: -2rem; display: none;" id="cancelconfirm" onclick="Hideconfirmregpassword()"></i>
                                 </div>
                             </div>
                             <div class="question register-text">
