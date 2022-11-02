@@ -390,8 +390,17 @@ class HomePageController extends Controller
         //         ] 
         //     );
             
-            // Send email to user
-            $user->notify(new SendVerificationCode($user));
+            /** Store information to include in mail in $data as an array */
+            $data = array(
+                'name' => $user->first_name,
+                'code' => $user->code,
+                'email' => $user->email
+            );
+
+            /** Send message to the user */
+            Mail::send('emails.verification', $data, function ($m) use ($data) {
+                $m->to($data['email'])->subject(config('app.name').' Verification Code');
+            });
 
             return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
         
@@ -444,8 +453,17 @@ class HomePageController extends Controller
         //         ]
         //     );
             
-            // Send email to user
-            $user->notify(new SendVerificationCode($user));
+            /** Store information to include in mail in $data as an array */
+            $data = array(
+                'name' => $user->first_name,
+                'code' => $user->code,
+                'email' => $user->email
+            );
+
+            /** Send message to the user */
+            Mail::send('emails.verification', $data, function ($m) use ($data) {
+                $m->to($data['email'])->subject(config('app.name').' Verification Code');
+            });
 
             return back()->with('success_report', 'A fresh verification code has been sent to your email address and phone number.');
         
@@ -582,8 +600,17 @@ class HomePageController extends Controller
                 //         ]
                 //     );
                     
-                    // Send email to user
-                    $user->notify(new SendVerificationCode($user));
+                    /** Store information to include in mail in $data as an array */
+                    $data = array(
+                        'name' => $user->first_name,
+                        'code' => $user->code,
+                        'email' => $user->email
+                    );
+
+                    /** Send message to the user */
+                    Mail::send('emails.verification', $data, function ($m) use ($data) {
+                        $m->to($data['email'])->subject(config('app.name').' Verification Code');
+                    });
                     
                     return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
                 
