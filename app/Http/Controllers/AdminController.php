@@ -172,7 +172,7 @@ class AdminController extends Controller
     {
         //Validate Request
         $this->validate($request, [
-            'photo' => 'required|mimes:jpeg,png,jpg',
+            'photo' => 'required|mimes:jpeg,png,jpg|max:1024',
         ]);
 
         //Find User
@@ -447,6 +447,14 @@ class AdminController extends Controller
     public function shuffle()
     {
         $users = User::where('user_type', 'Client')->get();
+
+        if($users->isEmpty())
+        {
+            return back()->with([
+                'type' => 'danger',
+                'message' => 'No Subscriber on the list.'
+            ]);
+        }
 
         $shuffle = $users->random(1)->first();
 

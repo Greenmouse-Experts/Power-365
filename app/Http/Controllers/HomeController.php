@@ -206,7 +206,7 @@ class HomeController extends Controller
     {
         //Validate Request
         $this->validate($request, [
-            'photo' => 'required|mimes:jpeg,png,jpg',
+            'photo' => 'required|mimes:jpeg,png,jpg|max:1024',
         ]);
 
         //Find User
