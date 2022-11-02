@@ -101,13 +101,13 @@ class HomePageController extends Controller
             'i_agree' => ['required', 'string', 'max:255']
         ]);
 
-        try {
-            $sid = config('app.twilio.sid'); 
-            $token = config('app.twilio.auth_token');
-            $twilio = new Client($sid, $token);
+        // try {
+        //     $sid = config('app.twilio.sid'); 
+        //     $token = config('app.twilio.auth_token');
+        //     $twilio = new Client($sid, $token);
 
-            $twilio->lookups->v1->phoneNumbers(substr_replace($request->phone_number,'+234',0,1))
-                                        ->fetch();
+        //     $twilio->lookups->v1->phoneNumbers(substr_replace($request->phone_number,'+234',0,1))
+        //                                 ->fetch();
 
             $user = User::create([
                 'user_type' => 'Client',
@@ -121,9 +121,9 @@ class HomePageController extends Controller
 
             return redirect()->route('user.make.payment', Crypt::encrypt($user->id))->with('success_report', 'Complete Registration');
 
-        } catch(Exception $e) {
-            return back()->with('failure_report', 'Phone number is not valid');
-        }        
+        // } catch(Exception $e) {
+        //     return back()->with('failure_report', 'Phone number is not valid');
+        // }        
     }
 
     public function payment($user, Request $request)
@@ -374,36 +374,35 @@ class HomePageController extends Controller
             'code' => $code
         ]);
 
-        
-        try {
-            $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
-            $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
-            $from_number = config('app.twilio.from_number'); // Valid Twilio number
+        // try {
+        //     $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
+        //     $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
+        //     $from_number = config('app.twilio.from_number'); // Valid Twilio number
 
-            $client = new Client($sid, $auth_token);
+        //     $client = new Client($sid, $auth_token);
 
-            $client->messages->create(
-                $user->phone_number,
-                [
-                    'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
-                    'from' => $from_number,
-                    'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
-                ] 
-            );
+        //     $client->messages->create(
+        //         $user->phone_number,
+        //         [
+        //             'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
+        //             'from' => $from_number,
+        //             'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
+        //         ] 
+        //     );
             
             // Send email to user
             $user->notify(new SendVerificationCode($user));
 
             return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
         
-        } catch(Exception $e) {
-            // return back()->with('failure_report', 'Phone number is not valid');
+        // } catch(Exception $e) {
+        //     // return back()->with('failure_report', 'Phone number is not valid');
 
-             // Send email to user
-             $user->notify(new SendVerificationCode($user));
+        //      // Send email to user
+        //      $user->notify(new SendVerificationCode($user));
 
-             return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
-        }  
+        //      return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
+        // }  
     }
 
     public function verify_account($email)
@@ -429,34 +428,35 @@ class HomePageController extends Controller
             'code' => $code
         ]);
 
-        try {
-            $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
-            $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
-            $from_number = config('app.twilio.from_number'); // Valid Twilio number
+        // try {
+        //     $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
+        //     $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
+        //     $from_number = config('app.twilio.from_number'); // Valid Twilio number
 
-            $client = new Client($sid, $auth_token);
+        //     $client = new Client($sid, $auth_token);
 
-            $client->messages->create(
-                $user->phone_number, // Text this number
-                [
-                    'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
-                    'from' => $from_number,
-                    'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
-                ]
-            );
+        //     $client->messages->create(
+        //         $user->phone_number, // Text this number
+        //         [
+        //             'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
+        //             'from' => $from_number,
+        //             'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
+        //         ]
+        //     );
             
             // Send email to user
             $user->notify(new SendVerificationCode($user));
 
             return back()->with('success_report', 'A fresh verification code has been sent to your email address and phone number.');
-        } catch(Exception $e) {
-            // return back()->with('failure_report', 'Phone number is not valid');
+        
+        // } catch(Exception $e) {
+        //     // return back()->with('failure_report', 'Phone number is not valid');
 
-            // Send email to user
-            $user->notify(new SendVerificationCode($user));
+        //     // Send email to user
+        //     $user->notify(new SendVerificationCode($user));
 
-            return back()->with('success_report', 'A fresh verification code has been sent to your email address and phone number.');
-        }  
+        //     return back()->with('success_report', 'A fresh verification code has been sent to your email address and phone number.');
+        // }  
     }
 
     public function registerConfirm($token, Request $request)
@@ -480,21 +480,21 @@ class HomePageController extends Controller
                 'email' => $user->email
             );
 
-            try {
-                $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
-                $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
-                $from_number = config('app.twilio.from_number'); // Valid Twilio number
+            // try {
+            //     $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
+            //     $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
+            //     $from_number = config('app.twilio.from_number'); // Valid Twilio number
 
-                $client = new Client($sid, $auth_token);
+            //     $client = new Client($sid, $auth_token);
 
-                $client->messages->create(
-                    $user->phone_number, // Text this number
-                    [
-                        'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
-                        'from' => $from_number,
-                        'body' => "Hello " . $user->first_name . " " . $user->last_name . ", \n\nWelcome to ".config('app.name')." Entrepreneurial Show! \n\nYour account is now active. \n\nWith us, your business can realise its full potential and contribute to a society full of opportunities for innovation and overall development. \n\nGet more information on our FAQ page or Contact Us directly. \n\nBest Regards, \nThe ".config('app.name')." Team"
-                    ]
-                );
+            //     $client->messages->create(
+            //         $user->phone_number, // Text this number
+            //         [
+            //             'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
+            //             'from' => $from_number,
+            //             'body' => "Hello " . $user->first_name . " " . $user->last_name . ", \n\nWelcome to ".config('app.name')." Entrepreneurial Show! \n\nYour account is now active. \n\nWith us, your business can realise its full potential and contribute to a society full of opportunities for innovation and overall development. \n\nGet more information on our FAQ page or Contact Us directly. \n\nBest Regards, \nThe ".config('app.name')." Team"
+            //         ]
+            //     );
 
                 /** Send message to the user */
                 Mail::send('emails.welcome', $data, function ($m) use ($data) {
@@ -503,16 +503,16 @@ class HomePageController extends Controller
 
                 return redirect()->route('login')->with('success_report', 'Account Verified, proceed to login!');
 
-            } catch(Exception $e) {
-                // return back()->with('failure_report', 'Phone number is not valid');
+            // } catch(Exception $e) {
+            //     // return back()->with('failure_report', 'Phone number is not valid');
 
-               /** Send message to the user */
-                Mail::send('emails.welcome', $data, function ($m) use ($data) {
-                    $m->to($data['email'])->subject(config('app.name'));
-                });
+            //    /** Send message to the user */
+            //     Mail::send('emails.welcome', $data, function ($m) use ($data) {
+            //         $m->to($data['email'])->subject(config('app.name'));
+            //     });
 
-                return redirect()->route('login')->with('success_report', 'Account Verified, proceed to login!');
-            }  
+            //     return redirect()->route('login')->with('success_report', 'Account Verified, proceed to login!');
+            // }  
         }
 
         return back()->with('failure_report', 'Incorrect Code');
@@ -566,35 +566,35 @@ class HomePageController extends Controller
                     'code' => $code
                 ]);
 
-                try {
-                    $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
-                    $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
-                    $from_number = config('app.twilio.from_number'); // Valid Twilio number
+                // try {
+                //     $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
+                //     $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
+                //     $from_number = config('app.twilio.from_number'); // Valid Twilio number
 
-                    $client = new Client($sid, $auth_token);
+                //     $client = new Client($sid, $auth_token);
 
-                    $client->messages->create(
-                        $user->phone_number, // Text this number
-                        [
-                            'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
-                            'from' => $from_number,
-                            'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
-                        ]
-                    );
+                //     $client->messages->create(
+                //         $user->phone_number, // Text this number
+                //         [
+                //             'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
+                //             'from' => $from_number,
+                //             'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' verification code is: ' . $user->code
+                //         ]
+                //     );
                     
                     // Send email to user
                     $user->notify(new SendVerificationCode($user));
                     
                     return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
                 
-                } catch(Exception $e) {
-                    // return back()->with('failure_report', 'Phone number is not valid');
+                // } catch(Exception $e) {
+                //     // return back()->with('failure_report', 'Phone number is not valid');
         
-                    // Send email to user
-                    $user->notify(new SendVerificationCode($user));
+                //     // Send email to user
+                //     $user->notify(new SendVerificationCode($user));
         
-                    return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
-                }
+                //     return redirect()->route('verify.account', Crypt::encrypt($user->email))->with('success_report', 'Registration Succesful, Please verify your account!');
+                // }
             }  
 
             return redirect()->route('home');
@@ -628,34 +628,35 @@ class HomePageController extends Controller
             'code' => $code
         ]);
 
-        try {
-            $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
-            $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
-            $from_number = config('app.twilio.from_number'); // Valid Twilio number
+        // try {
+        //     $sid = config('app.twilio.sid'); // Your Account SID from www.twilio.com/console
+        //     $auth_token = config('app.twilio.auth_token'); // Your Auth Token from www.twilio.com/console
+        //     $from_number = config('app.twilio.from_number'); // Valid Twilio number
 
-            $client = new Client($sid, $auth_token);
+        //     $client = new Client($sid, $auth_token);
 
-            $client->messages->create(
-                $user->phone_number, // Text this number
-                [
-                    'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
-                    'from' => $from_number,
-                    'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' reset password code is: ' . $codeData->code
-                ]
-            );
-            // Send email to user
-            Mail::to($request->email)->send(new SendCodeResetPassword($codeData->code));
-
-            return redirect()->route('user.reset.password')->with('success_report', 'We have emailed your password reset code!');
-
-        } catch(Exception $e) {
-            // return back()->with('failure_report', 'Phone number is not valid');
+        //     $client->messages->create(
+        //         $user->phone_number, // Text this number
+        //         [
+        //             'messagingServiceSid' => 'MGf6365de4f7bbe21390e3a36580d6b7a1',
+        //             'from' => $from_number,
+        //             'body' => 'Hello ' . $user->last_name . ', Your ' . config('app.name') . ' reset password code is: ' . $codeData->code
+        //         ]
+        //     );
 
             // Send email to user
             Mail::to($request->email)->send(new SendCodeResetPassword($codeData->code));
 
             return redirect()->route('user.reset.password')->with('success_report', 'We have emailed your password reset code!');
-        }
+
+        // } catch(Exception $e) {
+        //     // return back()->with('failure_report', 'Phone number is not valid');
+
+        //     // Send email to user
+        //     Mail::to($request->email)->send(new SendCodeResetPassword($codeData->code));
+
+        //     return redirect()->route('user.reset.password')->with('success_report', 'We have emailed your password reset code!');
+        // }
     }
 
     public function password_reset_email()
