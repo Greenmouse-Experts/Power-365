@@ -57,7 +57,7 @@
                     <form method="POST" action="{{ route('user.login') }}">
                         @csrf
                         <div class="login-input">
-                            <label for="email">Email or Phone Number</label>
+                            <label for="email">Email</label>
                             <div class="login-input-inner mt-3">
                                 <i class="fa-solid fa-user px-2"></i>
                                 <input type="email" name="email" id="email" class="@error('email') is-invalid @enderror" placeholder="Enter your email adress" required />

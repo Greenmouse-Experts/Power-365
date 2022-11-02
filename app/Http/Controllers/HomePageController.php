@@ -243,7 +243,7 @@ class HomePageController extends Controller
 
             return redirect()->route('register', Crypt::encrypt($user->id))->with('success_report', 'Complete Registration');
         }
-    }
+    } 
 
     public function continue_register()
     {
@@ -465,7 +465,7 @@ class HomePageController extends Controller
                 $m->to($data['email'])->subject(config('app.name').' Verification Code');
             });
 
-            return back()->with('success_report', 'A fresh verification code has been sent to your email address and phone number.');
+            return back()->with('success_report', 'A fresh verification code has been sent to your email address.');
         
         // } catch(Exception $e) {
         //     // return back()->with('failure_report', 'Phone number is not valid');

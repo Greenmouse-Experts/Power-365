@@ -46,7 +46,7 @@
             <div class="forget-form">
                 <div>
                     <h4 class="mb-0 mt-2">Verify Your Account</h4>
-                    <p class="pt-1 opacity-50">Before proceeding, please check your email and phone number for a verification code.</p>
+                    <p class="pt-1 opacity-50">Before proceeding, please check your email for a verification code.</p>
                 </div>
                 @includeIf('layouts.error_template')
                 <form method="POST" action="{{ route('email.confirmation', Crypt::encrypt($user->id)) }}">

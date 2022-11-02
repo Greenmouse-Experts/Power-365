@@ -46,7 +46,7 @@
             <div class="forget-form">
                 <div>
                     <h4 class="mb-0 mt-2">Reset Password</h4>
-                    <p class="pt-1 opacity-50">Before proceeding, please check your email and phone number for a reset password code.</p>
+                    <p class="pt-1 opacity-50">Before proceeding, please check your email for a reset password code.</p>
                 </div>
                 @includeIf('layouts.error_template')
                 <form  method="POST" action="{{ route('user.update.password') }}">
