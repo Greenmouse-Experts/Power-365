@@ -84,12 +84,12 @@
                             </div>
                             <div class="reg-input mb-1">
                                 <label for="photo">Photo</label>
-                                <input type="file" name="photo" required />
+                                <input type="file" name="photo" />
                             </div>
                             <div class="reg-input">
                                 <div class="reg-input-inner">
                                     <label for="gender"> Gender </label>
-                                    <select name="gender" class="quarter" required>
+                                    <select name="gender" class="quarter">
                                         <option value="">-- Select An Option --</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
@@ -97,7 +97,7 @@
                                 </div>
                                 <div class="reg-input-inner2">
                                     <label for="status"> Status </label>
-                                    <select name="status" class="quarter" required>
+                                    <select name="status" class="quarter">
                                         <option value="">-- Select An Option --</option>
                                         <option value="Single">Single</option>
                                         <option value="Married">Married</option>
@@ -109,11 +109,11 @@
                             </div>
                             <div class="reg-input">
                                 <label for="dob">Date Of Birth</label>
-                                <input type="date" name="date_of_birth" class="quarter" required />
+                                <input type="date" name="date_of_birth" class="quarter" />
                             </div>
                             <div class="reg-input">
                                 <label for="employ">Employment Status</label>
-                                <select name="employment_status" class="quarter" required>
+                                <select name="employment_status" class="quarter">
                                     <option value="">-- Select An Option --</option>
                                     <option value="Employed">Employed</option>
                                     <option value="Self-Employed">Self-Employed</option>
@@ -123,7 +123,7 @@
                             </div>
                             <div class="reg-input">
                                 <label for="occupation">Occupation</label>
-                                <input type="text" class="quarter" name="occupation" required />
+                                <input type="text" class="quarter" name="occupation" />
                             </div>
                             <!-- <div class="reg-input">
                                 <label for="opportunity">If given the opportunity, what would you like to
@@ -143,7 +143,7 @@
                             <div class="reg-input2">
                                 <div class="reg-input2-inner">
                                     <label for="cou">Country of Residence</label>
-                                    <select name="country_of_residence" id="cou" required>
+                                    <select name="country_of_residence" id="cou">
                                         @foreach ($countries as $country)
                                         <option value="{{$country}}">{{$country}}</option>
                                         @endforeach
@@ -151,17 +151,17 @@
                                 </div>
                                 <div class="reg-input2-inner">
                                     <label for="sor">State of Residence</label>
-                                    <input type="text" name="state_of_residence" required />
+                                    <input type="text" name="state_of_residence" />
                                 </div>
                             </div>
                             <div class="reg-input2">
                                 <div class="reg-input2-inner">
                                     <label for="lga">Local Government Area of Residence</label>
-                                    <input type="text" name="lga_of_residence" required />
+                                    <input type="text" name="lga_of_residence" />
                                 </div>
                                 <div class="reg-input2-inner">
                                     <label for="city">City</label>
-                                    <input type="text" name="city_of_residence" required />
+                                    <input type="text" name="city_of_residence" />
                                 </div>
                             </div>
                             <div class="reg-input2">
@@ -177,21 +177,21 @@
                             <div class="reg-input2">
                                 <div class="reg-input2-inner">
                                     <label for="sor">State of Origin</label>
-                                    <input type="text" name="state_of_origin" required />
+                                    <input type="text" name="state_of_origin" />
                                 </div>
                                 <div class="reg-input2-inner">
                                     <label for="lgo">Local Government Area of Origin</label>
-                                    <input type="text" name="lga_of_origin" required />
+                                    <input type="text" name="lga_of_origin" />
                                 </div>
                             </div>
                             <div class="reg-input2">
                                 <div class="reg-input2-inner">
                                     <label for="bnumber">Business Number</label>
-                                    <input type="number" name="business_number" placeholder="Enter Business no" required />
+                                    <input type="number" name="business_number" placeholder="Enter Business no" />
                                 </div>
                                 <div class="reg-input2-inner">
                                     <label for="wnumber">Whatsapp Number</label>
-                                    <input type="number" name="whatsapp_number" placeholder="Enter Whatsapp No" required />
+                                    <input type="number" name="whatsapp_number" placeholder="Enter Whatsapp No" />
                                 </div>
                             </div>
                             <!-- <div class="text-end mt-3">
@@ -214,7 +214,7 @@
                             </div>
                             <div class="question">
                                 <label for="question1">Is your business or idea registered?</label>
-                                <select name="business_registered" id="question1" required>
+                                <select name="business_registered" id="question1">
                                     <option disabled selected value class="text-light">
                                         -- Select An Option --
                                     </option>
@@ -225,7 +225,7 @@
                             </div>
                             <div class="question">
                                 <label for="question2">Is your business or idea for profit or non-profit?</label>
-                                <select name="business_oriented" id="question2" required>
+                                <select name="business_oriented" id="question2">
                                     <option disabled selected value>
                                         -- Select An Option --
                                     </option>
@@ -237,7 +237,7 @@
                             <div class="question">
                                 <label for="question3">Can this business idea generate income now and in the
                                     future?</label>
-                                <select name="business_generate_income" id="question3" required>
+                                <select name="business_generate_income" id="question3">
                                     <option disabled selected value>
                                         -- Select An Option --
                                     </option>
@@ -250,7 +250,7 @@
                                 <label for="question4">
                                     At what stage is your business currently?
                                 </label>
-                                <select name="business_stage" id="question4" required>
+                                <select name="business_stage" id="question4">
                                     <option disabled selected value>
                                         -- Select An Option --
                                     </option>
@@ -266,7 +266,7 @@
                                     Which of the following areas of intellectual property
                                     ownership best applies to your business or idea?
                                 </label>
-                                <select name="business_areas" id="question5" required>
+                                <select name="business_areas" id="question5">
                                     <option disabled selected value>
                                         -- Select An Option --
                                     </option>
@@ -282,7 +282,7 @@
                                     What type of business entity best fits your kind of business
                                     or idea?
                                 </label>
-                                <select name="business_kind" id="question6" required>
+                                <select name="business_kind" id="question6">
                                     <option disabled selected value>
                                         -- Select An Option --
                                     </option>
@@ -312,7 +312,7 @@
                                     How much would you require to kickstart or upscale your
                                     business or idea?
                                 </label>
-                                <select name="business_amount" id="question7" required>
+                                <select name="business_amount" id="question7">
                                     <option disabled selected value>
                                         -- Select An Option --
                                     </option>
@@ -344,7 +344,7 @@
                                 <label for="question9">
                                     Are you ready to invest your time in this business?
                                 </label>
-                                <select name="business_time" id="question9" required>
+                                <select name="business_time" id="question9">
                                     <option disabled selected value>
                                         -- Select An Option --
                                     </option>
@@ -354,7 +354,7 @@
                             </div>
                             <div class="question">
                                 <label for="question10"> Asset = ? + ? </label>
-                                <select name="asset" id="question10" required>
+                                <select name="asset" id="question10">
                                     <option disabled selected value>
                                         -- Select An Option --
                                     </option>
@@ -368,7 +368,7 @@
                             <div class="reg-input2" style="margin-left: 0px;">
                                 <div class="reg-input2-inner">
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" id="pass" placeholder="Password" required />
+                                    <input type="password" name="password" id="pass" placeholder="Password" />
                                     <i class="fa-regular fa-eye ps-2" style="margin-left: -2rem;" id="eye" onclick="Seeregpassword()"></i>
                                     <i class="fa-solid fa-eye-slash" style="margin-left: -2rem;" id="cancel" onclick="Hideregpassword()"></i>
                                     <div class="text-danger">The password must be at least 8 characters.</div>
@@ -377,7 +377,7 @@
                             <div class="reg-input2" style="margin-left: 0px;">
                                 <div class="reg-input2-inner">
                                     <label for="passwordconfirm">Confirm Password</label>
-                                    <input type="password" name="password_confirmation" id="cpass" placeholder="Confirm Password" required />
+                                    <input type="password" name="password_confirmation" id="cpass" placeholder="Confirm Password" />
                                     <i class="fa-regular fa-eye ps-2" style="margin-left: -2rem;" id="eyeconfirm" onclick="Seeconfirmregpassword()"></i>
                                     <i class="fa-solid fa-eye-slash" style="margin-left: -2rem; display: none;" id="cancelconfirm" onclick="Hideconfirmregpassword()"></i>
                                     <div class="text-danger">The password must be at least 8 characters.</div>
