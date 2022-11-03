@@ -356,6 +356,7 @@
                                                         <div class="col-12">
                                                             <label for="photo" class="form-label">Photo</label>
                                                             <input type="file" class="form-control" id="photo" placeholder="Photo" name="photo" required>
+                                                            <span class="text-danger">Maximum of 1MB</span>
                                                         </div>
                                                     </div>
                                                 </div>
