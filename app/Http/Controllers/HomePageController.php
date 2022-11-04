@@ -83,6 +83,23 @@ class HomePageController extends Controller
         ]);
     }
 
+    public function single_blog($id)
+    {
+        $finder = Crypt::decrypt($id);
+
+        $blog = Blog::findorfail($finder);
+
+        $blog->views += 1;
+        $blog->save();
+        
+        $blogs = Blog::latest()->get();
+
+        return view('single_blog',[
+            'blog' => $blog,
+            'blogs' => $blogs
+        ]);
+    }
+
     public function terms_conditions()
     {
         return view('terms_conditions');

@@ -24,7 +24,7 @@
             <div class="blog-text col-lg-6">
                 <p><span>{{$singleBlog->created_at->toFormattedDateString()}}</span></p>
                 <h4>
-                    <a href="#" class="text-decoration-none">Power-365 opens up to public patronage</a>
+                    <a href="{{route('single.blog', Crypt::encrypt($singleBlog->id))}}" class="text-decoration-none">Power-365 opens up to public patronage</a>
                 </h4>
                 <p id="blog-p">
                 {!! html_entity_decode($singleBlog->description) !!}
@@ -47,7 +47,7 @@
                 </div>
                 <div class="blog-text">
                     <p><span>{{$blog->created_at->toFormattedDateString()}}</span></p>
-                    <h6><a href="#">{{$blog->title}}</a></h6>
+                    <h6><a href="{{route('single.blog', Crypt::encrypt($blog->id))}}">{{$blog->title}}</a></h6>
                     <p>
                     {!! html_entity_decode($blog->description) !!}
                     </p>

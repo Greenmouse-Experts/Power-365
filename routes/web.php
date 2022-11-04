@@ -22,7 +22,7 @@ Route::get('/faqs', [App\Http\Controllers\HomePageController::class, 'faqs'])->n
 Route::get('/contact', [App\Http\Controllers\HomePageController::class, 'contact'])->name('contact');
 Route::post('/contact-us', [App\Http\Controllers\HomePageController::class, 'contactConfirm']);
 Route::get('/blog', [App\Http\Controllers\HomePageController::class, 'blog']);
-Route::get('/blog', [App\Http\Controllers\HomePageController::class, 'blog']);
+Route::get('/{id}', [App\Http\Controllers\HomePageController::class, 'single_blog'])->name('single.blog');
 Route::get('/terms-conditions', [App\Http\Controllers\HomePageController::class, 'terms_conditions']);
 Route::get('/privacy-policy', [App\Http\Controllers\HomePageController::class, 'privacy_policy']);
 
