@@ -2,16 +2,31 @@
 
 @section('page-content')
 <!--header of the index page-->
-<div class="top-part about-hero">
+<div class="top-part">
     <!-- header -->
     @includeIf('layouts.frontend-header')
     <!-- end-header -->
-    <div class="container ab-text">
-        <div class="ab-text-inner">
-            <h1>Blog</h1>
+</div>
+@if($blogs->isEmpty())
+<section class="blog-section">
+    <div class="container">
+        <div class="our-blog">
+            <h1 class="m-0">OUR BLOG</h1>
+        </div>
+        <div class="row bg-light main-blog">
+            <div class="blog-text col-lg-6">
+                <h4>
+                    No Blog Posted.
+                </h4>
+            </div>
+            <div class="col-lg-6">
+
+
+            </div>
         </div>
     </div>
-</div>
+</section>
+@else
 <section class="blog-section">
     <div class="container">
         <div class="our-blog">
@@ -57,4 +72,5 @@
         </div>
     </div>
 </section>
+@endif
 @endsection
