@@ -8,7 +8,7 @@
     <!-- end-header -->
 </div>
 <!-- coming soon section -->
-<section class="section">
+<!-- <section class="section">
     <div class="container">
         <div class="text-center">
             <div style="padding-top: 5rem;">
@@ -39,6 +39,13 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+    </div>
+</section> -->
+<section class="section">
+    <div class="container">
+        <div class="text-center">
+            <img src="http://power365.greenmouseproperties.com/assets/images/comingsoon.jpg" alt="" width="70%">
         </div>
     </div>
 </section>
