@@ -45,7 +45,7 @@
 <section class="section">
     <div class="container">
         <div class="text-center">
-            <img src="http://power365.greenmouseproperties.com/assets/images/comingsoon.jpg" alt="" width="70%">
+            <img src="{{URL::asset('assets/images/comingsoon.jpg')}}" alt="" width="70%">
         </div>
     </div>
 </section>
