@@ -1306,3 +1306,15 @@ animation: spin 2s linear infinite;
 #blog-p{
   font-size: 16px !important;
 }
+
+@media (min-width: 1300px) {
+  .why-img {
+    height: 600px;
+  }
+}
+@media (min-width: 700px) and (max-width: 1000px)  {
+  .why-img {
+    top: -110px;
+    width: 90%;
+  }
+}

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Mail\SendCodeResetPassword;
+use App\Models\Beneficiary;
 use App\Models\Blog;
 use App\Models\ResetCodePassword;
 use App\Notifications\SendVerificationCode;
@@ -33,7 +34,12 @@ class HomePageController extends Controller
 
     public function beneficiaries()
     {
-        return view('beneficiaries');
+        $beneficiaries = Beneficiary::join('users', 'beneficiaries.user_id', '=', 'users.id')
+                         ->get(['users.*', 'beneficiaries.*']);
+
+        return view('beneficiaries', [
+            'beneficiaries' => $beneficiaries
+        ]);
     }
 
     public function faqs()
@@ -92,11 +98,16 @@ class HomePageController extends Controller
         $blog->views += 1;
         $blog->save();
         
-        $blogs = Blog::latest()->get();
+        $shareButtons = \Share::page(url('/view/'.Crypt::encrypt($blog->id)))
+        ->facebook()
+        ->twitter()
+        ->linkedin() 
+        ->telegram()
+        ->whatsapp();
 
         return view('single_blog',[
             'blog' => $blog,
-            'blogs' => $blogs
+            'shareButtons' => $shareButtons
         ]);
     }
 
