@@ -35,8 +35,7 @@
                             </p>
                             <p>
                                 Customer Satisfaction, Service, Provision, Adherence to the
-                                Rule of Law, and Conventional Customer Relationship decency
-                                are our <span class="fw-bold">Core Values</span>.
+                                Rule of Law, and Conventional Customer Relationship are our <span class="fw-bold">Core Values</span>.
                             </p>
                         </div>
                     </div>
