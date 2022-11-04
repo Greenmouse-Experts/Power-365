@@ -179,6 +179,12 @@
         $(document).ready(function() {
             $('.ckeditor').ckeditor();
         });
+
+        $(function() {
+            $("form").submit(function() {
+                $('#loader').show();
+            });
+        });
     </script>
 </body>
 

@@ -161,6 +161,12 @@
                 cancel.style.display = "none"
             }
         }
+        
+        $(function() {
+            $("form").submit(function() {
+                $('#loader').show();
+            });
+        });
     </script>
 </body>
 
