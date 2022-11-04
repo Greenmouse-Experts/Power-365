@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Beneficiary;
+use App\Models\Blog;
 use App\Models\Deposit;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -500,5 +501,103 @@ class AdminController extends Controller
                 }
             }
         }
+    }
+
+    public function add_blog()
+    {
+        return view('admin.add_blog');
+    } 
+
+    public function post_blog(Request $request)
+    {
+        //Validate Request
+        $this->validate($request, [
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+            'image' => 'required|mimes:jpeg,png,jpg|max:1024',
+        ]);
+
+        $image = request()->image->getClientOriginalName();
+        request()->image->storeAs('blogs', $image, 'public');
+
+        Blog::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => '/storage/blogs/'.$image,
+        ]);
+
+        return back()->with([
+            'type' => 'success',
+            'message' => 'Blog Published Successfully!'
+        ]); 
+    }
+
+    public function view_blogs()
+    {
+        $blogs = Blog::latest()->get();
+
+        return view('admin.view_blogs',[
+            'blogs' => $blogs
+        ]);
+    }
+
+    public function update_blog($id, Request $request)
+    {
+        //Validate Request
+        $this->validate($request, [
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+        ]);
+        
+        $finder = Crypt::decrypt($id);
+
+        $blog = Blog::find($finder);
+
+        if (request()->hasFile('image')) {
+
+            //Validate Request
+            $this->validate($request, [
+                'image' => 'required|mimes:jpeg,png,jpg|max:1024',
+            ]);
+
+            $image = request()->image->getClientOriginalName();
+            if($blog->image) {
+                Storage::delete(str_replace("storage", "public", $blog->image));
+            }
+            request()->image->storeAs('blogs', $image, 'public');
+
+            $blog->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'image' => '/storage/blogs/'.$image,
+            ]);
+
+        } 
+
+        $blog->update([
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+
+        return back()->with([
+            'type' => 'success',
+            'message' => 'Blog Updated!'
+        ]); 
+    }
+
+    public function delete_blog($id, Request $request)
+    {
+        $finder = Crypt::decrypt($id);
+
+        $blog = Blog::find($finder);
+
+        Storage::delete(str_replace("storage", "public", $blog->image));
+
+        $blog->delete();
+
+        return back()->with([
+            'type' => 'success',
+            'message' => 'Blog Deleted!'
+        ]); 
     }
 }

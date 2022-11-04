@@ -4,7 +4,7 @@
 <!--header of the index page-->
 <div class="top-part about-hero">
     <!-- header -->
-        @includeIf('layouts.frontend-header')
+    @includeIf('layouts.frontend-header')
     <!-- end-header -->
     <div class="container ab-text">
         <div class="ab-text-inner">
@@ -15,35 +15,16 @@
 <!--section for what we do -->
 <section class="section wwd-section">
     <div class="container">
-        <div class="row wwd-col">
-            <div class="col-lg-6 wwd-img-col position-relative">
-                <div class="wwd-img wwd-img1">
-                    <img src="{{URL::asset('assets/images/wwd1.png')}}" alt="" />
-                </div>
-                <div class="wwd-img wwd-img2">
-                    <img src="{{URL::asset('assets/images/wwd2.png')}}" alt="" />
-                </div>
-                <div class="wwd-img wwd-img3">
-                    <img src="{{URL::asset('assets/images/wwd3.png')}}" alt="" />
-                </div>
-                <div class="wwd-img wwd-img4">
-                    <img src="{{URL::asset('assets/images/wwd4.png')}}" alt="" />
-                </div>
-            </div>
-            <div class="col-lg-6 wwd-text align-self-center">
-                <div class="wwa-div">
+        <div class="row ">
+            <div class="row wwd-text align-self-center">
+                <div class="wwa-div col-lg-6">
                     <h2>About Us</h2>
                     <p>
-                        The Power-365 Entrepreneurial Show was developed by a global
-                        team of innovative minds and was founded in the entrepreneurial
-                        City of Lagos, a Nigerian commercial nerve centre. Power-365 is
-                        a forum for African entrepreneurs seeking long-term success on
-                        local and international levels. We follow innovative models in
-                        our attempt to create a better society for everyone. We exist to
-                        help entrepreneurs surmount difficult business hurdles.
+                        The Power-365 Entrepreneural Show was developed by a global team of innovative minds and was founded in the entrepreneural City of Lagos, a Nigerian commercial nerve centre.
                     </p>
+                    <p>Power-365 is a forum for African entrepreneurs seeking long-term success on local and international levels. We follow innovative models in our attempt to create a better society for everyone. We exist to help entrepreneurs surmount difficult business hurdles.</p>
                 </div>
-                <div class="wwd-div">
+                <div class="wwd-div col-lg-6">
                     <h2>Our Beliefs & Core Values</h2>
                     <div class="why-list d-flex my-0 py-0">
                         <div class="">
@@ -54,7 +35,7 @@
                             </p>
                             <p>
                                 Customer Satisfaction, Service, Provision, Adherence to the
-                                Rule of Law, and Conventional Customer Relationship
+                                Rule of Law, and Conventional Customer Relationship decency
                                 are our <span class="fw-bold">Core Values</span>.
                             </p>
                         </div>

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Mail\SendCodeResetPassword;
+use App\Models\Blog;
 use App\Models\ResetCodePassword;
 use App\Notifications\SendVerificationCode;
 use App\Models\Deposit;
@@ -61,7 +62,7 @@ class HomePageController extends Controller
             'subject' => request()->subject,
             'description' => request()->message,
             'created_at' => now(),
-            'admin' => 'info@power365es.com',
+            'admin' => 'support@power365es.com',
         );
         /** Send message to the admin */
         Mail::send('emails.contact', $data, function ($m) use ($data) {
@@ -73,7 +74,13 @@ class HomePageController extends Controller
 
     public function blog()
     {
-        return view('blog');
+        $singleBlog = Blog::latest()->first();
+        $blogs = Blog::latest()->get();
+
+        return view('blog', [
+            'blogs' => $blogs,
+            'singleBlog' => $singleBlog
+        ]);
     }
 
     public function terms_conditions()

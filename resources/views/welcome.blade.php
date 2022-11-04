@@ -83,7 +83,7 @@
     <section class="section video-sec">
         <div class="container position-relative">
             <video width="100%" id="video" controls autoplay>
-                <source src="{{URL::asset('assets/images/power365.mp4')}}" type="video/mp4" />
+                <source src="https://res.cloudinary.com/greenmouse-tech/video/upload/v1667561339/power-365/Untitled_v9ofuu.mp4" type="video/mp4" />
             </video>
 
             <div class="text-center mt-2">

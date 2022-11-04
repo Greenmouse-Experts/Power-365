@@ -11,6 +11,7 @@
     <!-- <link rel="stylesheet" href="{{URL::asset('assets/css/subreg.css')}}" /> -->
     <link rel="stylesheet" href="{{URL::asset('assets/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{URL::asset('assets/css/animation.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('assets/css/new.css')}}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
     <script src="https://kit.fontawesome.com/997b229808.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/734378a53a.js" crossorigin="anonymous"></script>

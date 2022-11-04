@@ -22,6 +22,7 @@ Route::get('/faqs', [App\Http\Controllers\HomePageController::class, 'faqs'])->n
 Route::get('/contact', [App\Http\Controllers\HomePageController::class, 'contact'])->name('contact');
 Route::post('/contact-us', [App\Http\Controllers\HomePageController::class, 'contactConfirm']);
 Route::get('/blog', [App\Http\Controllers\HomePageController::class, 'blog']);
+Route::get('/blog', [App\Http\Controllers\HomePageController::class, 'blog']);
 Route::get('/terms-conditions', [App\Http\Controllers\HomePageController::class, 'terms_conditions']);
 Route::get('/privacy-policy', [App\Http\Controllers\HomePageController::class, 'privacy_policy']);
 
@@ -92,4 +93,9 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/admin/beneficiaries', [App\Http\Controllers\AdminController::class, 'beneficiaries'])->name('admin.beneficiaries');
     Route::post('/admin/beneficiaries/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete_beneficiaries'])->name('admin.delete.beneficiaries');
     Route::post('/admin/post/shuffle', [App\Http\Controllers\AdminController::class, 'shuffle'])->name('admin.shuffle');
+    Route::get('/admin/blog/add', [App\Http\Controllers\AdminController::class, 'add_blog'])->name('admin.add.blog');
+    Route::post('/admin/blog/add', [App\Http\Controllers\AdminController::class, 'post_blog'])->name('admin.post.blog');
+    Route::get('/admin/blogs/view', [App\Http\Controllers\AdminController::class, 'view_blogs'])->name('admin.view.blogs');
+    Route::post('/admin/blog/update/{id}', [App\Http\Controllers\AdminController::class, 'update_blog'])->name('admin.update.blog');
+    Route::post('/admin/blog/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete_blog'])->name('admin.delete.blog');
 });
