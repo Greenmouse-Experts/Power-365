@@ -28,8 +28,7 @@
                             </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlush">
                                 <div class="accordion-body">
-                                    The {{config('app.name')}} Entrepreneurial Show is an audio-visual
-                                    programme that provides seed funding for entrepreneurs.
+                                    The {{config('app.name')}} Entrepreneurial Show is an audio-visual programme that provides seed funding in the form of capital investment for budding entrepreneurs.
                                 </div>
                             </div>
                         </div>
@@ -138,19 +137,6 @@
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingTwelve">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
-                                    Since I am only taking part for 261 days, what happened to
-                                    the remaining 104 days?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlush">
-                                <div class="accordion-body">
-                                    The 104-days are for your mentoring.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingThirteen">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThirteen" aria-expanded="false" aria-controls="flush-collapseThirteen">
                                     Can I pay my application fee installmentally, like every
@@ -163,7 +149,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
+                        <!-- <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingFourteen">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFourteen" aria-expanded="false" aria-controls="flush-collapseFourteen">
                                     How do I pay the application fee?
@@ -176,7 +162,7 @@
                                     Paystack.
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingFifteen">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFifteen" aria-expanded="false" aria-controls="flush-collapseFifteen">
@@ -230,12 +216,11 @@
                             </h2>
                             <div id="flush-collapseEighteen" class="accordion-collapse collapse" aria-labelledby="flush-headingEighteen" data-bs-parent="#accordionFlush">
                                 <div class="accordion-body">
-                                    It is determined by the amount you selected during
-                                    registration. The amount will not exceed ₦500,000.
+                                It is determined by your kind of business. 
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
+                        <!-- <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingNineteen">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNineteen" aria-expanded="false" aria-controls="flush-collapseNineteen">
                                     Is the Business Support Fund a Loan or Refundable?
@@ -246,8 +231,8 @@
                                     It is not a loan, nor is it refundable.
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item">
+                        </div> -->
+                        <!-- <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingTwenty">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwenty" aria-expanded="false" aria-controls="flush-collapseTwenty">
                                     How do I qualify for the ATM card?
@@ -260,7 +245,7 @@
                                     sponsoring a person to pursue a trade or skill.
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingTwentyOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwentyOne" aria-expanded="false" aria-controls="flush-collapseTwentyOne">
@@ -277,7 +262,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
+                        <!-- <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingTwentyTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwentyTwo" aria-expanded="false" aria-controls="flush-collapseTwentyTwo">
                                     Can I benefit twice from The {{config('app.name')}} Entrepreneurial Show?
@@ -286,7 +271,7 @@
                             <div id="flush-collapseTwentyTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwentyTwo" data-bs-parent="#accordionFlush">
                                 <div class="accordion-body">No!</div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingTwentyThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwentyThree" aria-expanded="false" aria-controls="flush-collapseTwentyThree">
@@ -341,6 +326,19 @@
                             </h2>
                             <div id="flush-collapseTwentySeven" class="accordion-collapse collapse" aria-labelledby="flush-headingTwentySeven" data-bs-parent="#accordionFlush">
                                 <div class="accordion-body">Yes!</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwelve">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
+                                    Since I am only taking part for 261 days, what happened to
+                                    the remaining 104 days?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlush">
+                                <div class="accordion-body">
+                                    The 104-days are for your mentoring.
+                                </div>
                             </div>
                         </div>
                     </div>
