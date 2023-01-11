@@ -75,6 +75,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('/admin/subscribers/message//{id}', [App\Http\Controllers\AdminController::class, 'message_user'])->name('admin.message.user');
     Route::post('/admin/subscribers/delete/{id}', [App\Http\Controllers\AdminController::class, 'delete_user'])->name('admin.delete.user');
     Route::get('/admin/subscribers/in-active', [App\Http\Controllers\AdminController::class, 'in_active_users'])->name('admin.in-active.users');
+    Route::get('/admin/subscribers/unsuccessful', [App\Http\Controllers\AdminController::class, 'unsuccessful_users'])->name('admin.unsuccessful.users');
     Route::get('/admin/deposits', [App\Http\Controllers\AdminController::class, 'deposits'])->name('admin.deposits');
     Route::get('/admin/account', [App\Http\Controllers\AdminController::class, 'account'])->name('admin.account');
     Route::post('/admin/account/upload_profile/{id}', [App\Http\Controllers\AdminController::class, 'update_profile'])->name('admin.account.update.profile');

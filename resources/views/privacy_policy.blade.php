@@ -24,12 +24,7 @@
             <span class="text-danger"> www.power365es.com</span>.
         </p>
         <p>
-            Our services are primarily intended to assist individuals with
-            business ideas seeking funding. It is also for educational and
-            entertainment purposes and shall not be interpreted otherwise. As
-            such, we generally process personal data in a direction that will help
-            us navigate our services. If you are a subscriber, you should read the
-            {{config('app.name')}} Privacy Policy and direct any privacy inquiries to us at
+            Our services are primarily intended to assist individuals with business ideas seeking capital investment. It is also for educational and entertainment purposes and shall not be interpreted otherwise. As such, we generally process personal data in a direction that will help us navigate our services. If you are a subscriber, you should read the {{config('app.name')}} Privacy Policy and direct any privacy inquiries to us at
             <a href="mailto:privacy@power365es.com" target="_blank" class="text-decoration-none"><span class="text-danger">privacy@power365es.com</span></a>.
         </p>
         <p>

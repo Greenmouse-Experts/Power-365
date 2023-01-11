@@ -110,6 +110,16 @@ class AdminController extends Controller
         ]);
     }
 
+    public function unsuccessful_users()
+    {
+        $unsuccessful_users = User::latest()->where('subscription_status', null)
+                                ->where('user_type', 'Client')->get();
+
+        return view('admin.unsuccessful_users', [
+            'unsuccessful_users' => $unsuccessful_users
+        ]);
+    }
+
     public function deposits()
     {
         $deposits = User::join('deposits', 'users.id', '=', 'deposits.user_id')

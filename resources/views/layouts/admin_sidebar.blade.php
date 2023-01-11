@@ -34,7 +34,7 @@
                     <ul class="slide-menu">
                         <li><a class="sub-slide-item {{ (request()->is('admin/subscribers/active')) ? 'active' : '' }}" href="{{route('admin.active.users')}}">Active</a></li>
                         <li><a class="sub-slide-item {{ (request()->is('admin/subscribers/in-active')) ? 'active' : '' }}" href="{{route('admin.in-active.users')}}">In-Active</a></li>
-                        <li><a class="sub-slide-item {{ (request()->is('admin/subscribers/in-active')) ? 'active' : '' }}" href="{{route('admin.in-active.users')}}">Unsuccessful</a></li>
+                        <li><a class="sub-slide-item {{ (request()->is('admin/subscribers/unsuccessful')) ? 'active' : '' }}" href="{{route('admin.unsuccessful.users')}}">Unsuccessful</a></li>
                     </ul>
                 </li>
                 <li class="slide">

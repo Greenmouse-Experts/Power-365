@@ -130,25 +130,15 @@
             <div class="col-lg-6 e-team order-lg-2">
                 <h2 class="mb-4">Our e-Team</h2>
                 <p>
-                    Our e-Team is made up of highly skilled professionals with
-                    experience in different fields. They will educate, guide, advise,
-                    and also monitor the progress of the businesses of the
-                    beneficiaries.
+                    Our e-Team is made up of highly skilled professionals with experience in different fields. They will educate, guide, advise, and also monitor the progress of the businesses of the beneficiaries.
                 </p>
                 <p>
-                    Those who are selected will be enlightened on the proper usage and
-                    efficient management of funds provided to them by the company.
-                    Such businesses will be provided with structural designs (through
-                    our educational platforms) to aid effective business management.
+                    Those who receive investment will be enlightened on the proper usage and efficient management of funds provided to them by the company. Such businesses will be provided with structural designs (through our educational platforms) to aid effective business management.
                 </p>
                 <p>
-                    Selected entrepreneurs will also be assisted in business
-                    registration with the Corporate Affairs Commission (CAC) and other
-                    business regulatory bodies in order to provide their businesses
-                    with a corporate identity. Above all, the e-TEAM will ensure that
-                    all beneficiaries abide by the company's
-                    <a href="/#me2" class="text-decoration-none">
-                        <span class="text-danger">ME2 rule</span></a>.
+                Selected entrepreneurs will also be assisted in business registration with the Corporate Affairs Commission (CAC) and other business regulatory bodies in order to provide their businesses with a corporate identity. 
+                    <!-- <a href="/#me2" class="text-decoration-none">
+                        <span class="text-danger">ME2 rule</span></a>. -->
                 </p>
             </div>
             <div class="col-lg-6 history-col">

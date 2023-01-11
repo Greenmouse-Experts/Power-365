@@ -112,23 +112,11 @@
                     </div>
                     <div class="mt-4 text-col">
                         <p>
-                            The {{config('app.name')}} Entrepreneurial Show is an audio-visual programme
-                            that provides seed funding for budding entrepreneurs.
-                            Entrepreneurship has helped nations tackle economic challenges.
-                            Thus, the success of business startups and SMEs will go a long
-                            way towards achieving economic stability on a national scale.
-                            These are some of the major reasons we have developed a
-                            programme that is aimed at resolving the financial difficulties
-                            faced by entrepreneurs today.
+                            The Power-365 Entrepreneurial Show is an audio-visual programme that provides seed funding in form of Capital Investment for budding entrepreneurs. Entrepreneurship has helped nations tackle economic challenges. Thus, the success of business startups and SMEs will go a long way towards achieving economic stability on a national scale. These are some of the major reasons we have developed a programme that is aimed at resolving the financial difficulties faced by entrepreneurs today.
                         </p>
 
                         <p class="collapse" id="mores">
-                            Starting a business can be quite challenging, especially when
-                            you begin with a loan. Loans can be quite difficult for new
-                            companies and entrepreneurs to access, not to mention the
-                            ever-present pressure on you to succeed or else forfeit your
-                            valued collateral. The object here is to provide you with
-                            non-refundable capital for your business or idea.
+                            Starting a business can be quite challenging, especially when you begin with a loan. Loans can be quite difficult for new companies and entrepreneurs to access, not to mention the ever-present pressure on you to succeed or else forfeit your valued collateral. The object here is to provide entrepreneurs with scaling capital investment for their business or idea.
                         </p>
                         <p class="basic-text d-flex align-items-center fw-bold read-more" data-bs-toggle="collapse" data-bs-target="#mores" onclick="Changetext()">
                             <span id="readmore">Read more </span><i class="fa-solid fa-caret-down ps-2" id="readicon"></i>

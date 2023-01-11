@@ -27,10 +27,7 @@
             <h4>Ethical Rules</h4>
             <h5 class="mt-1">Account Creation:</h5>
             <p class="py-0 mb-0 mt-2">
-                {{config('app.name')}} is a programme organised exclusively for entrepreneurs who
-                are either seeking funds to start a business or expand an existing
-                one. Every registered user is required to have any of the following:
-                a skill, a product, a business idea, or an existing business.
+                {{config('app.name')}} is a programme organised exclusively for entrepreneurs who are seeking capital investment to start a business or expand an existing one. Every registered user is required to have any of the following: a skill, a product, a business idea, or an existing business.
             </p>
             <h5 class="mt-4">Application:</h5>
             <p class="py-0 mt-3">
@@ -64,10 +61,7 @@
             </p>
             <h5 class="mt-4">Verification Badge:</h5>
             <p>
-                The blue tick verification badge shown next to your account name
-                confirms that the profile belongs to a specific Active Applicant.
-                Every profile that has been validated and is active has a chance of
-                being funded.
+                The blue tick verification badge shown next to your account name confirms that the profile belongs to a specific Active Applicant. 
             </p>
             <h5 class="mt-4">Website Access:</h5>
             <p>
@@ -88,36 +82,20 @@
                 it is solely the applicant's responsibility to make sure those
                 regulations are fully complied with.
             </p>
-            <h5 class="mt-4">Criterion For Selection Qualification:</h5>
+            <h5 class="mt-4">Criterion For Selection:</h5>
             <p>
-                Your involvement in all our regular business activities, which will
-                be executed on all our platforms, will serve as the criterion for
-                selection. You are therefore advised to stay consistent and active.
-                Only five (5) applicants will be selected by {{config('app.name')}} every week
-                for a live broadcast on our channels to discuss the potential of
-                their business ideas. The very fact that you were selected for the
-                show does not automatically qualify you for funding. {{config('app.name')}} is a
-                competitive platform, thus the judges will evaluate and analyse your
-                performance to decide if you qualify for funding or not. You are
-                advised to thoroughly prepare your business or idea. Upon
-                qualification, the {{config('app.name')}} will provide
-                <span>NGN 500,000.00</span> funding for your business or idea.
+                Your involvement in all our regular business activities, which will be executed on all our platforms, will serve as the criterion for selection. You are therefore advised to stay consistent and active. Selected applicants will be given a live broadcast on our channels to discuss the potential of their business ideas. The very fact that you were selected for the show does not automatically qualify you. All selected applicants must appear for the Audition.
+            </p>
+            <p>
+            The judges will evaluate and analyse your performance and the strength of your business idea to decide if your business qualifies for investment. You are advised to thoroughly prepare your business or idea. Further Agreement will be reached before funds are finally disbursed.
             </p>
             <h5>Mode of Payment to Beneficiaries:</h5>
             <p>
-                Beneficiaries of the business-support fund will be paid during our
-                live programmes on our various television channels. Beneficiaries
-                cannot choose representatives to receive payment on their behalf. No
-                funding will be provided in the month of December. Beneficiaries for
-                December will always receive payment in January.
+                Beneficiaries will be paid during our live programmes on our various broadcasting channels. Beneficiaries cannot choose representatives to receive payment on their behalf. No funding will be provided in the month of December. Beneficiaries for December will always receive payment in January.
             </p>
             <h5 class="mt-4">Businesses we do not fund:</h5>
             <p>
-                No funding shall be provided for businesses involved in gambling,
-                drug trafficking, or other similar activities that fall under the
-                Prohibition List of the Nigerian Business Regulatory Bodies. We do
-                not provide funding for NGOs and individuals that trade in
-                cryptocurrencies.
+                Power-365 will not invest in businesses involved in gambling, drug trafficking, or other similar activities that fall under the Prohibition List of the Nigerian Business Regulatory Bodies. We do not provide funding for NGOs and individuals that trade in cryptocurrencies.
             </p>
             <h5 class="mt-4">Business Registration & Monitoring:</h5>
             <p>
@@ -127,19 +105,14 @@
                 <a href="/about" class="text-decoration-none text-danger">e-Team</a>
                 access to oversee how well they execute their business model.
             </p>
-            <h5>Business Mentorship:</h5>
+            <!-- <h5>Business Mentorship:</h5>
             <p>
                 All applicants shall have the right to access a mentor on our
                 platform for free. It is a part of their application fee.
-            </p>
+            </p> -->
             <h5 class="mt-4">Business Shareholders:</h5>
             <p>
-                {{config('app.name')}} shall have the right to own a 2 to 5% share of equity in
-                every business funded by the programme. We intend to use this as a
-                means of ensuring that all activities carried out by these
-                businesses after funding are those that are geared towards long-term
-                success as opposed to general business failure through mismanagement
-                of funds.
+                {{config('app.name')}} Entrepreneurial Show Limited shall have the right to own a certain Percentage of Ownership of your business or company for a specified period of time in exchange for the Capital Provided. This will vary according to the amount each entrepreneur is able to secure and negotiating power (entrepreneurs will negotiate deals during the live show). We intend to use this as a means of ensuring that all activities carried out by these businesses after funding are those that are geared towards long-term success as opposed to general business failure through mismanagement of funds and also to recover the capital provided for the business.
             </p>
             <h5 class="mt-4">Account Security:</h5>
             <p>
@@ -187,7 +160,7 @@
                 and loses its verification badge. You are expected to renew your
                 application upon expiration.
             </p>
-            <h5 class="mt-4">Atm Card From {{config('app.name')}}:</h5>
+            <!-- <h5 class="mt-4">Atm Card From {{config('app.name')}}:</h5>
             <p>
                 A Business Debit Card will be issued by {{config('app.name')}} to eligible
                 beneficiaries who follow the "<a href="/#me2" class="text-decoration-none"><span class="text-danger">ME2 RULE</span></a>". This card is issued by Providus Bank Plc pursuant to a license
@@ -197,7 +170,7 @@
                 reserves the right to impose restrictions on each card and also set
                 limits on transactions. Upon reaching this limit, the card will
                 automatically be deactivated.
-            </p>
+            </p> -->
         </div>
     </section>
 </section>
